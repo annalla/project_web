@@ -20,6 +20,7 @@
   "homepage": "https://github.com/annalla/project_web#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0"
+    "express-handlebars": "^5.2.0",
+    "jquery.nice-number": "^2.1.0"
   }
 }

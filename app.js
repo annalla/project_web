@@ -11,11 +11,9 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.get('/', function (req, res) {
   // res.send('Hello World!');
-  res.render('home', {
-    layout: false
-  });
+  res.render('home');
 });
-const PORT = 4000;
+const PORT = 3000;
 app.listen(PORT, _ => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
