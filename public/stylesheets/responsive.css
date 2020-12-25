@@ -20,6 +20,14 @@
 .navigation .navbar .navbar-nav li {
 	margin-right: 35px;
 }
+.serach-form input {
+	width: 300px;
+	height: 40px;
+	left: 50%;
+}
+.serach-form button {
+	left: 65%;
+}
 .singel-course .cont {
 	padding-left: 25px;
 	padding-right: 25px;
@@ -194,7 +202,14 @@
 	cursor: pointer;
     display: block;
 }
-
+.serach-form input {
+	width: 300px;
+	height: 40px;
+	left: 45%;
+}
+.serach-form button {
+	left: 65%;
+}
 .category-text{
     text-align: center;
 }
@@ -449,7 +464,15 @@
 	cursor: pointer;
     display: block;
 }
-
+.serach-form input {
+	width: 250px;
+	height: 40px;
+	left: 60%;
+	text-size-adjust: 15px;
+}
+.serach-form button {
+	left: 82%;
+}
 .logo {
 	text-align: center;
 }
@@ -805,7 +828,14 @@
 .navigation-2.navigation .navbar .navbar-brand {
 	width: 145px;
 }
-
+.serach-form input {
+	width: 200px;
+	height: 35px;
+	left: 30%;
+}
+.serach-form button {
+	left: 65%;
+}
 .search-box .serach-form input {
 	width: 80%;
 }

@@ -147,7 +147,7 @@ p {
 	-ms-user-select: none;
 	user-select: none;
 	border: 1px solid #ffc600;
-	padding: 0 35px;
+	padding: 0 20px;
 	font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -471,7 +471,7 @@ p {
 }
 
 .support-button .button{
-    margin-left: 60px;
+    margin-left: 15px;
 }
 
 /*===== Header Menu =====*/
@@ -748,12 +748,12 @@ p {
 	top: 9px;
 }
 
-.search-box .serach-form input {
-	width: 50%;
-	height: 50px;
+.serach-form input {
+	width: 400px;
+	height: 40px;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 45%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	background-color: #fff;
@@ -762,10 +762,10 @@ p {
 	padding-left: 20px;
 	border-radius: 50px;
 }
-.search-box .serach-form button {
+ .serach-form button {
 	position: absolute;
 	top: 50%;
-	left: 72%;
+	left: 65%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
     padding: 0;
