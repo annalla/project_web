@@ -753,7 +753,7 @@ p {
 	height: 40px;
 	position: absolute;
 	top: 50%;
-	left: 45%;
+	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	background-color: #fff;
@@ -765,7 +765,7 @@ p {
  .serach-form button {
 	position: absolute;
 	top: 50%;
-	left: 65%;
+	left: 68%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
     padding: 0;
