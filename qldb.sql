@@ -22,7 +22,7 @@ CREATE TABLE `users` (
   `f_Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `f_Fullname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `f_Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `f_Type` int(2),
+  `f_Type` int NOT NULL,
   `f_Permission` int(11) NOT NULL,
   PRIMARY KEY (`f_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -81,12 +81,16 @@ CREATE TABLE `courses` (
   `TeacherID` int(11) unsigned NOT NULL,
   `small_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `big_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `brief` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(10000) COLLATE utf8_unicode_ci NOT NULL,
   `fee` decimal(15,2) NOT NULL,
-  `discount` decimal(15,2) NOT NULL,
+  `discount` decimal(15,2),
+  `evalue` float(20) NOT NULL,
+  `num_evalue` int(11) NOT NULL,
+  `num_join` int (11) NOT NULL,
   `time` TIME NOT NULL,
-  `num_lecture` int(50) NOT NULL,
-  `status` int(2) NOT NULL,
+  `num_lecture` int(11) NOT NULL,
+  `status` int NOT NULL,
   PRIMARY KEY (`CourseID`),
   FOREIGN KEY (`TeacherID`) REFERENCES `users`(`f_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -126,7 +130,7 @@ CREATE TABLE `course_join` (
   `ID_join` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `f_ID` int(11) NOT NULL,
   `CourseID` int(11) NOT NULL,
-  `status` int(2) NOT NULL,
+  `status` int NOT NULL,
   `lecture` varchar(200),
   PRIMARY KEY (`ID_join`),
   FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
@@ -143,7 +147,7 @@ CREATE TABLE `evaluate` (
   `ID_eva` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `f_ID` int(11) NOT NULL,
   `CourseID` int(11) NOT NULL,
-  `rate` int(10) NOT NULL,
+  `rate` int NOT NULL,
   PRIMARY KEY (`ID_eva`),
   FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
