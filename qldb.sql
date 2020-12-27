@@ -53,7 +53,13 @@ CREATE TABLE `aspects_level1` (
 -- ----------------------------
 -- Records of aspects_level1
 -- ----------------------------
-
+BEGIN;
+INSERT INTO `aspects_level1` VALUES (1, 'Công nghệ thông tin');
+INSERT INTO `aspects_level1` VALUES (2, 'Ngôn ngữ');
+INSERT INTO `aspects_level1` VALUES (3, 'Kinh tế');
+INSERT INTO `aspects_level1` VALUES (4, 'Thiết kế');
+INSERT INTO `aspects_level1` VALUES (5, 'Sức khỏe');
+COMMIT;
 -- ----------------------------
 -- Table structure for aspects_level2
 -- ----------------------------
@@ -70,7 +76,33 @@ CREATE TABLE `aspects_level2` (
 -- Records of aspects_level2
 -- ----------------------------
 
-
+BEGIN;
+INSERT INTO `aspects_level2` VALUES (1,1, 'Phần mềm');
+INSERT INTO `aspects_level2` VALUES (2, 1,'Hệ thống thông tin');
+INSERT INTO `aspects_level2` VALUES (3, 1,'AI và Machine Learning');
+INSERT INTO `aspects_level2` VALUES (4,1, 'Mạng máy tính');
+INSERT INTO `aspects_level2` VALUES (5, 1,'Khoa học máy tính');
+INSERT INTO `aspects_level2` VALUES (6,1, 'An toàn thông tin');
+INSERT INTO `aspects_level2` VALUES (7, 2,'Tiếng Anh');
+INSERT INTO `aspects_level2` VALUES (8, 2,'Tiếng Trung');
+INSERT INTO `aspects_level2` VALUES (9,2, 'Tiếng Nhật');
+INSERT INTO `aspects_level2` VALUES (10,2, 'Tiếng Hàn');
+INSERT INTO `aspects_level2` VALUES (11,2, 'Tiếng Pháp');
+INSERT INTO `aspects_level2` VALUES (12, 3,'Quản trị kinh doanh');
+INSERT INTO `aspects_level2` VALUES (13, 3,'Kế toán');
+INSERT INTO `aspects_level2` VALUES (14, 3,'Tài chính và ngân hàng');
+INSERT INTO `aspects_level2` VALUES (15, 3,'Marketing');
+INSERT INTO `aspects_level2` VALUES (16,3, 'Thương mại điện tử');
+INSERT INTO `aspects_level2` VALUES (17,3, 'Kinh doanh quốc tế');
+INSERT INTO `aspects_level2` VALUES (18, 4,'Thiết kế đồ họa');
+INSERT INTO `aspects_level2` VALUES (19, 4,'Thiết kế web');
+INSERT INTO `aspects_level2` VALUES (20, 4,'Thiết kế ứng dụng di động');
+INSERT INTO `aspects_level2` VALUES (21,4, 'Tư duy thiết kế');
+INSERT INTO `aspects_level2` VALUES (22, 5,'Sức khỏe chung');
+INSERT INTO `aspects_level2` VALUES (23, 5,'Dinh dưỡng');
+INSERT INTO `aspects_level2` VALUES (24, 5,'Yoga');
+INSERT INTO `aspects_level2` VALUES (25, 5,'Sơ cứu và an toàn');
+COMMIT;
 -- ----------------------------
 -- Table structure for courses
 -- ----------------------------

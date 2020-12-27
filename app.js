@@ -1,18 +1,16 @@
 const express = require('express');
+require('express-async-errors');
 const exphbs = require('express-handlebars');
 
 const app = express();
 
-app.engine('hbs', exphbs({
-  defaultLayout: 'main.hbs',
-  extname: '.hbs'
-}));
-app.set('view engine', 'hbs');
+
+
 app.use(express.static('public'));
-app.get('/', function (req, res) {
-  // res.send('Hello World!');
-  res.render('home');
-});
+
+require('./middlewares/view.mdw')(app);
+require('./middlewares/routes.mdw')(app);
+
 const PORT = 3000;
 app.listen(PORT, _ => {
   console.log(`Example app listening at http://localhost:${PORT}`);
