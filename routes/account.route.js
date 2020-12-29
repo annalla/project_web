@@ -13,12 +13,12 @@ router.get('/register', async function (req, res) {
 router.post('/register', async function (req, res) {
   const hash = bcrypt.hashSync(req.body.f_Password, 10);
   const user = {
-    f_Username:"qrq",
+    
     f_Password: hash,
     f_Fullname: req.body.f_Fullname,
     f_Email: req.body.f_Email,
     f_Permission: 0,
-    f_Type: 0
+    f_Type: 1
   }
 
   await userModel.add(user);

@@ -2,7 +2,14 @@
 *:focus {
   outline: none;
 }
-
+#frmRegister{
+ 
+  background-image: url("/public/images/bg1.jpg");
+  background-color:rgb(21, 54, 54);
+  padding-top: 40px;
+  height: 800px;
+  
+}
 #login-box {
   position: relative;
   margin: 5% auto;

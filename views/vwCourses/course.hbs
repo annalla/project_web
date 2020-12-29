@@ -9,20 +9,20 @@
                         <h2>Khóa học</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                                 {{#if this.emptyC}}
                                         <li class="breadcrumb-item active" aria-current="page">Khóa học</li> 
                                 {{/if}}
                                 {{#if this.notempty}}
                                     {{#each this.category}}
-                                        <li class="breadcrumb-item" aria-current="page"><a>Khóa học</a></li> 
+                                        <li class="breadcrumb-item" aria-current="page"><a href="/courses">Khóa học</a></li> 
                                          <li class="breadcrumb-item active" aria-current="page">{{name_level1}}</li>
                                     {{/each}}
                                 {{/if}}
                                 {{#if this.notempty2}}
                                     {{#each this.category}}
-                                        <li class="breadcrumb-item" aria-current="page"><a>Khóa học</a></li> 
-                                         <li class="breadcrumb-item" aria-current="page"><a href="">{{name_level1}}</a></li>
+                                        <li class="breadcrumb-item" aria-current="page"><a href="/courses">Khóa học</a></li> 
+                                         <li class="breadcrumb-item" aria-current="page"><a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a></li>
                                          <li class="breadcrumb-item active" aria-current="page">{{name_level2}}</li>
                                     {{/each}}
                                 {{/if}}
@@ -134,15 +134,49 @@
                     <nav class="courses-pagination mt-50">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <a href="#" aria-label="Previous">
+                                <a href="?page={{previous}}" aria-label="Previous" {{#if this.not_previous}} class="disabled" {{/if}}>
                                     <i class="fa fa-angle-left"></i>
                                 </a>
+                                
                             </li>
-                            <li class="page-item"><a class="active" href="#">1</a></li>
-                            <li class="page-item"><a href="#">2</a></li>
-                            <li class="page-item"><a href="#">3</a></li>
+                            {{#unless this.maxThan3}}
+                            {{#each page_items}}
+                                <li class="page-item" "><a href="?page={{value}}" id="page_{{value}}" >{{value}}</a></li>
+                            {{/each}}
+                            {{/unless}}
+                            {{#if this.maxThan3}}
+  
+                            {{#if this.n3}}
+                                <li class="page-item"><a href="#" class="disabled">...</a></li>
+                                <li class="page-item"><a class="active" href="?page={{page}}">{{page}}</a></li>
+                                <li class="page-item"><a href="?page={{next}}">{{next}}</a></li>
+                                <li class="page-item"><a href="?page={{next2}}">{{next2}}</a></li>
+                            {{/if}}
+
+                            {{#if this.n2}}
+                                <li class="page-item"><a href="#" class="disabled">...</a></li>
+                                <li class="page-item"><a class="active" href="?page={{page}}">{{page}}</a></li>
+                                <li class="page-item"><a href="?page={{next}}">{{next}}</a></li>
+                            {{/if}}
+                            {{#if this.n1}}
+                                <li class="page-item"><a href="#" class="disabled">...</a></li>
+                                <li class="page-item"><a  href="?page={{previous}}">{{previous}}</a></li>
+                                <li class="page-item"><a href="?page={{page}}" class="active">{{page}}</a></li>
+                            {{/if}}
+
+                            {{#unless this.n1}}
+                            {{#unless this.n2}}
+                            {{#unless this.n3}}
+                                <li class="page-item"><a href="?page={{page}}"class="active" >{{page}}</a></li>
+                                <li class="page-item"><a href="?page={{next}}">{{next}}</a></li>
+                                <li class="page-item"><a href="?page={{next2}}">{{next2}}</a></li>
+                                <li class="page-item"><a href="#" class="disabled">...</a></li>
+                            {{/unless}}
+                            {{/unless}}
+                            {{/unless}}
+                            {{/if}}
                             <li class="page-item">
-                                <a href="#" aria-label="Next">
+                                <a href="?page={{next}}" aria-label="Next" {{#if this.not_next}} class="disabled" {{/if}}>
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </li>
@@ -154,5 +188,3 @@
     </section>
     
     <!--====== COURSES PART ENDS ======-->
-   
- 
