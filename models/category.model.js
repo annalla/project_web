@@ -1,0 +1,43 @@
+const db = require('../utils/db');
+
+const TBL_CATEGORIES1 = 'aspects_level1';
+const TBL_CATEGORIES2 = 'aspects_level2';
+
+module.exports = {
+  all1() {
+    return db.load(`select * from ${TBL_CATEGORIES1}`);
+  },
+  all2() {
+    return db.load(`select * from ${TBL_CATEGORIES2}`);
+  },
+  allWithDetails() {
+    const sql = `
+      select * 
+      from ${TBL_CATEGORIES1} c left join ${TBL_CATEGORIES2} p on c.ID_aspect1 = p.ID_aspect1
+    `;
+    return db.load(sql);
+  },
+
+  async single(id) {
+    const rows = await db.load(`select * from ${TBL_CATEGORIES} where CatID = ${id}`);
+    if (rows.length === 0)
+      return null;
+
+    return rows[0];
+  },
+
+  add(entity) {
+    return db.add(entity, TBL_CATEGORIES)
+  },
+
+  del(entity) {
+    const condition = { CatID: entity.CatID };
+    return db.del(condition, TBL_CATEGORIES);
+  },
+
+  patch(entity) {
+    const condition = { CatID: entity.CatID };
+    delete entity.CatID;
+    return db.patch(entity, condition, TBL_CATEGORIES);
+  }
+};

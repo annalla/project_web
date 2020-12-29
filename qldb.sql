@@ -18,7 +18,6 @@ CREATE TABLE `userRefreshTokenExt` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `f_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `f_Username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `f_Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `f_Fullname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `f_Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -28,6 +27,13 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
+-- Records of users
+-- ----------------------------
+BEGIN;
+INSERT INTO `users` VALUES (1, 'sdsdfszdfa','Thomas Watson','nghasd@gmail.com',2,0);
+
+COMMIT;
+-- ----------------------------
 -- Table structure for infor_teacher
 -- ----------------------------
 DROP TABLE IF EXISTS `infor_teacher`;
@@ -35,11 +41,18 @@ CREATE TABLE `infor_teacher` (
   `f_infor` int(11) NOT NULL AUTO_INCREMENT,
   `f_ID` int(11) NOT NULL,
   `job` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `brief` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`f_infor`),
-  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- ----------------------------
+-- Records of infor_teacher
+-- ----------------------------
+BEGIN;
+INSERT INTO `infor_teacher` VALUES (1, 1,'Giảng viên','t-1','Chuyên ngành ...');
+COMMIT;
 -- ----------------------------
 -- Table structure for aspects_level1
 -- ----------------------------
@@ -69,7 +82,7 @@ CREATE TABLE `aspects_level2` (
   `ID_aspect1` int(11) unsigned NOT NULL,
   `name_level2` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_aspect`),
-  FOREIGN KEY (`ID_aspect1`) REFERENCES `aspects_level1`(`ID_aspect1`)
+  FOREIGN KEY (`ID_aspect1`) REFERENCES `aspects_level1`(`ID_aspect1`) ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
@@ -111,20 +124,21 @@ CREATE TABLE `courses` (
   `CourseID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ID_aspect` int(11) unsigned NOT NULL,
   `TeacherID` int(11) unsigned NOT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `small_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `big_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `brief` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(10000) COLLATE utf8_unicode_ci NOT NULL,
+  `big_image` varchar(50) COLLATE utf8_unicode_ci ,
+  `brief` varchar(500) COLLATE utf8_unicode_ci ,
+  `description` varchar(10000) COLLATE utf8_unicode_ci ,
   `fee` decimal(15,2) NOT NULL,
   `discount` decimal(15,2),
-  `evalue` float(20) NOT NULL,
+  `evalue` float(20) ,
   `num_evalue` int(11) NOT NULL,
   `num_join` int (11) NOT NULL,
-  `time` TIME NOT NULL,
-  `num_lecture` int(11) NOT NULL,
-  `status` int NOT NULL,
+  `time` TIME,
+  `num_lecture` int(11),
+  `status` int ,
   PRIMARY KEY (`CourseID`),
-  FOREIGN KEY (`TeacherID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`TeacherID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `courses`
@@ -132,11 +146,28 @@ ADD FOREIGN KEY (`ID_aspect`) REFERENCES `aspects_level2`(`ID_aspect`);
 -- ----------------------------
 -- Records of courses
 -- ----------------------------
-/*
+
 BEGIN;
-INSERT INTO `courses` VALUES (1, 'Sách');
+INSERT INTO `courses` VALUES (1, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (2, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (3, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (4, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (5, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (6, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (7, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (8, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (9, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (10, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (11, 6,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (12, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (13, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (9, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (10, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (11, 3,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (12, 2,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
+INSERT INTO `courses` VALUES (13, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
 COMMIT;
-*/
+
 
 
 -- ----------------------------
@@ -148,7 +179,7 @@ CREATE TABLE `watchlists` (
   `f_ID` int(11) NOT NULL,
   `CourseID` int(11) NOT NULL,
   PRIMARY KEY (`ID_list`),
-  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `watchlists`
@@ -165,11 +196,11 @@ CREATE TABLE `course_join` (
   `status` int NOT NULL,
   `lecture` varchar(200),
   PRIMARY KEY (`ID_join`),
-  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `course_join`
-ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`);
+ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE;
 
 -- ----------------------------
 -- Table structure for evaluate
@@ -181,7 +212,7 @@ CREATE TABLE `evaluate` (
   `CourseID` int(11) NOT NULL,
   `rate` int NOT NULL,
   PRIMARY KEY (`ID_eva`),
-  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `evaluate`
@@ -196,11 +227,11 @@ CREATE TABLE `comments` (
   `CourseID` int(11) NOT NULL,
   `content` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_comment`),
-  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`)
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `comments`
-ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`);
+ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE;
 
 -- ----------------------------
 -- Table structure for lectures
@@ -212,7 +243,7 @@ CREATE TABLE `lectures` (
   `title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_lect`),
-  FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`)
+  FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;

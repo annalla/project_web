@@ -12,7 +12,7 @@
     <title>Edubin - LMS Education HTML Template</title>
     
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/public/images/favicon.png" type="image/png">
 
     <!--====== Slick css ======-->
     <!-- <link rel="stylesheet" href="css/slick.css"> -->
@@ -34,19 +34,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     
     <!--====== Fontawesome css ======-->
-     <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+     <link rel="stylesheet" href="/public/stylesheets/font-awesome.min.css">
     {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css"> --}}
     
     <!--====== Default css ======-->
-    <link rel="stylesheet" href="stylesheets/default.css">
+    <link rel="stylesheet" href="/public/stylesheets/default.css">
     
     <!--====== Style css ======-->
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
     
     <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="stylesheets/responsive.css">
+    <link rel="stylesheet" href="/public/stylesheets/responsive.css">
   
-  
+    {{{_sections.css}}}
 </head>
 
 <body>
@@ -79,21 +79,22 @@
     <!-- <script src="js/jquery.nice-select.min.js"></script> -->
 
     <!--====== Nice Number js ======-->
-    <script src="javascripts/jquery.nice-number.min.js"></script>
+    {{!-- <script src="javascripts/jquery.nice-number.min.js"></script> --}}
     
     <!--====== Count Down js ======-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha512-lteuRD+aUENrZPTXWFRPTBcDDxIGWe5uu0apPEn+3ZKYDwDaEErIK9rvR0QzUGmUQ55KFE2RqGTVoZsKctGMVw==" crossorigin="anonymous"></script>
     <!--====== Validator js ======-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.1.17/validator.min.js" integrity="sha512-p1b+doSyVwyKqVTZeU1+XJtjpBSkhllBca2L6QTxPUjZZ0ELeZIHkAeQdtfNulbXxLdCwN4uKYGPpp78xeqwfQ==" crossorigin="anonymous"></script>
     <!--====== Ajax Contact js ======-->
-    <script src="javascripts/ajax-contact.js"></script>
+    <script src="/public/javascripts/ajax-contact.js"></script>
     
     <!--====== Main js ======-->
-    <script src="javascripts/main.js"></script>
+    <script src="/public/javascripts/main.js"></script>
     
     <!--====== Map js ======-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="javascripts/map-script.js"></script>
+    <script src="/public/javascripts/map-script.js"></script>
+    {{{_sections.css}}}
 
 </body>
 </html>
