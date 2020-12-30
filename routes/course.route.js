@@ -154,5 +154,17 @@ router.get('/small_aspect/:id', async function (req, res) {
   }
 });
 
+router.get('/details', async function (req, res) {
+  try{
+    // const rows = await courseModel.pageByAll(offset);
+    res.render('vwCourses/courseDetail', {
+      
+    })
+  }
+  catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+});
 
 module.exports = router;
