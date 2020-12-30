@@ -1,0 +1,66 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+  href="/public/stylesheets/form_register.css">
+{{/section}}
+
+{{#section 'js'}}
+<script>
+  $('#frmLogin').on('submit', function (e) {
+    
+
+    const email = $('#f_Email').val();
+    const password = $('#f_Password').val();
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+    
+    
+    if (email.length === 0 || !filter.test(email)) {
+      alert('Vui lòng điền địa chỉ email hợp lệ!');
+      e.preventDefault();
+      return;
+    }
+    else if (password.length === 0) {
+      alert('Vui lòng điền mật khẩu!');
+      e.preventDefault();
+      return;
+    }
+    $.getJSON(`/is-available?user=${f_Fullname}`, function (data) {
+      if (data === true) {
+        $('#frmLogin').off('submit').submit();
+      } else {
+        alert('Invalid data.');
+      }
+    })
+  });
+</script>
+{{/section}}
+
+{{#if err_message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{err_message}}
+        </div>
+{{/if}}
+
+<form action="" method="post" id="frmLogin">
+  <div id="login-box">
+    <div class="left">
+      <h1>Đăng nhập</h1>
+    
+      <input type="text" name="f_Email" id="f_Email" placeholder="E-mail" />
+      <input type="password" name="f_Password" id="f_Password" placeholder="Mật khẩu" />
+      
+      <button type="submit" ><b>Đăng nhập</b></button>
+    </div>
+    
+    <div class="right">
+      <span class="loginwith">Đăng nhập bằng</span>
+      
+      <button class="social-signin facebook">facebook</button>
+      <button class="social-signin twitter">Twitter</button>
+      <button class="social-signin google">Google+</button>
+    </div>
+    <div class="or">OR</div>
+</div>
+</form>
