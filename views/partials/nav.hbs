@@ -60,12 +60,38 @@
                                     <span>321 325 5678</span>
                                 </div>
                             </div> --}}
-                            <div class="button float-left">
-                                <a href="/account/login" class="main-btn">Đăng nhập</a>
-                            </div>
-                            <div class="button float-left">
-                                <a href="/account/register" class="main-btn">Đăng ký</a>
-                            </div>
+                            {{#if isAuth}}
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                            Xin chào, <b>{{authUser.f_Fullname}}</b>!
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/account/profile">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                                Tài khoản của tôi
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                Khóa học của tôi
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                Đăng xuất
+                                        </a>
+                                    </div>
+                                </li>
+                            {{else}}
+                                <div class="button float-left">
+                                    <a href="/account/login" class="main-btn">Đăng nhập</a>
+                                </div>
+                                <div class="button float-left">
+                                    <a href="/account/register" class="main-btn">Đăng ký</a>
+                                </div>
+                            {{/if}}
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -96,9 +122,6 @@
                                     <li class="nav-item">
                                         <a href="/courses">Khóa học</a>
                                         <ul class="sub-menu">
-                                            
-                                           
-
                                             <li>
                                                 <a href="/courses/aspect/1">Công nghệ thông tin</a>
                                                 <ul class="sub-menu1">
@@ -172,7 +195,6 @@
                                             </form>
                                         </div> <!-- serach form -->
                     </div>
-                     
                     <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>

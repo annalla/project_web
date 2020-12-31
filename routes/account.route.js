@@ -2,6 +2,9 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 
 const userModel = require('../models/user.model');
+const auth = require('../middlewares/auth.mdw');
+const session = require('../middlewares/session.mdw');
+
 
 const router = express.Router();
 
@@ -17,17 +20,18 @@ router.post('/login', async function (req, res) {
     return res.render('vwAccount/login', {
       err_message: 'Email/Mật khẩu không đúng!'
     });
-     
-    //return res.render('vwAccount/login');
   }
 
-  // req.session.isAuth = true;
-  // req.session.authUser = user;
+  req.session.isAuth = true;
+  req.session.authUser = user;
 
   //let url = req.session.retUrl || '/';
   //res.redirect('/login');
 
-  res.render('home');
+  let url = '/';
+  res.redirect(url);
+
+  //res.render('home');
 })
 
 
@@ -59,6 +63,10 @@ router.get('/is-available', async function (req, res) {
   }
 
   res.json(false);
+})
+
+router.get('/profile', auth, async function (req, res) {
+  res.render('vwAccount/profile');
 })
 
 
