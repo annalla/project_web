@@ -99,7 +99,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="/courses">Khóa học</a>
+                                        
                                         <ul class="sub-menu">
+<<<<<<< HEAD
                                             <li>
                                                 <a href="/courses/aspect/1">Công nghệ thông tin</a>
                                                 <ul class="sub-menu1">
@@ -112,51 +114,26 @@
                                                 </ul>
                                                 
                                             </li>
+=======
+                                             {{#each lol}}
+>>>>>>> 80e08269052b9f117641d3a06adaacb8211dda67
                                              <li>
-                                                <a href="/courses/aspect/2">Ngôn ngữ</a>
-                                                 <ul class="sub-menu1">
-                                                    <li><a href="/courses/small_aspect/7">Tiếng Anh</a></li>
-                                                    <li><a href="/courses/small_aspect/8">Tiếng Trung</a></li>
-                                                    <li><a href="/courses/small_aspect/9">Tiếng Nhật</a></li>
-                                                    <li><a href="/courses/small_aspect/10">Tiếng Hàn</a></li>
-                                                    <li><a href="/courses/small_aspect/11">Tiếng Pháp</a></li>
+                                                
+                                                 {{#each lv}}
+                                                     <a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a>
+                                                 {{/each}}
+                                                     
+                                                      <ul class="sub-menu1">
+                                                         {{#each lv2}}
+                                                             <li><a href="/courses/small_aspect/{{ID_aspect}}">{{name_level2}}</a></li>
+                                                         {{/each}}
                                                     
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="/courses/aspect/3">Kinh tế</a>
-                                                 <ul class="sub-menu1">
-                                                    <li><a href="/courses/small_aspect/12">Quản trị kinh doanh</a></li>
-                                                    <li><a href="/courses/small_aspect/13">Kế toán</a></li>
-                                                    <li><a href="/courses/small_aspect/14">Tài chính & ngân hàng</a></li>
-                                                    <li><a href="/courses/small_aspect/15">Marketing</a></li>
-                                                    <li><a href="/courses/small_aspect/16">thương mại điện tử</a></li>
-                                                    <li><a href="/courses/small_aspect/17">Kinh doanh quốc tế</a></li>
                                                     
-                                                </ul>
+                                                        </ul>
                                             </li>
-                                           
-                                            <li>
-                                                <a href="/courses/aspect/4">Thiết kế</a>
-                                                 <ul class="sub-menu1">
-                                                    <li><a href="/courses/small_aspect/18">Thiết kế đồ họa</a></li>
-                                                    <li><a href="/courses/small_aspect/19">Thiết kế web</a></li>
-                                                    <li><a href="/courses/small_aspect/20">Thiết kế ứng dụng</a></li>
-                                                    <li><a href="/courses/small_aspect/21">tư duy Thiết kế</a></li>
-                                                    
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="/courses/aspect/5">Sức khỏe</a>
-                                                 <ul class="sub-menu1">
-                                                    <li><a href="/courses/small_aspect/22">Sức khỏe chung</a></li>
-                                                    <li><a href="/courses/small_aspect/23">Dinh dưỡng</a></li>
-                                                    <li><a href="/courses/small_aspect/24">Yoga</a></li>
-                                                    <li><a href="/courses/small_aspect/25">Sơ cứu và an toàn</a></li>
-                                                    
-                                                </ul>
-                                            </li>
-
+                                            {{/each}}
+                                            
+                                        
                                                                           
                                         </ul>
                                     </li>
@@ -173,9 +150,14 @@
                                             </form>
                                         </div> <!-- serach form -->
                     </div>
+<<<<<<< HEAD
                      {{#if isAuth}}
                       <form id="frmLogout" method="POST" action="/account/logout"></form>
                         <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+=======
+                     
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+>>>>>>> 80e08269052b9f117641d3a06adaacb8211dda67
                         <div class="right-icon text-right">
                             <ul>
                                 <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
@@ -186,10 +168,13 @@
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                                          <a class="dropdown-item">
                                             <i aria-hidden="true"></i>
                                                 Hi, <b>{{authUser.f_Fullname}}</b>!
                                         </a>
+=======
+>>>>>>> 80e08269052b9f117641d3a06adaacb8211dda67
                                         <a class="dropdown-item" href="/account/profile">
                                             <i class="fa fa-user" aria-hidden="true"></i>
                                             Profile
@@ -202,12 +187,30 @@
                                         </div>
                                     </li>
                                 </li>
+<<<<<<< HEAD
                             </ul>
                      {{else}}
                          <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+=======
+                                {{!-- <li>
+                                                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown link
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                            </div>
+           
+                        </li> --}}
+      
+>>>>>>> 80e08269052b9f117641d3a06adaacb8211dda67
                             </ul>
                         </div> <!-- right icon -->
                     </div>
