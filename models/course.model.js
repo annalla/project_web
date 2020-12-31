@@ -37,7 +37,9 @@ module.exports = {
   caterogy2(id){
     return db.load(`select * from aspects_level2 l2,aspects_level1 l1 where l2.ID_aspect=${id} and l2.ID_aspect1=l1.ID_aspect1`);
   },
-
+  fulltextSearch(title){
+    return db.load(`SELECT * FROM courses WHERE MATCH( title) AGAINST( "${title}" )`);
+  },
   async single(id) {
     const rows = await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.CourseID=${id} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
     if (rows.length === 0) {
