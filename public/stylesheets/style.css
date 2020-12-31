@@ -1337,6 +1337,8 @@ p {
     font-size: 13px;
     color: #000;
 }
+.singel-course .cont span a{
+}
 .singel-course .cont h4{
     font-weight: 600;
     font-size: 24px;
@@ -1347,6 +1349,7 @@ p {
     transition: all 0.4s linear;
 }
 .singel-course .cont h6{
+    width: 180px; 
     font-weight: 600;
     font-size: 16px;
     color: #000;

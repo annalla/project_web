@@ -13,14 +13,20 @@ router.get('/login', async function (req, res) {
   //   req.session.retUrl = ref;
   // }
   const ref = req.headers.referer;
-  req.session.retUrl = ref;
+  if(ref!=='undefined')
+  {
+    req.session.retUrl = ref;
+  }
+  
 
   res.render('vwAccount/login');
 })
 
 router.post('/login', async function (req, res) {
   const user = await userModel.singleByEmail(req.body.f_Email);
-  
+  const id=await userModel.getIdUser(req.body.f_Email);
+  const type=await userModel.getTypeUser(req.body.f_Email);
+  const permission=await userModel.getPermissionUser(req.body.f_Email);
   const ret = bcrypt.compareSync(req.body.f_Password, user.f_Password);
   if (ret === false) {
     return res.render('vwAccount/login', {
@@ -30,14 +36,31 @@ router.post('/login', async function (req, res) {
 
   req.session.isAuth = true;
   req.session.authUser = user;
-
-  let url = req.session.retUrl || '/';
+  req.session.authId = id;
+  req.session.authPermission = permission;
+  req.session.authType = type;
+  if(+permission===1)
+  {
+    res.redirect('/admin');
+  }
+  else if(+type===2)
+  {
+    res.redirect('/teacher');
+  }
+  else
+  {
+    let url = req.session.retUrl || '/';
   res.redirect(url);
+  }
+  
 })
 
 router.post('/logout', async function (req, res) {
   req.session.isAuth = false;
   req.session.authUser = null;
+  req.session.id = null;
+  req.session.permission = 0;
+  req.session.teacher = 0;
   res.redirect(req.headers.referer);
 })
 
@@ -56,7 +79,6 @@ router.post('/register', async function (req, res) {
     f_Permission: 0,
     f_Type: 1
   }
-  console.log(user);
   await userModel.add(user);
   // res.render('vwAccount/register');
   res.render('home');

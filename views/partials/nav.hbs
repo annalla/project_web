@@ -1,44 +1,8 @@
- {{!-- <!--====== PRELOADER PART START ======-->
-    
-    <div class="preloader">
-        <div class="loader rubix-cube">
-            <div class="layer layer-1"></div>
-            <div class="layer layer-2"></div>
-            <div class="layer layer-3 color-1"></div>
-            <div class="layer layer-4"></div>
-            <div class="layer layer-5"></div>
-            <div class="layer layer-6"></div>
-            <div class="layer layer-7"></div>
-            <div class="layer layer-8"></div>
-        </div>
-    </div>
-    
-    <!--====== PRELOADER PART START ======--> --}}
+
     
     <!--====== HEADER PART START ======-->
     
     <header id="header-part">
-       
-        {{!-- <div class="header-top d-none d-lg-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header-contact text-lg-left text-center">
-                            <ul>
-                                <li><img src="images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
-                                <li><img src="images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header-opening-time text-lg-right text-center">
-                            <p>Opening Hours : Monday to Saturay - 8 Am to 5 Pm</p>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header top -->
-         --}}
         <div class="header-logo-support pt-30 pb-30">
             <div class="container">
                 <div class="row">
@@ -51,17 +15,7 @@
                     </div>
                     <div class="col-lg-8 col-md-8">
                         <div class="support-button float-right d-none d-md-block">
-                            {{!-- <div class="support float-left">
-                                <div class="icon">
-                                    <img src="images/all-icon/support.png" alt="icon">
-                                </div>
-                                <div class="cont">
-                                    <p>Need Help? call us free</p>
-                                    <span>321 325 5678</span>
-                                </div>
-                            </div> --}}
                             {{#if isAuth}}
-                           
                             {{else}}
                                 <div class="button float-left">
                                     <a href="/account/login" class="main-btn">Đăng nhập</a>
@@ -75,7 +29,206 @@
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- header logo support -->
-        
+      {{#if isTeacher}}
+          <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                        <nav class="navbar navbar-expand-lg" style="margin-right: 100px;">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="active" href="/">Khóa học của tôi</a>
+                                        {{!-- <ul class="sub-menu">
+                                            <li><a class="active" href="index-2.html">Home 01</a></li>
+                                            <li><a href="index-3.html">Home 02</a></li>
+                                            <li><a href="index-4.html">Home 03</a></li>
+                                        </ul> --}}
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/courses">Tạo Khóa học</a>
+                                        
+                                        <ul class="sub-menu">
+                                             {{#each lol}}
+                                             <li>
+                                                
+                                                 {{#each lv}}
+                                                     <a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a>
+                                                 {{/each}}
+                                                     
+                                                      <ul class="sub-menu1">
+                                                         {{#each lv2}}
+                                                             <li><a href="/courses/small_aspect/{{ID_aspect}}">{{name_level2}}</a></li>
+                                                         {{/each}}
+                                                    
+                                                    
+                                                        </ul>
+                                            </li>
+                                            {{/each}}
+                                            
+                                        
+                                                                          
+                                        </ul>
+                                    </li>
+                                
+                                </ul>
+                               
+                                  
+                            </div>
+                        </nav> <!-- nav -->
+                       {{!-- <div class="serach-form">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search by keyword">
+                                                <button><i class="fa fa-search"></i></button>
+                                            </form>
+                                        </div> <!-- serach form --> --}}
+                        </div>
+                    
+                      <form id="frmLogout" method="POST" action="/account/logout"></form>
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                                <li>
+                                     <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                         <a class="dropdown-item">
+                                            <i aria-hidden="true"></i>
+                                                Hi, <b>{{authUser.f_Fullname}}</b>!
+                                        </a>
+                                        <a class="dropdown-item" href="/account/profile">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Profile
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            Sign Out
+                                        </a>
+                                        </div>
+                                    </li>
+                                </li>
+                            </ul>
+                    
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+      {{else}}
+      {{#if isAdmin}}
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="active" href="/">Tài khoản</a>
+                                        {{!-- <ul class="sub-menu">
+                                            <li><a class="active" href="index-2.html">Home 01</a></li>
+                                            <li><a href="index-3.html">Home 02</a></li>
+                                            <li><a href="index-4.html">Home 03</a></li>
+                                        </ul> --}}
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="active" href="/">Lĩnh vực</a>
+                                        {{!-- <ul class="sub-menu">
+                                            <li><a class="active" href="index-2.html">Home 01</a></li>
+                                            <li><a href="index-3.html">Home 02</a></li>
+                                            <li><a href="index-4.html">Home 03</a></li>
+                                        </ul> --}}
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/courses">Khóa học</a>
+                                        
+                                        <ul class="sub-menu">
+                                             {{#each lol}}
+                                             <li>
+                                                
+                                                 {{#each lv}}
+                                                     <a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a>
+                                                 {{/each}}
+                                                     
+                                                      <ul class="sub-menu1">
+                                                         {{#each lv2}}
+                                                             <li><a href="/courses/small_aspect/{{ID_aspect}}">{{name_level2}}</a></li>
+                                                         {{/each}}
+                                                    
+                                                    
+                                                        </ul>
+                                            </li>
+                                            {{/each}}
+                                            
+                                        
+                                                                          
+                                        </ul>
+                                    </li>
+                                
+                                </ul>
+                               
+                                  
+                            </div>
+                        </nav> <!-- nav -->
+                       {{!-- <div class="serach-form">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search by keyword">
+                                                <button><i class="fa fa-search"></i></button>
+                                            </form>
+                                        </div> <!-- serach form --> --}}
+                        </div>
+                    
+                      <form id="frmLogout" method="POST" action="/account/logout"></form>
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                                <li>
+                                     <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                         <a class="dropdown-item">
+                                            <i aria-hidden="true"></i>
+                                                Hi, <b>{{authUser.f_Fullname}}</b>!
+                                        </a>
+                                        <a class="dropdown-item" href="/account/profile">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Profile
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            Sign Out
+                                        </a>
+                                        </div>
+                                    </li>
+                                </li>
+                            </ul>
+                    
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+    
+      
+      {{else}}
         <div class="navigation">
             <div class="container">
                 <div class="row">
@@ -101,18 +254,7 @@
                                         <a href="/courses">Khóa học</a>
                                         
                                         <ul class="sub-menu">
-                                            <li>
-                                                <a href="/courses/aspect/1">Công nghệ thông tin</a>
-                                                <ul class="sub-menu1">
-                                                    <li><a href="/courses/small_aspect/1">Phần mềm</a></li>
-                                                    <li><a href="/courses/small_aspect/2">Hệ thống thông tn</a></li>
-                                                    <li><a href="/courses/small_aspect/3">AI và machine learning</a></li>
-                                                    <li><a href="/courses/small_aspect/4">Mạng máy tính</a></li>
-                                                    <li><a href="/courses/small_aspect/5">Khoa học máy tính</a></li>
-                                                    <li><a href="/courses/small_aspect/6">An toàn thông tin</a></li>
-                                                </ul>
-                                                
-                                            </li>
+                                             {{#each lol}}
                                              <li>
                                                 
                                                  {{#each lv}}
@@ -126,7 +268,11 @@
                                                     
                                                     
                                                         </ul>
-                                            </li>                                                              
+                                            </li>
+                                            {{/each}}
+                                            
+                                        
+                                                                          
                                         </ul>
                                     </li>
                                 
@@ -135,10 +281,10 @@
                                   
                             </div>
                         </nav> <!-- nav -->
-                        <div class="serach-form">
-                                            <form action="/courses/search" method="POST">
-                                                <input required type="search" name="search" placeholder="Search by keyword">
-                                                <button type="submit" ><i class="fa fa-search"></i></button>
+                       <div class="serach-form">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search by keyword">
+                                                <button><i class="fa fa-search"></i></button>
                                             </form>
                                         </div> <!-- serach form -->
                     </div>
@@ -149,7 +295,7 @@
                             <ul>
                                 <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
                                 <li>
-                                     <li class="nav-item dropdown">
+                                     <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -185,7 +331,8 @@
                 </div> <!-- row -->
             </div> <!-- container -->
         </div>
-        
+    {{/if}}
+    {{/if}}
     </header>
     
     <!--====== HEADER PART ENDS ======-->

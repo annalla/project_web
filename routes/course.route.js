@@ -159,14 +159,21 @@ router.get('/small_aspect/:id', async function (req, res) {
 router.get('/details', async function (req, res) {
   const id=+req.query.id;
   try{
-    // console.log(id);
     const rows = await courseModel.single(id);
     const datetime= await courseModel.getdateById(id);
-    // console.log(datetime);
     const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
+    const c5= await courseModel.get5course(id);
+    // console.log(c5);
+    if(rows==null)
+    {
+      res.render('404', {
+        layout: false
+      });
+    }
     res.render('vwCourses/courseDetail', {
       course:rows,
       dm:lastt,
+      related:c5
     })
   }
   catch (err) {
@@ -174,33 +181,5 @@ router.get('/details', async function (req, res) {
     res.send('View error log at server console.');
   }
 });
-router.get('/search', async function (req, res) {
-  try{
-    const page=1;
-    const nPages=1;
-    const search = req.query.search;
-    const rows = await courseModel.fulltextSearch(search);
-      
-    res.render('vwCourses/search', {
-      courses: rows,
-      empty: rows.length === 0,
-      page,
-      not_previous:page<=1,
-      not_next:page>=nPages,
-      previous:page-1,
-      next:page+1,
-      next2:page+2,
-      n3:nPages-2===page,
-      n2:nPages-1===page,
-      n1:nPages===page,
-      maxThan3:nPages>=4,
-      
-    })
-    }
-    catch (err) {
-      console.error(err);
-      res.send('View error log at server console.');
-    }
-})
 
 module.exports = router;

@@ -1,3 +1,4 @@
+{{!-- 369px x height 251px --}}
 {{#with this.course}}
 
   
@@ -114,7 +115,7 @@
                                 <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
                                     <div class="curriculam-cont">
                                         <div class="title">
-                                            <h6>Learn basis javascirpt Lecture Started</h6>
+                                            <h6>{{title}}</h6>
                                         </div>
                                         <div class="accordion" id="accordionExample">
                                             <div class="card">
@@ -122,7 +123,7 @@
                                                     <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                                                         <ul>
                                                             <li><i class="fa fa-file-o"></i></li>
-                                                            <li><span class="lecture">Lecture 1.1</span></li>
+                                                            <li><span class="lecture">Bài 1.1</span></li>
                                                             <li><span class="head">what is javascript </span></li>
                                                             <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> 00.30.00</span></span></li>
                                                         </ul>
@@ -428,13 +429,13 @@
                                 </ul>
                                 {{#if discount}}
                                     <div class="price-button pt-10">
-                                    <span>Price : <b><strike>${{fee}}</strike></b></span>
-                                    <span style="margin-left: 60px;">Discount : <b>${{discount}}</b></span>
+                                    <span>Price : <b><strike>{{fee}}$</strike></b></span>
+                                    <span style="margin-left: 60px;">Discount : <b>{{discount}}$</b></span>
                                 </div>
                                 {{else}}
                                 
                                 <div class="price-button pt-10">
-                                    <span>Price : <b>${{fee}}</b></span>
+                                    <span>Price : <b>{{fee}}$</b></span>
                                    
                                 </div>
                                {{/if}}
@@ -596,7 +597,7 @@
                 </div>
             </div> <!-- row -->
             <div class="row course-slied mt-30">
-                <div class="col-lg-4">
+                {{!-- <div class="col-lg-4">
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
@@ -632,8 +633,8 @@
                             </div>
                         </div>
                     </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
+                </div> --}}
+                {{!-- <div class="col-lg-4">
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
@@ -669,16 +670,28 @@
                             </div>
                         </div>
                     </div> <!-- singel course -->
-                </div>
+                </div> --}}
+                {{#each this.related}}
                 <div class="col-lg-4">
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
-                                <img src="images/course/cu-3.jpg" alt="Course">
+                                <img src="/public/images/course/{{small_image}}" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
+                            {{#if discount}}
+                                    <div  class="price1" >
+                                        <span style="background-color: white;"><strike >{{fee}}$</strike></span>    
+                                    </div>
+                                    <div class="discount">
+                                        <span>{{discount}}$</span>
+                                    </div>
+                                        {{else}}
+                                        <div class="price">
+                                        <span>{{fee}}$</span>
+                                        
+                                    </div>
+                                    {{/if}}
+                            
                         </div>
                         <div class="cont">
                             <ul>
@@ -688,26 +701,28 @@
                                 <li><i class="fa fa-star"></i></li>
                                 <li><i class="fa fa-star"></i></li>
                             </ul>
-                            <span>(20 Reviws)</span>
-                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <span>{{evalue}}({{num_evalue}} Đánh giá)</span>
+                            <a href="/courses/details?id={{CourseID}}"><h4>{{title}}</h4></a>
+                            <a href="" class="disabled"><h6>{{name_level1}}</h6></a>
                             <div class="course-teacher">
                                 <div class="thum">
-                                    <a href="#"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
+                                    <a href="#"><img src="/public/images/course/teacher/{{image}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="#"><h6>{{f_Fullname}}</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>{{num_join}}</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span></span></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- singel course -->
                 </div>
-                <div class="col-lg-4">
+                {{/each}}
+                {{!-- <div class="col-lg-4">
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
@@ -743,8 +758,8 @@
                             </div>
                         </div>
                     </div> <!-- singel course -->
-                </div>
-                <div class="col-lg-4">
+                </div> --}}
+                {{!-- <div class="col-lg-4">
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
@@ -780,7 +795,7 @@
                             </div>
                         </div>
                     </div> <!-- singel course -->
-                </div>
+                </div> --}}
             </div> <!-- course slied -->
         </div> <!-- container -->
     </section>

@@ -29,17 +29,6 @@ module.exports = {
     return db.load(sql);
   },
   
-    // console.log(t[0].total);
-    // const i=3;
-    // const value
-  // async single(id) {
-  //   const rows = await db.load(`select * from ${TBL_CATEGORIES} where CatID = ${id}`);
-  //   if (rows.length === 0)
-  //     return null;
-
-  //   return rows[0];
-  // },
-
   add(entity) {
     return db.add(entity, TBL_CATEGORIES)
   },
