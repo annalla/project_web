@@ -182,4 +182,34 @@ router.get('/details', async function (req, res) {
   }
 });
 
+router.get('/search', async function (req, res) {
+  try{
+    const page=1;
+    const nPages=1;
+    const search = req.query.search;
+    const rows = await courseModel.fulltextSearch(search);
+      
+    res.render('vwCourses/search', {
+      courses: rows,
+      empty: rows.length === 0,
+      page,
+      not_previous:page<=1,
+      not_next:page>=nPages,
+      previous:page-1,
+      next:page+1,
+      next2:page+2,
+      n3:nPages-2===page,
+      n2:nPages-1===page,
+      n1:nPages===page,
+      maxThan3:nPages>=4,
+      
+    })
+    }
+    catch (err) {
+      console.error(err);
+      res.send('View error log at server console.');
+    }
+});
+
+
 module.exports = router;
