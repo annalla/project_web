@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
-                            <a href="index-2.html">
+                            <a href="/">
                                 <img src="/public/images/logo.png" alt="Logo">
                             </a>
                         </div>
@@ -61,29 +61,7 @@
                                 </div>
                             </div> --}}
                             {{#if isAuth}}
-                            <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                            Xin chào, <b>{{authUser.f_Fullname}}</b>!
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/account/profile">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                                Tài khoản của tôi
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                                Khóa học của tôi
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                                Đăng xuất
-                                        </a>
-                                    </div>
-                                </li>
+                           
                             {{else}}
                                 <div class="button float-left">
                                     <a href="/account/login" class="main-btn">Đăng nhập</a>
@@ -112,7 +90,7 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                        <a class="active" href="index-2.html">Trang chủ</a>
+                                        <a class="active" href="/">Trang chủ</a>
                                         {{!-- <ul class="sub-menu">
                                             <li><a class="active" href="index-2.html">Home 01</a></li>
                                             <li><a href="index-3.html">Home 02</a></li>
@@ -188,20 +166,53 @@
                                   
                             </div>
                         </nav> <!-- nav -->
-                        <div class="serach-form">
+                       <div class="serach-form">
                                             <form action="#">
                                                 <input type="text" placeholder="Search by keyword">
                                                 <button><i class="fa fa-search"></i></button>
                                             </form>
                                         </div> <!-- serach form -->
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                     {{#if isAuth}}
+                      <form id="frmLogout" method="POST" action="/account/logout"></form>
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                                <li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                         <a class="dropdown-item">
+                                            <i aria-hidden="true"></i>
+                                                Hi, <b>{{authUser.f_Fullname}}</b>!
+                                        </a>
+                                        <a class="dropdown-item" href="/account/profile">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Profile
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            Sign Out
+                                        </a>
+                                        </div>
+                                    </li>
+                                </li>
+                            </ul>
+                     {{else}}
+                         <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
                             </ul>
                         </div> <!-- right icon -->
                     </div>
+                     {{/if}}
+                    
                 </div> <!-- row -->
             </div> <!-- container -->
         </div>

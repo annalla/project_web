@@ -138,6 +138,7 @@ p {
 /*===== All Button Style =====*/
 
 .main-btn {
+    
 	display: inline-block;
 	font-weight: 500;
 	text-align: center;
@@ -169,6 +170,38 @@ p {
     background-color: #07294d;
 }
 
+.main1-btn {
+    
+	display: inline-block;
+	font-weight: 500;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid #ffc600;
+	padding: 0 20px;
+	font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+	line-height: 50px;
+	border-radius: 5px;
+    color: #07294d;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    background-color:snow;
+}
+.main1-btn:hover{
+    color: #ffc600;
+    border-color: #07294d;
+    background-color:#07294d;
+}
 
 
 /*===== All Section Title Style =====*/
@@ -651,9 +684,12 @@ p {
     top: -7px;
 }
 
-.right-icon{}
+.right-icon{
+    /* width: 200px; */
+}
 .right-icon ul li{
     display: inline-block;
+    
     margin-right: 17px;
     padding: 22px 0;
 }
@@ -2382,6 +2418,12 @@ p {
     color: #fff;
     padding-bottom: 15px;
 }
+.page-banner-cont h4{
+    font-size: 36px;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 12px;
+}
 .page-banner-cont .breadcrumb{
     margin: 0;
     background: none;
@@ -2537,7 +2579,7 @@ p {
 .corses-singel-left .course-terms{}
 .corses-singel-left .course-terms > ul > li{
     display: inline-block;
-    margin-right: 60px;
+    margin-right: 20px;
 }
 .corses-singel-left .course-terms > ul li:last-child{
     margin-right: 0;
@@ -2558,6 +2600,20 @@ p {
 }
 .corses-singel-left .course-terms ul li .teacher-name .name{
     padding-left: 60px;
+}
+/* custom thong tin giang vien trong course detail */
+ .singel-makelike .name{
+    margin-top: 20px;
+    font-size: 32px;
+    font-style: bold;
+   
+}
+
+.singel-makelike .name span{
+    color: #8a8a8a;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .corses-singel-left .course-terms ul li .review span,
@@ -2585,15 +2641,15 @@ p {
     color: #ffc600;
 }
 .corses-singel-left .course-terms ul li .review ul li.rating{
-    font-size: 14px;
+    font-size: 12px;
     color: #000;
     font-weight: 600;
-    margin-left: 13px;
+    margin-left: 10pxpx;
 }
 
 .corses-singel-image{}
 .corses-singel-image img{
-    width: 100%;
+    /* width: 100%; */
 }
 
 .corses-tab{
@@ -2662,6 +2718,9 @@ p {
 	display: block;
     padding: 15px 15px;
     background-color: #edf0f2;
+}
+.curriculam-cont .accordion .card .card-header li a {
+    display: flex;
 }
 .curriculam-cont .accordion .card .card-header a.collapsed{
     background-color: #fff;
@@ -2753,7 +2812,7 @@ p {
     color: #8a8a8a;
 }
 .instructor-cont .instructor-author .author-name .social{
-    padding-top: 25px;
+    padding-top: 20px;
 }
 .instructor-cont .instructor-author .author-name .social li{
     display: inline-block;
@@ -2772,6 +2831,29 @@ p {
     transition: all 0.4s linear;
 }
 .instructor-cont .instructor-author .author-name .social li a:hover{
+    background-color: #fff;
+    color: #24486e;
+}
+.singel-makelike .social{
+    padding-top: 20px;
+}
+.singel-makelike .social li{
+    display: inline-block;
+    margin-right: 8px;
+}
+.singel-makelike .social li a{
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    line-height: 33px;
+    border: 1px solid #24486e;
+    background-color: #24486e;
+    color: #fff;
+    text-align: center;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+.singel-makelike .social li a:hover{
     background-color: #fff;
     color: #24486e;
 }
@@ -2902,14 +2984,13 @@ p {
 
 .course-features{
     background-color: #fff;
-    padding: 30px 35px;
+    padding: 35px 30px;
     border-radius: 5px;
 }
 .course-features h4,
 .You-makelike h4{
     font-size: 24px;
     color: #07294d;
-    padding-bottom: 15px;
 }
 .course-features ul{}
 .course-features ul li{
@@ -2933,13 +3014,26 @@ p {
 
 .course-features .price-button{
     overflow: hidden;
+    
+   
 }
 .course-features .price-button span{
-    font-size: 18px;
+    font-size: 16px;
     color: #24486e;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-top: 12px;
+}
+.course-features .price-button .heart{
+    margin-left: 10px;
+    /* font-size: 18px;
+    color: #24486e;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-top: 12px; */
+}
+.course-features .price-button a li:hover{
+    color: yellow;
 }
 .course-features .price-button span b{
     color: #ffc600;
@@ -3213,7 +3307,7 @@ p {
     color: #474b8c;
 }
 
-.teachers-left .description{
+.singel-makelike .description{
     padding-top: 20px;
 }
 

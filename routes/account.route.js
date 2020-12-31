@@ -9,6 +9,12 @@ const session = require('../middlewares/session.mdw');
 const router = express.Router();
 
 router.get('/login', async function (req, res) {
+  // if (req.headers.referer) {
+  //   req.session.retUrl = ref;
+  // }
+  const ref = req.headers.referer;
+  req.session.retUrl = ref;
+
   res.render('vwAccount/login');
 })
 
@@ -25,15 +31,15 @@ router.post('/login', async function (req, res) {
   req.session.isAuth = true;
   req.session.authUser = user;
 
-  //let url = req.session.retUrl || '/';
-  //res.redirect('/login');
-
-  let url = '/';
+  let url = req.session.retUrl || '/';
   res.redirect(url);
-
-  //res.render('home');
 })
 
+router.post('/logout', async function (req, res) {
+  req.session.isAuth = false;
+  req.session.authUser = null;
+  res.redirect(req.headers.referer);
+})
 
 router.get('/register', async function (req, res) {
   res.render('vwAccount/register');
