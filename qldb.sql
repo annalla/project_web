@@ -42,7 +42,7 @@ CREATE TABLE `infor_teacher` (
   `f_ID` int(11) NOT NULL,
   `job` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `brief` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `intro` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`f_infor`),
   FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -51,7 +51,7 @@ CREATE TABLE `infor_teacher` (
 -- Records of infor_teacher
 -- ----------------------------
 BEGIN;
-INSERT INTO `infor_teacher` VALUES (1, 1,'Giảng viên','t-1','Chuyên ngành ...');
+INSERT INTO `infor_teacher` VALUES (1, 1,'Giảng viên','t-1.jpg','Chuyên ngành ...');
 COMMIT;
 -- ----------------------------
 -- Table structure for aspects_level1
@@ -126,15 +126,13 @@ CREATE TABLE `courses` (
   `TeacherID` int(11) unsigned NOT NULL,
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `small_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `big_image` varchar(50) COLLATE utf8_unicode_ci ,
-  `brief` varchar(500) COLLATE utf8_unicode_ci ,
-  `description` varchar(10000) COLLATE utf8_unicode_ci ,
+  `brief` varchar(5000) COLLATE utf8_unicode_ci ,
   `fee` decimal(15,2) NOT NULL,
   `discount` decimal(15,2),
-  `evalue` float(20) ,
+  `evalue` decimal(15,1),
   `num_evalue` int(11) NOT NULL,
   `num_join` int (11) NOT NULL,
-  `time` TIME,
+  `date` date,
   `num_lecture` int(11),
   `status` int ,
   PRIMARY KEY (`CourseID`),
@@ -148,61 +146,12 @@ ADD FOREIGN KEY (`ID_aspect`) REFERENCES `aspects_level2`(`ID_aspect`);
 -- ----------------------------
 
 BEGIN;
-INSERT INTO `courses` VALUES (1, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (2, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.71,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (3, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.72,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (4, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.73,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (5, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.74,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (6, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.75,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (7, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.76,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (8, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.77,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (9, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.78,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (10, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.79,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (11, 6,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.98,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (12, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.95,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (13, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (14, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (15, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (16, 3,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (17, 2,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (18, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (19, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (20, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (21, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (22, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (23, 6,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (24, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (25, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (26, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (27, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (28, 3,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (29, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (30, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (31, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (32, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (33, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (34, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (35, 6,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (36, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (37, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (38, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (39, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (40, 3,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (41, 2,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (42, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (43, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (44, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (45, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (46, 1,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (47, 6,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (48, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (49, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (50, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (51, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (52, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (53, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-INSERT INTO `courses` VALUES (54, 5,1,'Learn basis javascirpt from start for beginner','course1',NULL,NULL,NULL,5.7,3.7,NULL,0,0,NULL,NULL,0);
-
+INSERT INTO `courses` VALUES (1, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.7,3.7,4.7,32,53,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (2, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.9,0,4.7,52,53,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (3, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',6,3.7,4.7,43,12,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (4, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.,3.7,4.7,39,31,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (5, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.8,0.7,4.7,21,13,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (6, 1,1,'Học lập trình C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',9,7.7,4.7,69,83,'2020/12/12',11,1);
 COMMIT;
 
 

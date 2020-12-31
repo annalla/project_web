@@ -1,6 +1,7 @@
 const express = require('express');
 const courseModel = require('../models/course.model');
 const config=require("../config/default.json");
+const moment=require('moment');
 
 const router = express.Router();
 router.get('/', async function (req, res) {
@@ -24,6 +25,7 @@ router.get('/', async function (req, res) {
     const rows1 =await courseModel.caterogy1(0);
     const rows2 =await courseModel.caterogy2(0);
     const rows = await courseModel.pageByAll(offset);
+    
   res.render('vwCourses/course', {
     courses: rows,
     category:rows1,
@@ -53,7 +55,7 @@ router.get('/', async function (req, res) {
 
 
 router.get('/aspect/:id', async function (req, res) {
-  const catId = req.params.id;  
+  const catId = +req.params.id;  
     // console.log(catId);
   try{
     const total= await courseModel.countPageByCat1(catId);
@@ -102,7 +104,7 @@ router.get('/aspect/:id', async function (req, res) {
   }
 });
 router.get('/small_aspect/:id', async function (req, res) {
-  const catId = req.params.id;  
+  const catId = +req.params.id;  
   // console.log(catId);
   try{
     const total= await courseModel.countPageByCat2(catId);
@@ -155,10 +157,16 @@ router.get('/small_aspect/:id', async function (req, res) {
 });
 
 router.get('/details', async function (req, res) {
+  const id=+req.query.id;
   try{
-    // const rows = await courseModel.pageByAll(offset);
+    // console.log(id);
+    const rows = await courseModel.single(id);
+    const datetime= await courseModel.getdateById(id);
+    // console.log(datetime);
+    const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
     res.render('vwCourses/courseDetail', {
-      
+      course:rows,
+      dm:lastt,
     })
   }
   catch (err) {

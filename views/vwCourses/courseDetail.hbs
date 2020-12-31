@@ -1,16 +1,17 @@
+{{#with this.course}}
 
   
-    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-2.jpg)">
+    <section id="page-banner" class="pt-30 pb-110 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-2.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-cont">
-                        <h2>Learn basic javascript</h2>
+                        <h4>{{title}}</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Courses</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Learn basic javasript</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
                             </ol>
                         </nav>
                     </div>  <!-- page banner cont -->
@@ -29,25 +30,25 @@
                 <div class="col-lg-8">
                     <div class="corses-singel-left mt-30">
                         <div class="title">
-                            <h3>Learn basis javascirpt from start for beginner</h3>
+                            <h3>{{title}}</h3>
                         </div> <!-- title -->
                         <div class="course-terms">
                             <ul>
                                 <li>
                                     <div class="teacher-name">
                                         <div class="thum">
-                                            <img src="/public/images/course/teacher/t-1.jpg" alt="Teacher">
+                                            <img src="/public/images/instructor/{{image}}" alt="Teacher" style="width: 40px;height:40px">
                                         </div>
                                         <div class="name">
                                             <span>Teacher</span>
-                                            <h6>Mark anthem</h6>
+                                            <h6>{{f_Fullname}}</h6>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="course-category">
                                         <span>Category</span>
-                                        <h6>Programaming </h6>
+                                        <h6>{{name_level1}} </h6>
                                     </div>
                                 </li>
                                 <li>
@@ -59,7 +60,7 @@
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                                             <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li class="rating">(20 Reviws)</li>
+                                            <li class="rating">{{evalue}}({{num_evalue}} Đánh giá)</li>
                                         </ul>
                                     </div>
                                 </li>
@@ -67,19 +68,19 @@
                         </div> <!-- course terms -->
                         
                         <div class="corses-singel-image pt-50">
-                            <img src="/public/images/course/cu-1.jpg" alt="Courses">
+                            <img src="/public/images/course/{{small_image}}" alt="Courses">
                         </div> <!-- corses singel image -->
                         
                         <div class="corses-tab mt-30">
                             <ul class="nav nav-justified" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                                    <a class="active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Curriculam</a>
+                                    <a id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Nội dung</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Instructor</a>
+                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item">
                                     <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
@@ -89,14 +90,25 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
                                     <div class="overview-description">
-                                        <div class="singel-description pt-40">
+                                        {{{brief}}}
+                                        {{!-- <div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Tạo chương trình trong C</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Mảng chính và con trỏ.</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Tạo và sử dụng các chức năng.</div>
+                                            <div>&nbsp;&nbsp;-   &nbsp; Tạo mô-đun để chia sẻ chúng.</div> --}}
+                                        {{!-- <div class="singel-description pt-40">
+                                            
                                             <h6>Course Summery</h6>
                                             <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
                                         </div>
                                         <div class="singel-description pt-40">
                                             <h6>Requrements</h6>
                                             <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
-                                        </div>
+                                        </div> --}}
                                     </div> <!-- overview description -->
                                 </div>
                                 <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
@@ -107,14 +119,16 @@
                                         <div class="accordion" id="accordionExample">
                                             <div class="card">
                                                 <div class="card-header" id="headingOne">
-                                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                                                         <ul>
                                                             <li><i class="fa fa-file-o"></i></li>
                                                             <li><span class="lecture">Lecture 1.1</span></li>
-                                                            <li><span class="head">What is javascirpt</span></li>
+                                                            <li><span class="head">what is javascript </span></li>
                                                             <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> 00.30.00</span></span></li>
                                                         </ul>
                                                     </a>
+                                                    {{!-- <li><a href="#">Details</a></li>
+                                                     --}}
                                                 </div>
 
                                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -126,7 +140,7 @@
                                             
                                             <div class="card">
                                                 <div class="card-header" id="headingTow">
-                                                    <a href="#" data-toggle="collapse" class="collapsed" data-target="#collapseTow" aria-expanded="true" aria-controls="collapseTow">
+                                                    <a href="/courses" data-toggle="collapse" class="collapsed" data-target="#collapseTow" aria-expanded="true" aria-controls="collapseTow">
                                                         <ul>
                                                             <li><i class="fa fa-file-o"></i></li>
                                                             <li><span class="lecture">Lecture 1.2</span></li>
@@ -134,6 +148,7 @@
                                                             <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> 00.30.00</span></span></li>
                                                         </ul>
                                                     </a>
+                                                    
                                                 </div>
 
                                                 <div id="collapseTow" class="collapse" aria-labelledby="headingTow" data-parent="#accordionExample">
@@ -233,17 +248,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="price-button pt-10">
+                                    <span><a href="#" class="main-btn">Start</a></span>
+                                   
+                                    {{!-- <a href="#" class="main-btn">Thêm vào giỏ</a> --}}
+                                </div>
                                     </div> <!-- curriculam cont -->
                                 </div>
                                 <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                     <div class="instructor-cont">
                                         <div class="instructor-author">
                                             <div class="author-thum">
-                                                <img src="images/instructor/i-1.jpg" alt="Instructor">
+                                                <img src="/public/images/instructor/{{image}}" alt="Instructor"style="width: 150px;height:150px">
                                             </div>
                                             <div class="author-name">
-                                                <a href="#"><h5>Sumon Hasan</h5></a>
-                                                <span>Senior WordPress Developer</span>
+                                                <a href="#"><h5>{{f_Fullname}}</h5></a>
+                                                <span>{{job}}</span>
                                                 <ul class="social">
                                                     <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -253,7 +273,7 @@
                                             </div>
                                         </div>
                                         <div class="instructor-description pt-25">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus fuga ratione molestiae unde provident quibusdam sunt, doloremque. Error omnis mollitia, ex dolor sequi. Et, quibusdam excepturi. Animi assumenda, consequuntur dolorum odio sit inventore aliquid, optio fugiat alias. Veritatis minima, dicta quam repudiandae repellat non sit, distinctio, impedit, expedita tempora numquam?</p>
+                                            {{intro}}
                                         </div>
                                     </div> <!-- instructor cont -->
                                 </div>
@@ -398,62 +418,85 @@
                             <div class="course-features mt-30">
                                <h4>Course Features </h4>
                                 <ul>
-                                    <li><i class="fa fa-clock-o"></i>Duaration : <span>10 Hours</span></li>
-                                    <li><i class="fa fa-clone"></i>Leactures : <span>09</span></li>
-                                    <li><i class="fa fa-beer"></i>Quizzes :  <span>05</span></li>
-                                    <li><i class="fa fa-user-o"></i>Students :  <span>100</span></li>
+                                    
+                                    <li><i class="fa fa-clone"></i>Bài giảng : <span>{{num_lecture}}</span></li>
+                                    {{!-- <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{lasttime/span></li> --}}
+                                    {{/with}}
+                                     <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{this.dm}}</span></li>
+                                    {{#with this.course}}
+                                    <li><i class="fa fa-user-o"></i>Học viên :  <span>{{num_join}}</span></li>
                                 </ul>
-                                <div class="price-button pt-10">
-                                    <span>Price : <b>$25</b></span>
-                                    <a href="#" class="main-btn">Enroll Now</a>
+                                {{#if discount}}
+                                    <div class="price-button pt-10">
+                                    <span>Price : <b><strike>${{fee}}</strike></b></span>
+                                    <span style="margin-left: 60px;">Discount : <b>${{discount}}</b></span>
                                 </div>
+                                {{else}}
+                                
+                                <div class="price-button pt-10">
+                                    <span>Price : <b>${{fee}}</b></span>
+                                   
+                                </div>
+                               {{/if}}
+                                 <div class="price-button pt-10">
+                                    <span><a href="#" class="main-btn">Mua ngay</a></span>
+                                    <a href="#" class="main-btn" style="margin-top: 12px ">Thêm vào giỏ</a>
+                                </div>
+                                <div class="price-button pt-10" >
+                                    <span>      
+                                         <a href="#" class="main1-btn"  >Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></a>
+                                    </span>                                    
+                                </div>
+
                             </div> <!-- course features -->
                         </div>
                         <div class="col-lg-12 col-md-6">
                             <div class="You-makelike mt-30">
-                                <h4>You make like </h4> 
+                                <h4>Life is a story</h4> 
+                                <h4>Learn is a best way</h4> 
                                 <div class="singel-makelike mt-20">
                                     <div class="image">
                                         <img src="/public/images/your-make/y-1.jpg" alt="Image">
                                     </div>
-                                    <div class="cont">
+                                    {{!-- <div class="cont">
                                         <a href="#"><h4>Introduction to machine languages</h4></a>
                                         <ul>
                                             <li><a href="#"><i class="fa fa-user"></i>31</a></li>
                                             <li>$50</li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="singel-makelike mt-20">
                                     <div class="image">
                                         <img src="/public/images/your-make/y-1.jpg" alt="Image">
                                     </div>
-                                    <div class="cont">
+                                    {{!-- <div class="cont">
                                         <a href="#"><h4>How to build a basis game with java </h4></a>
                                         <ul>
                                             <li><a href="#"><i class="fa fa-user"></i>31</a></li>
                                             <li>$50</li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="singel-makelike mt-20">
                                     <div class="image">
                                         <img src="/public/images/your-make/y-1.jpg" alt="Image">
                                     </div>
-                                    <div class="cont">
+                                    {{!-- <div class="cont">
                                         <a href="#"><h4>Basic accounting from primary</h4></a>
                                         <ul>
                                             <li><a href="#"><i class="fa fa-user"></i>31</a></li>
                                             <li>$50</li>
                                         </ul>
+                                    </div> --}}
                                     </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- row -->
-            <div class="row">
+            {{!-- <div class="row">
                 <div class="col-lg-8">
                     <div class="releted-courses pt-95">
                         <div class="title">
@@ -535,12 +578,209 @@
                                 </div> <!-- singel course -->
                             </div>
                         </div> <!-- row -->
-                    </div> <!-- releted courses -->
+                    </div> <!-- releted courses --> --}}
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-    
+    {{/with}}
     <!--====== COURSES SINGEl PART ENDS ======-->
-   
-    
+   <section id="course-part" class="pb-120 gray-bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title pb-45">
+                        
+                        <h2>Khóa học liên quan </h2>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row course-slied mt-30">
+                <div class="col-lg-4">
+                    <div class="singel-course">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="/public/images/course/cu-1.jpg" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>Free</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>(20 Reviws)</span>
+                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="/public/images/course/teacher/t-1.jpg" alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="#"><h6>Mark anthem</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="/public/images/course/cu-2.jpg" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>Free</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>(20 Reviws)</span>
+                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="/public/images/course/teacher/t-2.jpg" alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="#"><h6>Mark anthem</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/course/cu-3.jpg" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>Free</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>(20 Reviws)</span>
+                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="#"><h6>Mark anthem</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/course/cu-4.jpg" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>Free</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>(20 Reviws)</span>
+                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="images/course/teacher/t-4.jpg" alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="#"><h6>Mark anthem</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="singel-course">
+                        <div class="thum">
+                            <div class="image">
+                                <img src="images/course/cu-5.jpg" alt="Course">
+                            </div>
+                            <div class="price">
+                                <span>Free</span>
+                            </div>
+                        </div>
+                        <div class="cont">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span>(20 Reviws)</span>
+                            <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <div class="course-teacher">
+                                <div class="thum">
+                                    <a href="#"><img src="/public/images/course/teacher/t-5.jpg" alt="teacher"></a>
+                                </div>
+                                <div class="name">
+                                    <a href="#"><h6>Mark anthem</h6></a>
+                                </div>
+                                <div class="admin">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- singel course -->
+                </div>
+            </div> <!-- course slied -->
+        </div> <!-- container -->
+    </section>
