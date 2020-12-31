@@ -4,27 +4,41 @@ const TBL_CATEGORIES1 = 'aspects_level1';
 const TBL_CATEGORIES2 = 'aspects_level2';
 
 module.exports = {
-  all1() {
-    return db.load(`select * from ${TBL_CATEGORIES1}`);
+   async all1() {
+    return await db.load(`select * from aspects_level1`);
   },
-  all2() {
-    return db.load(`select * from ${TBL_CATEGORIES2}`);
+  async all2() {
+    return await db.load(`select * from ${TBL_CATEGORIES2}`);
   },
-  allWithDetails() {
+  async count1() {
+    const rows= await db.load(`select count(*) as t from aspects_level1`);
+    return rows[0].t;
+  },
+  ById2(id) {
     const sql = `
       select * 
-      from ${TBL_CATEGORIES1} c left join ${TBL_CATEGORIES2} p on c.ID_aspect1 = p.ID_aspect1
+      from ${TBL_CATEGORIES2} where ID_aspect1 = ${id}
     `;
     return db.load(sql);
   },
-
-  async single(id) {
-    const rows = await db.load(`select * from ${TBL_CATEGORIES} where CatID = ${id}`);
-    if (rows.length === 0)
-      return null;
-
-    return rows[0];
+  ById1(id) {
+    const sql = `
+      select * 
+      from ${TBL_CATEGORIES1} where ID_aspect1 = ${id}
+    `;
+    return db.load(sql);
   },
+  
+    // console.log(t[0].total);
+    // const i=3;
+    // const value
+  // async single(id) {
+  //   const rows = await db.load(`select * from ${TBL_CATEGORIES} where CatID = ${id}`);
+  //   if (rows.length === 0)
+  //     return null;
+
+  //   return rows[0];
+  // },
 
   add(entity) {
     return db.add(entity, TBL_CATEGORIES)

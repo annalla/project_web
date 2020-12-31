@@ -37,6 +37,7 @@ router.get('/register', async function (req, res) {
 
 router.post('/register', async function (req, res) {
   const hash = bcrypt.hashSync(req.body.f_Password, 10);
+  console.log(hash);
   const user = {
     
     f_Password: hash,
@@ -45,9 +46,10 @@ router.post('/register', async function (req, res) {
     f_Permission: 0,
     f_Type: 1
   }
-
+  console.log(user);
   await userModel.add(user);
-  res.render('vwAccount/register');
+  // res.render('vwAccount/register');
+  res.render('home');
 })
 
 //kiểm tra tài khoản có sẵn qua email
