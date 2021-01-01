@@ -126,7 +126,7 @@ CREATE TABLE `courses` (
   `CourseID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ID_aspect` int(11) unsigned NOT NULL,
   `TeacherID` int(11) unsigned NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) COLLATE utf8_general_ci NOT NULL,
   `small_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `brief` varchar(5000) COLLATE utf8_unicode_ci ,
   `fee` decimal(15,2) NOT NULL,
