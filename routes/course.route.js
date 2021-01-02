@@ -1,12 +1,13 @@
 const express = require('express');
 const courseModel = require('../models/course.model');
+const joinModel = require('../models/join.model');
 const config=require("../config/default.json");
 const moment=require('moment');
 
 const router = express.Router();
+//phân trang course
 router.get('/', async function (req, res) {
   try{
-
   const total= await courseModel.countPageByAll();
   let nPages=Math.ceil(total/config.pagination.limit);
   const page_items=[];
@@ -53,7 +54,7 @@ router.get('/', async function (req, res) {
   }
 });
 
-
+//phân trang lĩnh vực cấp 1
 router.get('/aspect/:id', async function (req, res) {
   const catId = +req.params.id;  
     // console.log(catId);
@@ -103,14 +104,13 @@ router.get('/aspect/:id', async function (req, res) {
     res.send('View error log at server console.');
   }
 });
+//phân trang lĩnh vực cấp 2
 router.get('/small_aspect/:id', async function (req, res) {
   const catId = +req.params.id;  
-  // console.log(catId);
   try{
     const total= await courseModel.countPageByCat2(catId);
   let nPages=Math.ceil(total/config.pagination.limit);
   const page_items=[];
-  // console.log(nPages);
   for(i=1;i<=nPages;i++)
   {
     const item=
@@ -125,9 +125,7 @@ router.get('/small_aspect/:id', async function (req, res) {
 
   const rows2 =await courseModel.caterogy2(catId);
   const rows1 =await courseModel.caterogy1(0);
-  // console.log(total);
   const rows = await courseModel.pageByCat2(catId,offset);
-  // console.log(rows);
   res.render('vwCourses/course', {
     courses: rows,
     category:rows2,
@@ -146,8 +144,6 @@ router.get('/small_aspect/:id', async function (req, res) {
     n2:nPages-1===page,
     n1:nPages===page,
     maxThan3:nPages>=4,
-    
-
   })
   }
   catch (err) {
@@ -155,7 +151,7 @@ router.get('/small_aspect/:id', async function (req, res) {
     res.send('View error log at server console.');
   }
 });
-
+// Chi tiết khoa học
 router.get('/details', async function (req, res) {
   const id=+req.query.id;
   try{
@@ -170,10 +166,18 @@ router.get('/details', async function (req, res) {
         layout: false
       });
     }
+    let isBought=false;
+    if(req.session.isAuth)
+    {
+      if( await joinModel.isJoin(req.session.authUser.f_ID,id))
+      isBought=true;
+    }
     res.render('vwCourses/courseDetail', {
       course:rows,
       dm:lastt,
-      related:c5
+      related:c5,
+      isPurchased:isBought,
+      issAuth:req.session.isAuth,
     })
   }
   catch (err) {
@@ -181,7 +185,7 @@ router.get('/details', async function (req, res) {
     res.send('View error log at server console.');
   }
 });
-
+//full text search
 router.get('/search', async function (req, res) {
   try{
     const page=1;

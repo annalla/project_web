@@ -39,6 +39,7 @@ router.post('/login', async function (req, res) {
   req.session.authId = id;
   req.session.authPermission = permission;
   req.session.authType = type;
+  req.session.cart=[];
   if(+permission===1)
   {
     res.redirect('/admin');
@@ -61,6 +62,7 @@ router.post('/logout', async function (req, res) {
   req.session.id = null;
   req.session.permission = 0;
   req.session.teacher = 0;
+  req.session.cart=[];
   res.redirect(req.headers.referer);
 })
 
@@ -98,6 +100,6 @@ router.get('/is-available', async function (req, res) {
 router.get('/profile', auth, async function (req, res) {
   res.render('vwAccount/profile');
 })
-
+//
 
 module.exports = router;

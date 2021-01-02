@@ -1,0 +1,201 @@
+{{#section 'js'}}
+<script>
+  $('.removeItem').on('click', function () {
+    const id = $(this).data('id');
+    $('#txtProId').val(id);
+    $('#frmRemoveItem').submit();
+  });
+</script>
+{{/section}}
+
+    <!--====== PAGE BANNER PART START ======-->
+<form id="frmRemoveItem" action="/yourCart/remove" method="POST">
+    <input type="hidden" name="id" id="txtProId">
+  </form>
+    <section id="page-banner" class="pt-30 pb-130 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-3.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>Your Profile</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Your profile</li>
+                            </ol>
+                        </nav>
+                    </div> <!-- page banner cont -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== PAGE BANNER PART ENDS ======-->
+
+    <!--====== TEACHERS PART START ======-->
+    
+    <section id="teachers-singel" class="pt-20 pb-120 gray-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8">
+                    <div class="teachers-left mt-50">
+                        {{#if isTeacher}}
+                        <div class="hero">
+                            <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                        </div>
+                        <div class="name">
+                            <h6>Mark alen</h6>
+                            <span>Vice chencelor</span>
+                        </div>
+                        
+                            <div class="social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                            </ul>
+                            </div>
+                            <div class="description">
+                                <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
+                            </div>
+                            {{else}}
+                             <div class="hero">
+                                <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                            </div>
+                            <div class="name">
+                                <h6>Mark alen</h6>
+                            </div>
+                        {{/if}}
+                        
+                    </div> <!-- teachers left -->
+                </div>
+                <div class="col-lg-8">
+                    <div class="teachers-right mt-50">
+                        <ul class="nav nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Thông tin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Khóa học của tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  id="lovecourses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Danh sách yêu thích</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="active"  id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Giỏ hàng</a>
+                            </li>
+                        </ul> <!-- nav -->
+                        <div class="tab-content" id="myTabContent">
+                            {{!-- <div class="tab-pane fade " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                                <div class="dashboard-cont">
+                                    <div class="singel-dashboard pt-40">
+                                        <h5>About</h5>
+                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                    </div> <!-- singel dashboard -->
+                                    <div class="singel-dashboard pt-40">
+                                        <h5>Acchivments</h5>
+                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                    </div> <!-- singel dashboard -->
+                                    <div class="singel-dashboard pt-40">
+                                        <h5>My Objective</h5>
+                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                    </div> <!-- singel dashboard -->
+                                </div> <!-- dashboard cont -->
+                            </div> --}}
+                            {{!-- <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+                                <div class="courses-cont pt-20">
+                                    <div class="row">
+                                        <div class="col-md-6" >
+                                            <div class="singel-course mt-30">
+                                                <div class="thum">
+                                                    <div class="image">
+                                                        <img src="/public/images/course/cu-2.jpg" alt="Course" style="height:140px">
+                                                    </div>
+                                                
+                                                </div>
+                                                <div class="cont border" style="padding:0px 15px">
+                                                    <div class="admin" style="display: block;margin: 0px">
+                                                            <ul>
+                                                                <li ><a href="#"><i class="fa fa-user" style="margin: 5px"></i><span>31</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    <a href="#"><h4 style="padding: 0px; font-size:16px">Learn basis javascirpt from start for beginner</h4></a>
+                                                    
+                                                    <div class="course-teacher" style="padding:  5px 0px;">
+                                                        <div class="thum">
+                                                            <a href="#"><img src="/public/images/course/teacher/t-2.jpg" alt="teacher"style="width: 30px;height:30px"></a>
+                                                        </div>
+                                                        <div class="name">
+                                                            <a href="#"><h6 style="padding:0px;font-size:12px">Mark anthem</h6></a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div> <!-- singel course -->
+                                        </div>
+                                        
+                                    </div> <!-- row -->
+                                </div> <!-- courses cont -->
+                            </div> --}}
+                            <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                               {{#unless this.empty}}
+                                <div class="reviews-cont" style="padding: 5px;">
+                                    <ul>
+                                        {{#each items}}
+                                            
+                                        
+                                       <li>
+                                           <div class="singel-reviews"style="padding: 5px;" >
+                                                <div class="reviews-author">
+                                                    <div class="author-thum">
+                                                        <img src="/public/images/course/{{course.small_image}}" alt="Reviews" style="width: 100px;height:80px">
+                                                    </div>
+                                                    <div class="author-name" style="width: 80%;">
+                                                        <h6><a href="/courses/details?id={{course.CourseID}}">{{course.title}} </a></h6>
+                                                        <span>Giá:<b>&nbsp; {{amount}}$</b> </span>
+                                                    </div>
+                                                    <div style="width: 15%;" class="text-right">
+                                                        <a data-id="{{course.CourseID}}" class="btn btn-sm btn-outline-danger removeItem " href="javascript:;"  role="button"
+                                                        title="Remove Item">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                        
+                                                </div>
+                                               
+                                            </div> <!-- singel reviews -->
+                                       </li>
+                                      {{/each}}
+                                      <li>
+                                          <div style="width: 90%;" class="text-right" >
+                                                    <h5 style="padding-top:5px">Total: &nbsp;{{this.sum}}$</h5>    
+                                            </div>
+                                      </li>
+                                    </ul>
+                                   
+                                    <div class="reviews-form">
+                                        <form action="/yourCart/checkout" method="POST" >
+                                                <div class="row " >
+                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="form-singel text-right">
+                                                            <button type="submit" class="main-btn" >Mua hàng</button>
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- row -->
+                                            </form>
+                                    </div>
+                                </div> <!-- reviews cont -->
+                                {{/unless}}
+                            </div>
+                        </div> <!-- tab content -->
+                    </div> <!-- teachers right -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== EVENTS PART ENDS ======-->
+
+    

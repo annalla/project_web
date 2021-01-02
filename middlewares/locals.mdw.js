@@ -1,16 +1,17 @@
-// const cartModel = require('../models/cart.model');
+const cartModel = require('../models/cart.model');
 const categoryModel = require('../models/category.model');
 
 module.exports = function (app) {
   app.use(async function (req, res, next) {
     if (typeof (req.session.isAuth) === 'undefined') {
       req.session.isAuth = false;
-      //req.session.cart = [];
+      req.session.cart = [];
     }
     res.locals.isAuth = req.session.isAuth;
     res.locals.authUser = req.session.authUser;
     res.locals.isAdmin=false;
     res.locals.isTeacher=false;
+    res.locals.cartSummary=0;
     if(req.session.isAuth)
     {
       if(+req.session.authPermission===1)
@@ -20,8 +21,16 @@ module.exports = function (app) {
       else if(+req.session.authType===2){
         res.locals.isTeacher=true;
       }
+      req.session.cart=await cartModel.getCart(req.session.authUser.f_ID);
+
+      // req.session.cart=[];
+      // console.log( req.session.cart);
+      res.locals.cartSummary = cartModel.getNumberOfItems(req.session.cart);
+      // console.log(res.locals.cartSummary);
     }
-    //res.locals.cartSummary = cartModel.getNumberOfItems(req.session.cart)
+    
+    
+    
     next();
   })
 

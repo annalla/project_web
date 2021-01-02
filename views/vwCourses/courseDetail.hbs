@@ -1,3 +1,20 @@
+{{#section 'js'}}
+<script>
+  $('#frmAddCart').on('submit', function (e) {
+    const id = $('#id').val();
+
+    $.getJSON(`/yourCart/checkAdd?id=${id}`, function (data) {
+      if (data === true) {       
+        $('#frmAddCart').off('submit').submit();
+        alert('Trong giỏ đã tồn tại khóa học này! '); 
+      } else {
+           
+       
+      }
+    })
+  });
+</script>
+{{/section}} 
 {{!-- 369px x height 251px --}}
 {{#with this.course}}
 
@@ -439,15 +456,39 @@
                                    
                                 </div>
                                {{/if}}
-                                 <div class="price-button pt-10">
-                                    <span><a href="#" class="main-btn">Mua ngay</a></span>
-                                    <a href="#" class="main-btn" style="margin-top: 12px ">Thêm vào giỏ</a>
-                                </div>
+                               
+                                {{/with}}
+                                {{#if this.issAuth}}
+                                {{#unless this.isPurchased}}
+                                    <div class="price-button pt-10">
+                                        {{#with this.course}}
+                                        <span>
+                                            <form action="/cart/add" method="POST">
+                                                <input type="hidden" value="{{CourseID}}" name="id">
+                                                <button class="main-btn" style="margin-top: 12px " type="summit">Mua ngay</button>
+                                            </form>
+                                        </span>
+                                        <span>
+                                            <form action="/yourCart/add" method="POST" id="frmAddCart">
+                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                                <button class="main-btn" style="margin-top: 12px " type="summit">Thêm vào giỏ</button>
+                                            </form>
+                                        </span>
+                                        
+                                    </div>
+                                    {{/with}}
+                                
+                                  {{/unless}}
                                 <div class="price-button pt-10" >
-                                    <span>      
-                                         <a href="#" class="main1-btn"  >Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></a>
-                                    </span>                                    
+                                    <form action="/art/add" method="POST">
+                                            <input type="hidden" value="{{CourseID}}" name="id">
+                                            <buttom class="main1-btn"  >Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></buttom>
+                                    </form>
+                                                                  
                                 </div>
+                               
+                                 {{/if}}
+                                 {{#with this.course}}
 
                             </div> <!-- course features -->
                         </div>

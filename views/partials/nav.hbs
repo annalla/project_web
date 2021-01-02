@@ -293,7 +293,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
-                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                                <li><a href="/yourCart"><i class="fa fa-shopping-bag"></i><span>{{cartSummary}}</span></a></li>
                                 <li>
                                      <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -321,9 +321,9 @@
                      {{else}}
                          <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
-                            <ul>
+                            {{!-- <ul>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                            </ul>
+                            </ul> --}}
                         </div> <!-- right icon -->
                     </div>
                      {{/if}}

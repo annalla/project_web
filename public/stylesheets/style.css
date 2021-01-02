@@ -1551,7 +1551,7 @@ p {
     background-color: #fff;
     border-radius: 5px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
 }
 .singel-teachers .cont a{
     display: block;
@@ -3036,6 +3036,9 @@ p {
     margin-top: 12px; */
 }
 .course-features .price-button a li:hover{
+    color: yellow;
+}
+.course-features .price-button form button li:hover{
     color: yellow;
 }
 .course-features .price-button span b{
