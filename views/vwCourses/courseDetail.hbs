@@ -2,14 +2,27 @@
 <script>
   $('#frmAddCart').on('submit', function (e) {
     const id = $('#id').val();
-
+    e.preventDefault();
     $.getJSON(`/yourCart/checkAdd?id=${id}`, function (data) {
-      if (data === true) {       
+      if (data === false) {       
         $('#frmAddCart').off('submit').submit();
-        alert('Trong giỏ đã tồn tại khóa học này! '); 
       } else {
-           
+        alert('Trong giỏ đã tồn tại khóa học này! ');    
        
+      }
+    })
+  });
+  $('#frmAddCourse').on('submit', function (e) {
+    const id = $('#id').val();
+  });
+  $('#frmFC').on('submit', function (e) {
+    const id = $('#id').val();
+    e.preventDefault();
+    $.getJSON(`/myFavoriteCourse/checkAdd?id=${id}`, function (data) {
+      if (data === false) {       
+        $('#frmFC').off('submit').submit();
+      } else {
+          alert('Trong danh sách yêu thích đã tồn tại khóa học này! '); 
       }
     })
   });
@@ -98,7 +111,7 @@
                                     <a id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Nội dung</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Giới thiệu</a>
+                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Giảng viên</a>
                                 </li>
                                 <li class="nav-item">
                                     <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
@@ -463,8 +476,8 @@
                                     <div class="price-button pt-10">
                                         {{#with this.course}}
                                         <span>
-                                            <form action="/cart/add" method="POST">
-                                                <input type="hidden" value="{{CourseID}}" name="id">
+                                            <form action="/myCourse/add" method="POST" id="frmAddCourse">
+                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
                                                 <button class="main-btn" style="margin-top: 12px " type="summit">Mua ngay</button>
                                             </form>
                                         </span>
@@ -479,17 +492,16 @@
                                     {{/with}}
                                 
                                   {{/unless}}
-                                <div class="price-button pt-10" >
-                                    <form action="/art/add" method="POST">
-                                            <input type="hidden" value="{{CourseID}}" name="id">
-                                            <buttom class="main1-btn"  >Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></buttom>
-                                    </form>
-                                                                  
+                                  {{#with this.course}}
+                                    <div class="price-button pt-10" >
+                                        <form action="/myFavoriteCourse/add" method="POST" id="frmFC">
+                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                                <button type="submit"class="main1-btn">Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></button>
+                                        </form>    
+                                    {{/with}}                                        
                                 </div>
-                               
                                  {{/if}}
                                  {{#with this.course}}
-
                             </div> <!-- course features -->
                         </div>
                         <div class="col-lg-12 col-md-6">

@@ -16,5 +16,8 @@ module.exports = {
       }
       
       return true;
+  },
+  getMyCourse(idUser){
+    return db.load(`select c.* from courses c,course_join j where  j.f_ID=${idUser} and j.CourseID=c.CourseID`);
   }
 };

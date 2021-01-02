@@ -30,7 +30,7 @@ router.get('/', async function (req, res) {
       total=total+course.fee;
     }
   }
-  res.render('vwListCourse/yourCart', {
+  res.render('vwListCourse/myCart', {
     items,
     empty: req.session.cart.length === 0,
     sum:total
