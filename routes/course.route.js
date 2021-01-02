@@ -107,7 +107,7 @@ router.get('/small_aspect/:id', async function (req, res) {
   const catId = +req.params.id;  
   // console.log(catId);
   try{
-    const total= await courseModel.countPageByCat2(catId);
+  const total= await courseModel.countPageByCat2(catId);
   let nPages=Math.ceil(total/config.pagination.limit);
   const page_items=[];
   // console.log(nPages);
@@ -211,5 +211,151 @@ router.get('/search', async function (req, res) {
     }
 });
 
+// router.get('/filter1', async function (req, res) {
+//   try{
+
+//     const total= await courseModel.countPageByAll();
+//     let nPages=Math.ceil(total/config.pagination.limit);
+//     const page_items=[];
+//     // console.log(nPages);
+//     for(i=1;i<=nPages;i++)
+//     {
+//       const item=
+//       {
+//         value:i
+//       }
+//       page_items.push(item);
+//     }
+//     const page=+req.query.page||1;
+//     const offset=(page-1)*config.pagination.limit;
+  
+//       const rows1 =await courseModel.caterogy1(0);
+//       const rows2 =await courseModel.caterogy2(0);
+//       const rows = await courseModel.filterByRank(offset);
+      
+//     res.render('vwCourses/course', {
+//       courses: rows,
+//       category:rows1,
+//       emptyC:rows1.length===0,
+//       notempty:rows1.length!==0,
+//       notempty2:rows2.length!==0,
+//       empty: rows.length === 0,
+//       page_items,
+//       page,
+//       not_previous:page<=1,
+//       not_next:page>=nPages,
+//       previous:page-1,
+//       next:page+1,
+//       next2:page+2,
+//       n3:nPages-2===page,
+//       n2:nPages-1===page,
+//       n1:nPages===page,
+//       maxThan3:nPages>=4,
+      
+//     })
+//     }
+//     catch (err) {
+//       console.error(err);
+//       res.send('View error log at server console.');
+//     }
+// });
+
+// router.get('/filter2', async function (req, res) {
+//   try{
+
+//     const total= await courseModel.countPageByAll();
+//     let nPages=Math.ceil(total/config.pagination.limit);
+//     const page_items=[];
+//     // console.log(nPages);
+//     for(i=1;i<=nPages;i++)
+//     {
+//       const item=
+//       {
+//         value:i
+//       }
+//       page_items.push(item);
+//     }
+//     const page=+req.query.page||1;
+//     const offset=(page-1)*config.pagination.limit;
+  
+//       const rows1 =await courseModel.caterogy1(0);
+//       const rows2 =await courseModel.caterogy2(0);
+//       const rows = await courseModel.filterByFeeDown(offset);
+      
+//     res.render('vwCourses/course', {
+//       courses: rows,
+//       category:rows1,
+//       emptyC:rows1.length===0,
+//       notempty:rows1.length!==0,
+//       notempty2:rows2.length!==0,
+//       empty: rows.length === 0,
+//       page_items,
+//       page,
+//       not_previous:page<=1,
+//       not_next:page>=nPages,
+//       previous:page-1,
+//       next:page+1,
+//       next2:page+2,
+//       n3:nPages-2===page,
+//       n2:nPages-1===page,
+//       n1:nPages===page,
+//       maxThan3:nPages>=4,
+      
+//     })
+//     }
+//     catch (err) {
+//       console.error(err);
+//       res.send('View error log at server console.');
+//     }
+// });
+
+// router.get('/filter3', async function (req, res) {
+//   try{
+
+//     const total= await courseModel.countPageByAll();
+//     let nPages=Math.ceil(total/config.pagination.limit);
+//     const page_items=[];
+//     // console.log(nPages);
+//     for(i=1;i<=nPages;i++)
+//     {
+//       const item=
+//       {
+//         value:i
+//       }
+//       page_items.push(item);
+//     }
+//     const page=+req.query.page||1;
+//     const offset=(page-1)*config.pagination.limit;
+  
+//       const rows1 =await courseModel.caterogy1(0);
+//       const rows2 =await courseModel.caterogy2(0);
+//       const rows = await courseModel.filterByFeeUp(offset);
+      
+//     res.render('vwCourses/course', {
+//       courses: rows,
+//       category:rows1,
+//       emptyC:rows1.length===0,
+//       notempty:rows1.length!==0,
+//       notempty2:rows2.length!==0,
+//       empty: rows.length === 0,
+//       page_items,
+//       page,
+//       not_previous:page<=1,
+//       not_next:page>=nPages,
+//       previous:page-1,
+//       next:page+1,
+//       next2:page+2,
+//       n3:nPages-2===page,
+//       n2:nPages-1===page,
+//       n1:nPages===page,
+//       maxThan3:nPages>=4,
+      
+//     })
+//     }
+//     catch (err) {
+//       console.error(err);
+//       res.send('View error log at server console.');
+//     }
+// });
 
 module.exports = router;

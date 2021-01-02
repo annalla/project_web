@@ -42,4 +42,13 @@ module.exports = {
   add(entity) {
     return db.add(entity, TBL_USERS)
   },
+  setEmail(f_Email,id){
+    return db.load(`UPDATE users SET f_Email='${f_Email}' WHERE f_ID='${id}'`);
+  },
+  setName(f_Fullname,id){
+    return db.load(`UPDATE users SET f_Fullname='${f_Fullname}' WHERE f_ID='${id}'`);
+  },
+  setPassword(f_Password,id){
+    return db.load(`UPDATE users SET f_Password='${f_Password}' WHERE f_ID='${id}'`);
+  }
 };
