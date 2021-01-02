@@ -40,6 +40,7 @@ router.post('/login', async function (req, res) {
   req.session.authId = id;
   req.session.authPermission = permission;
   req.session.authType = type;
+  req.session.cart=[];
   if(+permission===1)
   {
     res.redirect('/admin');
@@ -62,6 +63,7 @@ router.post('/logout', async function (req, res) {
   req.session.id = null;
   req.session.permission = 0;
   req.session.teacher = 0;
+  req.session.cart=[];
   res.redirect(req.headers.referer);
 })
 
@@ -100,6 +102,7 @@ router.get('/profile', auth, async function (req, res) {
   
   res.render('vwAccount/profile');
 })
+<<<<<<< HEAD
 
 router.post('/profile',auth,async function(req,res){
   const id=req.session.authUser.f_ID;
@@ -127,6 +130,9 @@ router.post('/profile',auth,async function(req,res){
   req.session.teacher = 0;
   res.redirect(req.headers.referer);
 })
+=======
+//
+>>>>>>> 6b3040aafb4118b8450dd5cd992bc4ce5da5de14
 
 router.get('/checkPassword', async function (req, res) {
   const password = req.query.Password;

@@ -33,6 +33,7 @@ BEGIN;
 INSERT INTO `users` VALUES (1, 'sdsdfszdfa','Thomas Watson','nghasd@gmail.com',2,0);
 INSERT INTO `users` VALUES (2, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Admin','ad@gmail.com',0,1);
 INSERT INTO `users` VALUES (3, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher@gmail.com',2,0);
+INSERT INTO `users` VALUES (4, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','xuyen','danghongxuyen@gmail.com',1,0);
 
 COMMIT;
 -- ----------------------------
@@ -126,7 +127,7 @@ CREATE TABLE `courses` (
   `CourseID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ID_aspect` int(11) unsigned NOT NULL,
   `TeacherID` int(11) unsigned NOT NULL,
-  `title` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `title` varchar(100) COLLATE utf8_general_c NOT NULL,
   `small_image` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `brief` varchar(5000) COLLATE utf8_unicode_ci ,
   `fee` decimal(15,2) NOT NULL,
@@ -190,6 +191,8 @@ DROP TABLE IF EXISTS `course_join`;
 CREATE TABLE `course_join` (
   `ID_join` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `f_ID` int(11) NOT NULL,
+  `orderDate` date,
+  `price` decimal(15,2),
   `CourseID` int(11) NOT NULL,
   `status` int NOT NULL,
   `lecture` varchar(200),
@@ -198,6 +201,21 @@ CREATE TABLE `course_join` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `course_join`
+ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE;
+
+-- ----------------------------
+-- Table structure for cart
+-- ----------------------------
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `ID_cart` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `f_ID` int(11) NOT NULL,
+  `CourseID` int(11) NOT NULL,
+  PRIMARY KEY (`ID_cart`),
+  FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `cart`
 ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE;
 
 -- ----------------------------
@@ -228,6 +246,7 @@ CREATE TABLE `comments` (
   FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+
 ALTER TABLE `comments`
 ADD FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE;
 
@@ -238,7 +257,7 @@ DROP TABLE IF EXISTS `lectures`;
 CREATE TABLE `lectures` (
   `ID_lect` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `CourseID` int(11) NOT NULL,
-  `title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `title_name` varchar(200) COLLATE utf8_general_ci NOT NULL,
   `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_lect`),
   FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE

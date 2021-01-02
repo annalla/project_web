@@ -1,0 +1,118 @@
+
+
+    <!--====== PAGE BANNER PART START ======-->
+
+    <section id="page-banner" class="pt-30 pb-130 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-3.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>Your Profile</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Your profile</li>
+                            </ol>
+                        </nav>
+                    </div> <!-- page banner cont -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== PAGE BANNER PART ENDS ======-->
+
+    <!--====== TEACHERS PART START ======-->
+    
+    <section id="teachers-singel" class="pt-20 pb-120 gray-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8">
+                    <div class="teachers-left mt-50">
+                        <div class="hero">
+                            <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                        </div>
+                        <div class="name">
+                            <h6>Mark alen</h6>
+                            <span>Vice chencelor</span>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="description">
+                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
+                        </div>
+                    </div> <!-- teachers left -->
+                </div>
+                <div class="col-lg-8">
+                    <div class="teachers-right mt-50">
+                        <ul class="nav nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a  href="#dashboard" role="tab" >Thông tin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a   href="/myCourse">Khóa học của tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="active"  id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Danh sách yêu thích</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  href="/yourCart" role="tab" >Giỏ hàng</a>
+                            </li>
+                        </ul> <!-- nav -->
+                        <div class="tab-content" id="myTabContent">
+                            
+                            <div class="tab-pane fade show active" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+                                <div class="courses-cont pt-20">
+                                    <div class="row">
+                                        {{#each course }}
+                                        <div class="col-md-6" >
+                                            <div class="singel-course mt-30">
+                                                <div class="thum">
+                                                    <div class="image">
+                                                        <img src="/public/images/course/{{small_image}}" alt="Course" style="height:140px">
+                                                    </div>
+                                                
+                                                </div>
+                                                <div class="cont border" style="padding:0px 15px">
+                                                    <div class="admin" style="display: block;margin: 0px">
+                                                            <ul>
+                                                                <li ><a href="#"><i class="fa fa-user" style="margin: 5px"></i><span>{{num_join}}</span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    <a href="/courses/details?id={{CourseID}}"><h4 style="padding: 0px; font-size:16px">{{title}}</h4></a>
+                                                    
+                                                    {{!-- <div class="course-teacher" style="padding:  5px 0px;">
+                                                        <div class="thum">
+                                                            <a href="#"><img src="/public/images/course/teacher/t-2.jpg" alt="teacher"style="width: 30px;height:30px"></a>
+                                                        </div>
+                                                        <div class="name">
+                                                            <a href="#"><h6 style="padding:0px;font-size:12px">Mark anthem</h6></a>
+                                                        </div>
+                                                        
+                                                    </div> --}}
+                                                </div>
+                                            </div> <!-- singel course -->
+                                        </div>
+                                            
+                                        {{/each}}
+                                        
+                                    </div> <!-- row -->
+                                </div> <!-- courses cont -->
+                            </div>
+                            
+                        </div> <!-- tab content -->
+                    </div> <!-- teachers right -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== EVENTS PART ENDS ======-->
+
+    

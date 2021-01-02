@@ -291,10 +291,10 @@
                      {{#if isAuth}}
                       <form id="frmLogout" method="POST" action="/account/logout"></form>
                         <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-                        <div class="right-icon text-right">
-                            <ul>
-                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                                <li>
+                        <div class="right-icon text-left">
+                            <ul style="padding: 0px; width=200px">
+                                <li style="margin-left:10px" ><a href="/yourCart"><i class="fa fa-shopping-bag"></i><span>{{cartSummary}}</span></a></li>
+                                <li style="margin-right: 0px;">
                                      <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
@@ -309,10 +309,18 @@
                                             <i class="fa fa-user" aria-hidden="true"></i>
                                             Profile
                                         </a>
+                                        <a class="dropdown-item" href="/myCourse">
+                                            <i class="fa fa-clone" aria-hidden="true"></i>
+                                            Khóa học của tôi
+                                        </a>
+                                        <a class="dropdown-item" href="/myFavoriteCourse">
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                            Danh sách yêu thích
+                                        </a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                            Sign Out
+                                            Đăng xuất
                                         </a>
                                         </div>
                                     </li>
@@ -321,9 +329,9 @@
                      {{else}}
                          <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
-                            <ul>
+                            {{!-- <ul>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                            </ul>
+                            </ul> --}}
                         </div> <!-- right icon -->
                     </div>
                      {{/if}}
