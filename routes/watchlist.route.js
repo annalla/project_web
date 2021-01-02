@@ -41,5 +41,9 @@ router.get('/checkAdd', async function (req, res) {
         res.json(false);
     }
   });
-
+  router.post('/remove', function (req, res) {
+    
+    watchlistModel.delData(+req.body.id,req.session.authUser.f_ID);
+    res.redirect(req.headers.referer);
+  });
 module.exports = router;
