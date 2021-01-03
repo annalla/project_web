@@ -41,11 +41,11 @@
                     <div class="teachers-left mt-50">
                         {{#if isTeacher}}
                         <div class="hero">
-                            <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                            <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
                         </div>
                         <div class="name">
-                            <h6>Mark alen</h6>
-                            <span>Vice chencelor</span>
+                            <h6>{{authUser.f_Fullname}}</h6>
+                            <span>Email: {{authUser.f_Email}}</span>
                         </div>
                         
                             <div class="social">
@@ -61,10 +61,11 @@
                             </div>
                             {{else}}
                              <div class="hero">
-                                <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                                <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
                             </div>
                             <div class="name">
-                                <h6>Mark alen</h6>
+                                <h6>{{authUser.f_Fullname}}</h6>
+                            <span>Email: {{authUser.f_Email}}</span>
                             </div>
                         {{/if}}
                         
@@ -74,7 +75,7 @@
                     <div class="teachers-right mt-50">
                         <ul class="nav nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a href="#dashboard" role="tab">Thông tin</a>
+                                <a href="/account/profile" role="tab">Thông tin</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/myCourse" role="tab">Khóa học của tôi</a>

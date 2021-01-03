@@ -39,31 +39,43 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8">
                     <div class="teachers-left mt-50">
+                        {{#if isTeacher}}
                         <div class="hero">
-                            <img src="/public/images/teachers/t-1.jpg" alt="Teachers" style="width: 150px;height:150px">
+                            <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
                         </div>
                         <div class="name">
-                            <h6>Mark alen</h6>
-                            <span>Vice chencelor</span>
+                            <h6>{{authUser.f_Fullname}}</h6>
+                            <span>Email: {{authUser.f_Email}}</span>
                         </div>
-                        <div class="social">
+                        
+                            <div class="social">
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
                             </ul>
-                        </div>
-                        <div class="description">
-                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
-                        </div>
+                            </div>
+                            <div class="description">
+                                <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
+                            </div>
+                            {{else}}
+                             <div class="hero">
+                                <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
+                            </div>
+                            <div class="name">
+                                <h6>{{authUser.f_Fullname}}</h6>
+                            <span>Email: {{authUser.f_Email}}</span>
+                            </div>
+                        {{/if}}
+                        
                     </div> <!-- teachers left -->
                 </div>
                 <div class="col-lg-8">
                     <div class="teachers-right mt-50">
                         <ul class="nav nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a  href="#dashboard" role="tab" >Thông tin</a>
+                                <a  href="/account/profile" role="tab" >Thông tin</a>
                             </li>
                             <li class="nav-item">
                                 <a   href="/myCourse">Khóa học của tôi</a>

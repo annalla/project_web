@@ -152,8 +152,8 @@ ADD FULLTEXT(`title`);
 -- ----------------------------
 
 BEGIN;
-INSERT INTO `courses` VALUES (1, 1,1,'Học lập trình Javascript','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.7,3.7,4.7,32,53,'2020/12/12',11,1);
-INSERT INTO `courses` VALUES (2, 2,1,'Học lập trình HTML','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.9,0,4.7,52,531,'2020/12/2',11,1);
+INSERT INTO `courses` VALUES (1, 1,1,'Tìm hiểu ngôn ngữ C','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.7,3.7,4.7,32,53,'2020/12/12',11,1);
+INSERT INTO `courses` VALUES (2, 2,1,'Phát triển ứng dụng website căn bản','cu-2.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; +40,000 sinh viên, khóa học phổ biến nhất trên thị trường nói tiếng Pháp</div><div>&nbsp;&nbsp;-&nbsp; Trang web cá nhân của bạn với Portfolio</div><div>&nbsp;&nbsp;-&nbsp; Kiếm tiền bằng kỹ năng của bạn với tư cách là Nhà phát triển web.</div><div>&nbsp;&nbsp;-&nbsp;11 Câu đố để kiểm tra kiến ​​thức của bạn.</div><div>&nbsp;&nbsp;-&nbsp; Tạo trang web và ứng dụng web</div><div>&nbsp;&nbsp;-&nbsp; 7 dự án cụ thể từ A đến Z</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.9,0,4.9,52,531,'2020/12/2',11,1);
 INSERT INTO `courses` VALUES (3, 3,1,'Học lập trình C#','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',6,3.7,4.7,43,12,'2020/12/1',11,1);
 INSERT INTO `courses` VALUES (4, 4,1,'Học lập trình D','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.2,0,4.7,39,31,'2020/12/22',11,1);
 INSERT INTO `courses` VALUES (5, 5,1,'Học lập trình E','course1.jpg','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tạo chương trình trong C</div><div>&nbsp;&nbsp;-&nbsp; Hiểu kiến ​​thức cơ bản về lập trình (cách tạo phần mềm từ mã nguồn).</div><div>&nbsp;&nbsp;-&nbsp; Sử dụng thư viện C tiêu chuẩn (STL).</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc quản lý các biến và bộ nhớ.</div><div>&nbsp;&nbsp;-&nbsp; Nắm vững việc sử dụng các vòng lặp và điều kiện.</div><div>&nbsp;&nbsp;-&nbsp; Mảng chính và con trỏ.</div><div>&nbsp;&nbsp;-&nbsp; Tạo và sử dụng các chức năng.</div><div>&nbsp;&nbsp;-&nbsp; Tạo mô-đun để chia sẻ chúng.</div>',5.8,6.7,4.5,21,13,'2020/12/25',11,1);
@@ -258,9 +258,74 @@ CREATE TABLE `lectures` (
   `ID_lect` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `CourseID` int(11) NOT NULL,
   `title_name` varchar(200) COLLATE utf8_general_ci NOT NULL,
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(100) COLLATE utf8_unicode_ci ,
   PRIMARY KEY (`ID_lect`),
   FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+-- ----------------------------
+-- Records of lectures
+-- ----------------------------
+BEGIN;
+INSERT INTO `lectures` VALUES (1, 2,'Giới thiệu về Thiết lập và Phát triển web',NULL);
+INSERT INTO `lectures` VALUES (2, 2,'Tìm hiểu HTML và CSS',NULL);
+INSERT INTO `lectures` VALUES (3, 2,'Học Javascript và tạo trò chơi trực tuyến',NULL);
+INSERT INTO `lectures` VALUES (4, 2,'Học jQuety và tạo trang web tương tác',NULL);
+INSERT INTO `lectures` VALUES (5, 2,'Tìm hiểu Bottstrap và tạo CV trực tuyến',NULL);
+INSERT INTO `lectures` VALUES (6, 2,'Lưu trữ tên miền và đưa trang web lên mạng',NULL);
+INSERT INTO `lectures` VALUES (7, 2,'Học NodeJS tạo một web server',NULL);
+INSERT INTO `lectures` VALUES (8, 2,'Học MySQL và xây dựng trang web động',NULL);
+
+INSERT INTO `lectures` VALUES (9, 1,'Giới thiệu về Thiết lập và Phát triển web',NULL);
+INSERT INTO `lectures` VALUES (10, 1,'Tìm hiểu HTML và CSS',NULL);
+INSERT INTO `lectures` VALUES (11, 1,'Học Javascript và tạo trò chơi trực tuyến',NULL);
+
+INSERT INTO `lectures` VALUES (12, 3,'Học jQuety và tạo trang web tương tác',NULL);
+INSERT INTO `lectures` VALUES (13, 3,'Tìm hiểu Bottstrap và tạo CV trực tuyến',NULL);
+INSERT INTO `lectures` VALUES (14, 3,'Lưu trữ tên miền và đưa trang web lên mạng',NULL);
+
+INSERT INTO `lectures` VALUES (15, 4,'Học NodeJS tạo một web server',NULL);
+INSERT INTO `lectures` VALUES (16, 4,'Học MySQL và xây dựng trang web động',NULL);
+
+INSERT INTO `lectures` VALUES (17, 5,'Giới thiệu về Thiết lập và Phát triển web',NULL);
+INSERT INTO `lectures` VALUES (18, 5,'Tìm hiểu HTML và CSS',NULL);
+
+INSERT INTO `lectures` VALUES (19, 6,'Học Javascript và tạo trò chơi trực tuyến',NULL);
+INSERT INTO `lectures` VALUES (20, 6,'Học jQuety và tạo trang web tương tác',NULL);
+
+INSERT INTO `lectures` VALUES (21, 7,'Tìm hiểu Bottstrap và tạo CV trực tuyến',NULL);
+INSERT INTO `lectures` VALUES (22, 7,'Lưu trữ tên miền và đưa trang web lên mạng',NULL);
+
+INSERT INTO `lectures` VALUES (23, 8,'Học NodeJS tạo một web server',NULL);
+INSERT INTO `lectures` VALUES (24, 8,'Học MySQL và xây dựng trang web động',NULL);
+INSERT INTO `lectures` VALUES (24, 9,'Học MySQL và xây dựng trang web động',NULL);
+INSERT INTO `lectures` VALUES (24, 9,'Học MySQL và xây dựng trang web động',NULL);
+INSERT INTO `lectures` VALUES (26, 10,'Giới thiệu về Thiết lập và Phát triển web',NULL);
+INSERT INTO `lectures` VALUES (24, 10,'Học MySQL và xây dựng trang web động',NULL);
+
+INSERT INTO `lectures` VALUES (27, 12,'Tìm hiểu HTML và CSS',NULL);
+INSERT INTO `lectures` VALUES (28, 12,'Học Javascript và tạo trò chơi trực tuyến',NULL);
+
+INSERT INTO `lectures` VALUES (29, 11,'Học jQuety và tạo trang web tương tác',NULL);
+INSERT INTO `lectures` VALUES (30, 11,'Tìm hiểu Bottstrap và tạo CV trực tuyến',NULL);
+COMMIT;
+-- ----------------------------
+-- Table structure for Status_lecture
+-- ----------------------------
+DROP TABLE IF EXISTS `Status_lecture`;
+CREATE TABLE `Status_lecture` (
+  `ID_s` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `CourseID` int(11) NOT NULL,
+  `ID_lect` int(11) NOT NULL,
+  `f_ID` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`ID_lect`),
+  FOREIGN KEY (`CourseID`) REFERENCES `courses`(`CourseID`) ON DELETE CASCADE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+ALTER TABLE `Status_lecture`
+ADD FOREIGN KEY (`f_ID`) REFERENCES `users`(`f_ID`) ON DELETE CASCADE;
+
+ALTER TABLE `Status_lecture`
+ADD FOREIGN KEY (`ID_lect`) REFERENCES `lectures`(`ID_lect`) ON DELETE CASCADE;
+
 
 SET FOREIGN_KEY_CHECKS = 1;
