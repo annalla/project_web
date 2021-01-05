@@ -1,9 +1,13 @@
 const db = require('../utils/db');
 const config=require("../config/default.json");
 const { relativeTimeRounding } = require('moment');
+const TBL_COURSES = 'courses';
 const TBL_COMMENT = 'comments';
 const TBL_RATE = 'evaluate';
 module.exports = {
+  all() {
+    return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+  },
     pageByAll(offset) {
       return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
     },
@@ -97,4 +101,8 @@ module.exports = {
     setEvalue(id,number){
       return db.load(`UPDATE courses SET evalue='${number}' WHERE CourseID='${id}'`);
     },
+    del(entity) {
+      const condition = { CourseID: entity};
+      return db.del(condition, TBL_COURSES);
+    }
 };
