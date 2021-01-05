@@ -1,6 +1,8 @@
 const db = require('../utils/db');
 const config=require("../config/default.json");
 const { relativeTimeRounding } = require('moment');
+const TBL_COMMENT = 'comments';
+const TBL_RATE = 'evaluate';
 module.exports = {
     pageByAll(offset) {
       return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
@@ -31,6 +33,12 @@ module.exports = {
     },
     fulltextSearch(title){
       return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE MATCH( title) AGAINST( "${title}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+    },
+    addComment(entity) {
+      return db.add(entity, TBL_COMMENT);
+    },
+    addRate(entity) {
+      return db.add(entity, TBL_RATE);
     },
     filterByRank(catId,offset){
       return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY num_evalue DESC limit ${config.pagination.limit} offset ${offset} `)
@@ -68,5 +76,25 @@ module.exports = {
     {
       const rows=await db.load(`select * from courses where CourseID=${id} `);
       return rows[0];
+    },
+    Comment(id) {
+      return db.load(`select * from comments cm, courses c,users u where c.CourseID=${id} and cm.CourseID=c.CourseID and u.f_ID=cm.f_ID`);
+    },
+    async countComment(id){
+      const rows=await db.load(`select count(*) as total from comments cm, courses c,users u where c.CourseID=${id} and cm.CourseID=c.CourseID and u.f_ID=cm.f_ID`);
+      return rows[0].total;
+    },
+    setnum_evalue(id,number){
+      return db.load(`UPDATE courses SET num_evalue='${number}' WHERE CourseID='${id}'`);
+    },
+    Rate(id) {
+      return db.load(`select * from evaluate e, courses c,users u where c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
+    },
+    async avgRate(id){
+      const rows=await db.load(`select count(*) as total, sum(rate) as sum from evaluate e, courses c,users u where c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
+      return rows[0].sum/rows[0].total;
+    },
+    setEvalue(id,number){
+      return db.load(`UPDATE courses SET evalue='${number}' WHERE CourseID='${id}'`);
     },
 };

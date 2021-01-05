@@ -156,9 +156,16 @@ router.get('/details', async function (req, res) {
   const id=+req.query.id;
   try{
     const rows = await courseModel.single(id);
+    const row1 = await courseModel.Comment(id);
     const datetime= await courseModel.getdateById(id);
     const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
     const c5= await courseModel.get5course(id);
+    const rate = await courseModel.Rate(id);
+
+    const countComment = await courseModel.countComment(id);
+    const avgRate = await courseModel.avgRate(id);
+    courseModel.setnum_evalue(id,countComment);
+    courseModel.setEvalue(id,avgRate);
     // console.log(c5);
     if(rows==null)
     {
@@ -174,6 +181,8 @@ router.get('/details', async function (req, res) {
     }
     res.render('vwCourses/courseDetail', {
       course:rows,
+      comment: row1,
+      rating: rate,
       dm:lastt,
       related:c5,
       isPurchased:isBought,
@@ -213,6 +222,28 @@ router.get('/search', async function (req, res) {
       console.error(err);
       res.send('View error log at server console.');
     }
+});
+
+//comment
+router.post('/addComment',async function (req, res) {
+  const id=+req.body.id;
+  const course=courseModel.singleCourse(id);
+  const detail=
+  {
+      CourseID:id,
+      f_ID: req.session.authUser.f_ID,
+      content: req.body.comment,
+  };
+  const rate1=
+  {
+      CourseID: id,
+      f_ID: req.session.authUser.f_ID,
+      rate: req.body.star,
+  };
+  // console.log(rate1);
+  courseModel.addComment(detail);
+  courseModel.addRate(rate1);
+  res.redirect(req.headers.referer);
 });
 
 // router.get('/filter1', async function (req, res) {
