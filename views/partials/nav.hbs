@@ -139,7 +139,7 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                        <a  href="/">Tài khoản</a>
+                                        <a  href="/admin/accounts">Tài khoản</a>
                                         {{!-- <ul class="sub-menu">
                                             <li><a class="active" href="index-2.html">Home 01</a></li>
                                             <li><a href="index-3.html">Home 02</a></li>
@@ -155,29 +155,7 @@
                                         </ul> --}}
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/courses">Khóa học</a>
-                                        
-                                        <ul class="sub-menu">
-                                             {{#each lol}}
-                                             <li>
-                                                
-                                                 {{#each lv}}
-                                                     <a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a>
-                                                 {{/each}}
-                                                     
-                                                      <ul class="sub-menu1">
-                                                         {{#each lv2}}
-                                                             <li><a href="/courses/small_aspect/{{ID_aspect}}">{{name_level2}}</a></li>
-                                                         {{/each}}
-                                                    
-                                                    
-                                                        </ul>
-                                            </li>
-                                            {{/each}}
-                                            
-                                        
-                                                                          
-                                        </ul>
+                                        <a href="/admin/courses">Khóa học</a>
                                     </li>
                                 
                                 </ul>

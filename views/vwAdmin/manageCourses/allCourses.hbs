@@ -1,0 +1,56 @@
+{{#section 'js'}}
+<script>
+    $('.removeItem').on('click', function () {
+        const id = $(this).data('id');
+        $('#txtProId').val(id);
+        $('#frmRemoveItem').submit();
+    });
+</script>
+{{/section}}
+<form id="frmRemoveItem" action="/admin/courses/remove" method="POST">
+    <input type="hidden" name="id" id="txtProId">
+</form>
+<div class="card">
+    <h5 class="card-header d-flex justify-content-between">
+        Quản lý khóa học
+    </h5>
+    <div class="card-body">
+        {{#if this.empty}}
+        <div class="card-body">
+            <p class="card-text">Không có khóa học.</p>
+        </div>
+        {{else}}
+        <div class="card-body">
+            <table class="table table-hover" style="width:80%" align="center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID_Course</th>
+                        <th scope="col">Tên lĩnh vực lv2</th>
+                        <th scope="col">Tên khóa học </th>
+                        <th scope="col">Tên giáo viên</th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.course}}
+                    <tr>
+                        <th scope="row">{{CourseID}}</th>
+                        <td>{{name_level2}}</td>
+                        <td>{{title}}</td>
+                        <td>{{f_Fullname}}</td>
+                        <td class="text-right">
+                            <div style="width: 15%;" class="text-right">
+                                <a data-id="{{CourseID}}" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Remove Item">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+    </div>
+</div>

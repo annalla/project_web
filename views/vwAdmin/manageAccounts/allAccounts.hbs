@@ -1,0 +1,104 @@
+{{#section 'js'}}
+<script>
+    $('.removeItem').on('click', function () {
+        const id = $(this).data('id');
+        $('#txtProId').val(id);
+        $('#frmRemoveItem').submit();
+    });
+</script>
+{{/section}}
+
+
+<form id="frmRemoveItem" action="/admin/accounts/remove" method="POST">
+    <input type="hidden" name="id" id="txtProId">
+</form>
+
+<div class="card">
+    <h5 class="card-header d-flex justify-content-between">
+        Quản lý tài khoản
+        <a class="btn btn-outline-success" href="/admin/accounts/add" role="button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Thêm giáo viên
+        </a>
+    </h5>
+    <div class="card-body">
+        <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>1. Tài khoản
+                Giáo Viên</b></h6>
+        {{#if this.emptyTeacher}}
+        <div class="card-body">
+            <p class="card-text">Không có giáo viên.</p>
+        </div>
+        {{else}}
+        <div class="card-body">
+            <table class="table table-hover" style="width:60%" align="center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.teachers}}
+                    <tr>
+                        <th scope="row">{{f_ID}}</th>
+                        <td>{{f_Fullname}}</td>
+                        <td>{{f_Email}}</td>
+                        <td class="text-right">
+                           <div style="width: 15%;" class="text-right">
+                                <a data-id="{{f_ID}}" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Remove Item">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+        <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>2. Tài khoản
+                Học Sinh</b></h6>
+        {{#if this.emptyStudent}}
+        <div class="card-body">
+            <p class="card-text">Không có học sinh.</p>
+        </div>
+        {{else}}
+        <div class="card-body">
+            <table class="table table-hover" style="width:60%" align="center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Họ tên</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.students}}
+                    <tr>
+                        <th scope="row">{{f_ID}}</th>
+                        <td>{{f_Fullname}}</td>
+                        <td>{{f_Email}}</td>
+                        <td class="text-right">
+                            <div style="width: 15%;" class="text-right">
+                                <a data-id="{{f_ID}}" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Remove Item">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+    </div>
+
+    {{!-- <div class="card-footer text-muted">
+        Footer
+    </div> --}}
+</div>

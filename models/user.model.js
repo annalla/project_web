@@ -6,6 +6,14 @@ module.exports = {
   all() {
     return db.load(`select * from ${TBL_USERS}`);
   },
+  
+  allTeacher() {
+    return db.load(`select * from ${TBL_USERS} where f_Type = '2'`);
+  },
+
+  allStudent() {
+    return db.load(`select * from ${TBL_USERS} where f_Type = '1'`);
+  },
 
   async single(id) {
     const rows = await db.load(`select * from ${TBL_USERS} where f_ID = ${id}`);
@@ -50,5 +58,9 @@ module.exports = {
   },
   setPassword(f_Password,id){
     return db.load(`UPDATE users SET f_Password='${f_Password}' WHERE f_ID='${id}'`);
+  },
+  del(entity) {
+    const condition = { f_ID: entity};
+    return db.del(condition, TBL_USERS);
   }
 };
