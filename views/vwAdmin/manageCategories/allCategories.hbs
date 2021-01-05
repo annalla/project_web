@@ -1,0 +1,71 @@
+<div class="card">
+    <h5 class="card-header d-flex justify-content-between">
+        Quản lý lĩnh vực
+        <a class="btn btn-outline-success" href="/admin/categories/add" role="button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Thêm lĩnh vực
+        </a>
+    </h5>
+    <div class="card-body">
+        <table class="table table-hover" style="width:60%" align="center">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Lĩnh vực</th>
+                    <th scope="col">&nbsp;</th>
+                    {{!-- <th scope="col">&nbsp;</th> --}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each lol}}
+                <tr>
+                    {{#each lv}}
+                    <th scope="row">{{ID_aspect1}}</th>
+                    <td>
+                        {{name_level1}}
+                    </td>
+
+                    <td class="text-right">
+
+                        <a class="btn btn-sm btn-primary" href="/admin/categories/{{ID_aspect1}}" role="button"
+                            title="Edit Category">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-sm btn-primary" href="/admin/categories/{{ID_aspect1}}/add" role="button"
+                            title="Add Category">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </a>
+                    {{/each}}
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" type="button">
+
+                                    {{#each lv2}}
+                                    <li style="line-height: 2.5;">
+                                        <a class="btn btn-sm btn-primary" href="/admin/categories/small_aspect/{{ID_aspect}}"
+                                            role="button" title="Edit Category">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                        <b>ID:</b> {{ID_aspect}} <b>Name:</b> {{name_level2}}
+                                    </li>
+                                    {{/each}}
+
+                                </button>
+                            </div>
+                        </div>
+
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{!-- <div class="card-footer text-muted">
+        Footer
+    </div> --}}
+</div>
