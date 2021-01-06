@@ -23,6 +23,7 @@ CREATE TABLE `users` (
   `f_Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `f_Type` int NOT NULL,
   `f_Permission` int(11) NOT NULL,
+  `f_OTP` varchar(6) COLLATE utf8_unicode_ci,
   PRIMARY KEY (`f_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -30,10 +31,10 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` VALUES (1, 'sdsdfszdfa','Thomas Watson','nghasd@gmail.com',2,0);
-INSERT INTO `users` VALUES (2, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Admin','ad@gmail.com',0,1);
-INSERT INTO `users` VALUES (3, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher@gmail.com',2,0);
-INSERT INTO `users` VALUES (4, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','xuyen','danghongxuyen@gmail.com',1,0);
+INSERT INTO `users` VALUES (1, 'sdsdfszdfa','Thomas Watson','nghasd@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (2, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Admin','ad@gmail.com',0,1,0);
+INSERT INTO `users` VALUES (3, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (4, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','xuyen','danghongxuyen@gmail.com',1,0,0);
 
 COMMIT;
 -- ----------------------------

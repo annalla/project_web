@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-
+const nodemailer = require('nodemailer');
 const userModel = require('../models/user.model');
 const auth = require('../middlewares/auth.mdw');
 const session = require('../middlewares/session.mdw');
@@ -92,26 +92,26 @@ router.get('/register', async function (req, res) {
   }
 })
 
-router.post('/register', async function (req, res) {
-  try{
-  const hash = bcrypt.hashSync(req.body.f_Password, 10);
-  // console.log(hash);
-  const user = {
+// router.post('/register', async function (req, res) {
+//   try{
+//   const hash = bcrypt.hashSync(req.body.f_Password, 10);
+//   // console.log(hash);
+//   const user = {
     
-    f_Password: hash,
-    f_Fullname: req.body.f_Fullname,
-    f_Email: req.body.f_Email,
-    f_Permission: 0,
-    f_Type: 1
-  }
-  await userModel.add(user);
-  // res.render('vwAccount/register');
-  res.render('home');
-}catch (err) {
-  console.error(err);
-  res.send('View error log at server console.');
-}
-})
+//     f_Password: hash,
+//     f_Fullname: req.body.f_Fullname,
+//     f_Email: req.body.f_Email,
+//     f_Permission: 0,
+//     f_Type: 1
+//   }
+//   await userModel.add(user);
+//   // res.render('vwAccount/register');
+//   res.render('home');
+// }catch (err) {
+//   console.error(err);
+//   res.send('View error log at server console.');
+// }
+// })
 
 //kiểm tra tài khoản có sẵn qua email
 router.get('/is-available', async function (req, res) {
@@ -128,6 +128,80 @@ router.get('/is-available', async function (req, res) {
   res.send('View error log at server console.');
 }
 })
+
+router.post('/sendOTP', async function (req, res) {
+  try{
+  function generateOTP() { 
+    // Declare a string variable  
+    // which stores all string 
+    var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+    let OTP = ''; 
+    // Find the length of string 
+    var len = string.length; 
+    for (let i = 0; i < 6; i++ ) { 
+        OTP += string[Math.floor(Math.random() * len)]; 
+    } 
+    return OTP; 
+  } 
+
+  var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth:{
+          user: 'ptbtram220500@gmail.com',
+          pass:'trampham1942000@'
+      }
+  });
+   otp = generateOTP();
+  let mailOptions={
+      from: 'ptbtram220500@gmail.com',
+      to: req.body.f_Email,
+      subject:'XÁC THỰC TÀI KHOẢN EDU', 
+      text:'Mã OTP của bạn là: ',
+      html: otp
+  };
+    const hash = bcrypt.hashSync(req.body.f_Password, 10);
+    const user = {
+    f_Password: hash,
+    f_Fullname: req.body.f_Fullname,
+    f_Email: req.body.f_Email,
+    f_Permission: 0,
+    f_Type: 1,
+    f_OTP : otp
+  }
+    await userModel.add(user);
+  transporter.sendMail(mailOptions,function(error,info){
+      if(error){
+          console.log(error);
+      }else{
+          // console.log('Email sent: ' + info.response);
+      }
+  });
+  res.render('vwAccount/otp')
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
+})
+
+router.post('/checkOTP', async function (req, res) {
+  try{
+  const otp = await userModel.getOTP(req.body.f_Email);
+  if (otp != req.body.OTP) {
+    return res.render('vwAccount/otp', {
+      err_message: 'OTP/email không đúng!'
+    });
+  }
+  else{
+    userModel.updateOTP('0',req.body.f_Email);
+    res.render('home', {
+      message: 'Đăng ký thành công, hãy tiến hành đăng nhập!'
+    });
+    }
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+}),
 
 router.get('/profile', auth, async function (req, res) {
   try{

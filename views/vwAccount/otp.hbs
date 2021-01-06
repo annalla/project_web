@@ -1,0 +1,43 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+  href="/public/stylesheets/form_register.css">
+{{/section}}
+
+{{#section 'js'}}
+
+<script>
+    $('#frmOTP').on('submit', function (e) {
+        e.preventDefault();
+        const otp = $('#OTP').val(); 
+        const email = $('#f_Email').val(); 
+        if (otp.length === 0 ) {
+            alert('OTP không hợp lệ!');
+            return;
+        }
+        else if(email.length === 0){
+            alert('Email không hợp lệ!');
+            return;
+        }
+        else{
+            $('#frmOTP').off('submit').submit();
+        }
+    })
+</script>
+{{/section}}
+{{#if err_message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{err_message}}
+        </div>
+{{/if}}
+
+<form action="/account/checkOTP" method="post" id="frmOTP">
+    <div id="loginOTP-box">
+        <h1 style="font-size: 20px; " >Xác nhận OTP</h1>
+        <input type="text" style="width: 220px;" name="f_Email" id="f_Email" placeholder="Nhập Email đã nhận OTP: " />
+        <input type="text" style="width: 220px;" name="OTP" id="OTP" placeholder="Nhập OTP: " />
+        <button type="submit"><b>Xác nhận</b></button>
+    </div>
+</form>

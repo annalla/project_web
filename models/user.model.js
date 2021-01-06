@@ -62,5 +62,13 @@ module.exports = {
   del(entity) {
     const condition = { f_ID: entity};
     return db.del(condition, TBL_USERS);
-  }
+  },
+  updateOTP(otp,email){
+    return db.load(`UPDATE users SET f_OTP='${otp}' WHERE f_Email='${email}'`);
+  },
+
+  async getOTP(email){
+    const rows = await db.load(`select f_OTP from ${TBL_USERS} where f_Email = '${email}'`);
+    return rows[0].f_OTP;
+  },
 };
