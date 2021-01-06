@@ -125,6 +125,17 @@
                             <li class="nav-item">
                                 <a class="active"  id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Thông tin</a>
                             </li>
+                            {{#if isTeacher}}
+                                <li class="nav-item">
+                                    <a  href="/myCourse" role="tab" >Thêm thông tin giáo viên</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a   href="/myFavoriteCourse" role="tab" >Khóa học của tôi</a>
+                                </li>
+                            {{else}}
+                            {{#if isAdmin}}
+                                
+                           {{else}}
                             <li class="nav-item">
                                 <a  href="/myCourse" role="tab" >Khóa học của tôi</a>
                             </li>
@@ -134,6 +145,8 @@
                             <li class="nav-item">
                                 <a href="/yourCart" role="tab">Giỏ hàng</a>
                             </li>
+                             {{/if}}
+                            {{/if}}
                         </ul> <!-- nav -->
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">

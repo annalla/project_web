@@ -50,11 +50,11 @@ router.post('/login', async function (req, res) {
   req.session.cart=[];
   if(+permission===1)
   {
-    res.redirect('/admin');
+    res.redirect('/admin/accounts');
   }
   else if(+type===2)
   {
-    res.redirect('/teacher');
+    res.redirect('/account/profile');
   }
   else
   {

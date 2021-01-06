@@ -16,6 +16,11 @@
                     <div class="col-lg-8 col-md-8">
                         <div class="support-button float-right d-none d-md-block">
                             {{#if isAuth}}
+                            {{#if isTeacher}}
+                            <div class="button float-left">
+                                    <a href="/teacher/addCourse" class="main-btn">Tạo khóa học</a>
+                                </div>
+                                {{/if}}
                             {{else}}
                                 <div class="button float-left">
                                     <a href="/account/login" class="main-btn">Đăng nhập</a>
@@ -45,56 +50,21 @@
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a href="/">Khóa học của tôi</a>
-                                        {{!-- <ul class="sub-menu">
-                                            <li><a class="active" href="index-2.html">Home 01</a></li>
-                                            <li><a href="index-3.html">Home 02</a></li>
-                                            <li><a href="index-4.html">Home 03</a></li>
-                                        </ul> --}}
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="/courses">Tạo Khóa học</a>
-                                        
-                                        <ul class="sub-menu">
-                                             {{#each lol}}
-                                             <li>
-                                                
-                                                 {{#each lv}}
-                                                     <a href="/courses/aspect/{{ID_aspect1}}">{{name_level1}}</a>
-                                                 {{/each}}
-                                                     
-                                                      <ul class="sub-menu1">
-                                                         {{#each lv2}}
-                                                             <li><a href="/courses/small_aspect/{{ID_aspect}}">{{name_level2}}</a></li>
-                                                         {{/each}}
-                                                    
-                                                    
-                                                        </ul>
-                                            </li>
-                                            {{/each}}
-                                            
-                                        
-                                                                          
-                                        </ul>
-                                    </li>
+                                    
                                 
                                 </ul>
                                
                                   
                             </div>
                         </nav> <!-- nav -->
-                       {{!-- <div class="serach-form">
-                                            <form action="#">
-                                                <input type="text" placeholder="Search by keyword">
-                                                <button><i class="fa fa-search"></i></button>
-                                            </form>
-                                        </div> <!-- serach form --> --}}
+                      
                         </div>
                     
                       <form id="frmLogout" method="POST" action="/account/logout"></form>
                         <div class="col-lg-2 col-md-2 col-sm-3 col-4">
                         <div class="right-icon text-right">
                             <ul>
-                                <li><a href="#ad"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
                                 <li>
                                      <li class="nav-item dropdown"  style="padding-bottom: 0px;padding-top:5px">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -110,10 +80,14 @@
                                             <i class="fa fa-user" aria-hidden="true"></i>
                                             Profile
                                         </a>
+                                        <a class="dropdown-item" href="">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            Khóa học của tôi
+                                        </a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                            Sign Out
+                                            Đăng xuất
                                         </a>
                                         </div>
                                     </li>
