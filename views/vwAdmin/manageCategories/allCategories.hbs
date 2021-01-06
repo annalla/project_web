@@ -10,7 +10,7 @@
         <table class="table table-hover" style="width:60%" align="center">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+
                     <th scope="col">Lĩnh vực</th>
                     <th scope="col">&nbsp;</th>
                     {{!-- <th scope="col">&nbsp;</th> --}}
@@ -20,7 +20,7 @@
                 {{#each lol}}
                 <tr>
                     {{#each lv}}
-                    <th scope="row">{{ID_aspect1}}</th>
+
                     <td>
                         {{name_level1}}
                     </td>
@@ -35,7 +35,7 @@
                             title="Add Category">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
-                    {{/each}}
+                        {{/each}}
                         <div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -45,8 +45,9 @@
 
                                     {{#each lv2}}
                                     <li style="line-height: 2.5;">
-                                        <a class="btn btn-sm btn-primary" href="/admin/categories/small_aspect/{{ID_aspect}}"
-                                            role="button" title="Edit Category">
+                                        <a class="btn btn-sm btn-primary"
+                                            href="/admin/categories/small_aspect/{{ID_aspect}}" role="button"
+                                            title="Edit Category">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                         <b>ID:</b> {{ID_aspect}} <b>Name:</b> {{name_level2}}

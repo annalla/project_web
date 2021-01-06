@@ -4,13 +4,23 @@ const TBL_CATEGORIES1 = 'aspects_level1';
 const TBL_CATEGORIES2 = 'aspects_level2';
 
 module.exports = {
-  async all() {
-    return await db.load(`select ID_aspect1, ID_aspect, name_level1 as name
-                        from aspects_level1
-                        union
-                        select ID_aspect1, ID_aspect, name_level2 as name
-                        from aspects_level2
-                        order by ID_aspect1, ID_aspect`);
+  async nameLv1(id) {
+    const rows = await db.load(`select l1.*
+                                from aspects_level1 l1, aspects_level2 l2 
+                                WHERE l1.ID_aspect1=l2.ID_aspect1 AND l2.ID_aspect =${id}`);
+    if (rows.length === 0)
+      return null;
+
+    return rows[0];
+  },
+  async findNamelv1ById1(idlv1) {
+    const rows = await db.load(`select l1.*
+                                from aspects_level1 l1
+                                WHERE l1.ID_aspect1 = ${idlv1}`);
+    if (rows.length === 0)
+      return null;
+
+    return rows[0];
   },
   
   async all1() {
@@ -82,6 +92,21 @@ module.exports = {
   patchlv2(entity) {
     const condition = { ID_aspect: entity.ID_aspect };
     delete entity.ID_aspect;
+    delete entity.ID_aspect1;
     return db.patch(entity, condition, TBL_CATEGORIES2);
+  },
+  async singlebyName1(name) {
+    const rows = await db.load(`select * from ${TBL_CATEGORIES1} where name_level1 = '${name}'`);
+    if (rows.length === 0) {
+      return null;
+    }
+    return rows[0];
+  },
+  async singlebyName2(name) {
+    const rows = await db.load(`select * from ${TBL_CATEGORIES2} where name_level2 = '${name}'`);
+    if (rows.length === 0) {
+      return null;
+    }
+    return rows[0];
   }
 };

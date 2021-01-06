@@ -1,32 +1,75 @@
-<form method="POST">
-  <div class="card" style="width:60%; margin: 50px auto;">
-    <h5 class="card-header">
-      Lĩnh vực 
-    </h5>
-    <div class="card-body">
-      <div class="form-group">
-        <label for="txtCatID">ID</label>
-        <input type="text" class="form-control" id="txtCatID" name="ID_aspect1" value="{{this.category.ID_aspect1}}" readonly>
+{{#section 'js'}}
+<script>
+  $('#frmSaveItem').on('submit', function (e) {
+    const fullname = $('#txtCatName').val();
+    e.preventDefault();
+    if (fullname.length === 0) {
+      alert('Vui lòng điền tên lĩnh vực!');
+      return;
+    }
+    $.getJSON(`/admin/is-availableCat?name=${fullname}`, function (data) {
+      if (data === true) {
+        $('#frmSaveItem').off('submit').submit();
+      } else {
+        alert('Lĩnh vực đã tồn tại ! ');
+      }
+    })
+  });
+  $('#frmRemoveItem').on('submit', function (e) {
+    const id = $('#txtCatID1').val();
+    e.preventDefault();
+    $.getJSON(`/admin/is-availableCatID?id=${id}`, function (data) {
+      if (data === true) {
+        $('#frmRemoveItem').off('submit').submit();
+      } else {
+        alert('Lĩnh vực tồn tại khóa học, không thể xóa ! ');
+      }
+    })
+  });
+</script>
+{{/section}}
+
+<div class="card d-flex justify-content-between" style="width:60%; margin: 50px auto;">
+  <h5 class="card-header">
+      <form id="frmRemoveItem" action="/admin/categories/del" method="POST">
+       Lĩnh vực
+        <input type="text" class="form-control" id="txtCatID1" name="ID_aspect1" value="{{this.category.ID_aspect1}}"
+            hidden>
+        <button type="submit" class="btn btn-sm btn-outline-danger" style="position: absolute; right: 0px;">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          Xóa
+        </button>
+      </form>
+  </h5>
+
+
+  <form id="frmSaveItem" action="/admin/categories/patch" method="POST">
+    <div class="form-group">
+      <div class="card-body">
+        <div class="form-group">
+          {{!-- <label for="txtCatID">ID</label> --}}
+          <input type="text" class="form-control" id="txtCatID" name="ID_aspect1" value="{{this.category.ID_aspect1}}"
+            hidden>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="txtCatName" name="name_level1"
+            value="{{this.category.name_level1}}" autofocus>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="txtCatName">Lĩnh vực</label>
-        <input type="text" class="form-control" id="txtCatName" name="name_level1" value="{{this.category.name_level1}}"
-          autofocus>
-      </div>
+
     </div>
     <div class="card-footer text-muted">
       <a class="btn btn-primary" href="/admin/categories" role="button">
         <i class="fa fa-backward" aria-hidden="true"></i>
         Trở về danh sách
       </a>
-      <button type="submit" class="btn btn-outline-danger" formaction="/admin/categories/del">
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-        Xóa
-      </button>
-      <button type="submit" class="btn btn-outline-success" formaction="/admin/categories/patch">
+      <button type="submit" class="btn btn-outline-success">
         <i class="fa fa-check" aria-hidden="true"></i>
         Lưu
       </button>
     </div>
-  </div>
-</form>
+
+
+  </form>
+</div>
+</div>

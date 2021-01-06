@@ -33,7 +33,7 @@
             <table class="table table-hover" style="width:60%" align="center">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        {{!-- <th scope="col">STT</th> --}}
                         <th scope="col">Họ tên</th>
                         <th scope="col">Email</th>
                         <th scope="col">&nbsp;</th>
@@ -42,11 +42,11 @@
                 <tbody>
                     {{#each this.teachers}}
                     <tr>
-                        <th scope="row">{{f_ID}}</th>
+                        {{!-- <th scope="row"></th> --}}
                         <td>{{f_Fullname}}</td>
                         <td>{{f_Email}}</td>
                         <td class="text-right">
-                           <div style="width: 15%;" class="text-right">
+                            <div style="width: 15%;" class="text-right">
                                 <a data-id="{{f_ID}}" class="btn btn-sm btn-outline-danger removeItem "
                                     href="javascript:;" role="button" title="Remove Item">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
             <table class="table table-hover" style="width:60%" align="center">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        {{!-- <th scope="col">ID</th> --}}
                         <th scope="col">Họ tên</th>
                         <th scope="col">Email</th>
                         <th scope="col">&nbsp;</th>
@@ -79,7 +79,7 @@
                 <tbody>
                     {{#each this.students}}
                     <tr>
-                        <th scope="row">{{f_ID}}</th>
+                        {{!-- <th scope="row">{{f_ID}}</th> --}}
                         <td>{{f_Fullname}}</td>
                         <td>{{f_Email}}</td>
                         <td class="text-right">
@@ -97,6 +97,7 @@
         </div>
         {{/if}}
     </div>
+   
 
     {{!-- <div class="card-footer text-muted">
         Footer

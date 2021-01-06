@@ -1,4 +1,25 @@
-<form method="POST" action="">
+{{#section 'js'}}
+<script>
+    $('#frmAddlv1').on('submit', function (e) {
+        const fullname = $('#txtCatName').val();
+           console.log(fullname);
+        e.preventDefault();
+        if (fullname.length === 0) {
+            alert('Vui lòng điền tên lĩnh vực!');
+            return;
+        }
+        $.getJSON(`/admin/is-availableCat?name=${fullname}`, function (data) {
+            if (data === true) {
+                $('#frmAddlv1').off('submit').submit();
+            } else {
+                alert('Lĩnh vực đã tồn tại ! ');
+            }
+            
+        })
+    });
+</script>
+{{/section}}
+<form action="" method="POST" id="frmAddlv1">
     <div class="card" style="width:60%; margin: 50px auto;">
         <h5 class="card-header">
             Thêm lĩnh vực
@@ -16,7 +37,7 @@
             </a>
             <button type="submit" class="btn btn-outline-success">
                 <i class="fa fa-check" aria-hidden="true"></i>
-                Lưu
+                Thêm lĩnh vực
             </button>
         </div>
     </div>

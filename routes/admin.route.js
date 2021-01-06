@@ -83,15 +83,20 @@ router.post('/categories/del', async function (req, res) {
 })
 
 router.post('/categories/dellv2', async function (req, res) {
+  //console.log("sao chui vô đây dị ba dellv2");
+  console.log(req.body);
   const ret = await categoryModel.dellv2(req.body);
   res.redirect('/admin/categories');
 })
 
 router.post('/categories/patch', async function (req, res) {
+  //console.log(req.body);
   const ret = await categoryModel.patch(req.body);
   res.redirect('/admin/categories');
 })
 router.post('/categories/patchlv2', async function (req, res) {
+ // console.log(req.body);
+  //console.log("vô patch nhen");
   const ret = await categoryModel.patchlv2(req.body);
   res.redirect('/admin/categories');
 })
@@ -108,13 +113,86 @@ router.get('/categories/:id', async function (req, res) {
 })
 router.get('/categories/small_aspect/:id', async function (req, res) {
   const id = req.params.id;
+  const course = await categoryModel.nameLv1(id)
   const category2 = await categoryModel.singlelv2(id);
   if (category2 === null) {
     return res.redirect('/admin/categories');
   }
   res.render('vwAdmin/manageCategories/editlv2', {
-    category2
+    category2,
+    course
   });
+})
+// router.post('/categories/remove', function (req, res) {
+//   console.log("đã vô đc remove")
+//   categoryModel.del(+req.body.id);
+//   res.redirect(req.headers.referer);
+// });
+// router.post('/categories/save', function (req, res) {
+//   categoryModel.patch(+req.body.id);
+//   res.redirect(req.headers.referer);
+// });
+// router.get('/is-availableCatlv1', async function (req, res) {
+//    const name = req.query.name;
+//    const aspect2 = await categoryModel.singlebyName1(name);
+//    if (aspect2 === null) {
+//      return res.json(true);
+//    }
+//    res.json(false);
+//  })
+router.get('/is-availableCat1', async function (req, res) {
+ // console.log("vô đc /accounts/is-available");
+  const name = req.query.name;
+  //console.log(name);
+  
+  const aspect2 = await categoryModel.singlebyName2(name);
+  if (aspect2 === null) {
+    //console.log("true");
+    return res.json(true);
+  }
+  //console.log("false");
+  res.json(false);
+})
+router.get('/is-availableCat', async function (req, res) {
+  //console.log("vô đc /accounts/is-available");
+  const name = req.query.name;
+ // console.log(name);
+  
+  const aspect1 = await categoryModel.singlebyName1(name);
+  if (aspect1 === null) {
+    //console.log("true");
+    return res.json(true);
+  }
+  //console.log("false");
+  res.json(false);
+})
+router.get('/is-availableCatID', async function (req, res) {
+  //console.log("vô đc availableCatID");
+  const id = req.query.id;
+  console.log(id);
+  
+  const aspect1 = await courseModel.singleByIDlv1(id);
+  //console.log(aspect1);
+  if (aspect1 === null) {
+    //console.log("true");
+    return res.json(true);
+  }
+  //console.log("false");
+  res.json(false);
+})
+router.get('/is-availableCatID1', async function (req, res) {
+  console.log("vô đc availableCatID1");
+  const id = req.query.id;
+  console.log(id);
+  
+  const aspect = await courseModel.singleByIDlv2(id);
+  console.log(aspect);
+  if (aspect === null) {
+    //console.log("true");
+    return res.json(true);
+  }
+  //console.log("false");
+  res.json(false);
 })
 //--------------------------------------------------------------------------------------
 
@@ -144,7 +222,7 @@ router.post('/accounts/add', async function (req, res) {
     f_Permission: 0,
     f_Type: 2
   }
-
+  console.log(user);
   await userModel.add(user);
   res.redirect('/admin/accounts');
 })
@@ -152,6 +230,16 @@ router.post('/accounts/remove', function (req, res) {
   userModel.del(+req.body.id);
   res.redirect(req.headers.referer);
 });
+//kiểm tra tên đã tồn tại chưa
+// router.get('/accounts/is-available', async function (req, res) {
+//   const name = req.query.name;
+//   console.log("vô đc /accounts/is-available");
+//   const aspect1 = await userModel.singleByEmail(name);
+//   if (aspect1 === null) {
+//     return res.json(true);
+//   }
+//   res.json(false);
+// })
 //--------------------------------------------------------------------------------------
 
 //Courses-------------------------------------------------------------------------------
