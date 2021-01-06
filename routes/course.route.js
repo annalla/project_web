@@ -258,10 +258,15 @@ router.post('/addComment',async function (req, res) {
   // console.log(rate1);
   courseModel.addComment(detail);
   courseModel.addRate(rate1);
-  const countComment = await courseModel.countComment(id);
-    const avgRate = await courseModel.avgRate(id);
-    courseModel.setnum_evalue(id,countComment);
-    courseModel.setEvalue(id,avgRate);
+  //
+  const countComment = await courseModel.getNum_evalue(id);
+  const countRate = await courseModel.countRate(id);
+  const sumRate = await courseModel.getEvalue(id);
+  courseModel.setnum_evalue(id,countComment + 1);
+  var star1 = (req.body.star)*1.0;
+  const avgRate = (sumRate*(countRate-1) + star1)/(countRate);
+  courseModel.setEvalue(id,Math.round(avgRate * 100) / 100);
+
   res.redirect(req.headers.referer);
 });
 
@@ -314,102 +319,5 @@ router.post('/addComment',async function (req, res) {
 //     }
 // });
 
-// router.get('/filter2', async function (req, res) {
-//   try{
-
-//     const total= await courseModel.countPageByAll();
-//     let nPages=Math.ceil(total/config.pagination.limit);
-//     const page_items=[];
-//     // console.log(nPages);
-//     for(i=1;i<=nPages;i++)
-//     {
-//       const item=
-//       {
-//         value:i
-//       }
-//       page_items.push(item);
-//     }
-//     const page=+req.query.page||1;
-//     const offset=(page-1)*config.pagination.limit;
-  
-//       const rows1 =await courseModel.caterogy1(0);
-//       const rows2 =await courseModel.caterogy2(0);
-//       const rows = await courseModel.filterByFeeDown(offset);
-      
-//     res.render('vwCourses/course', {
-//       courses: rows,
-//       category:rows1,
-//       emptyC:rows1.length===0,
-//       notempty:rows1.length!==0,
-//       notempty2:rows2.length!==0,
-//       empty: rows.length === 0,
-//       page_items,
-//       page,
-//       not_previous:page<=1,
-//       not_next:page>=nPages,
-//       previous:page-1,
-//       next:page+1,
-//       next2:page+2,
-//       n3:nPages-2===page,
-//       n2:nPages-1===page,
-//       n1:nPages===page,
-//       maxThan3:nPages>=4,
-      
-//     })
-//     }
-//     catch (err) {
-//       console.error(err);
-//       res.send('View error log at server console.');
-//     }
-// });
-
-// router.get('/filter3', async function (req, res) {
-//   try{
-
-//     const total= await courseModel.countPageByAll();
-//     let nPages=Math.ceil(total/config.pagination.limit);
-//     const page_items=[];
-//     // console.log(nPages);
-//     for(i=1;i<=nPages;i++)
-//     {
-//       const item=
-//       {
-//         value:i
-//       }
-//       page_items.push(item);
-//     }
-//     const page=+req.query.page||1;
-//     const offset=(page-1)*config.pagination.limit;
-  
-//       const rows1 =await courseModel.caterogy1(0);
-//       const rows2 =await courseModel.caterogy2(0);
-//       const rows = await courseModel.filterByFeeUp(offset);
-      
-//     res.render('vwCourses/course', {
-//       courses: rows,
-//       category:rows1,
-//       emptyC:rows1.length===0,
-//       notempty:rows1.length!==0,
-//       notempty2:rows2.length!==0,
-//       empty: rows.length === 0,
-//       page_items,
-//       page,
-//       not_previous:page<=1,
-//       not_next:page>=nPages,
-//       previous:page-1,
-//       next:page+1,
-//       next2:page+2,
-//       n3:nPages-2===page,
-//       n2:nPages-1===page,
-//       n1:nPages===page,
-//       maxThan3:nPages>=4,
-      
-//     })
-//     }
-//     catch (err) {
-//       console.error(err);
-//       res.send('View error log at server console.');
-//     }
-// });
 
 module.exports = router;

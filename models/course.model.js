@@ -84,6 +84,14 @@ module.exports = {
     Comment(id) {
       return db.load(`select * from comments cm, courses c,users u where c.CourseID=${id} and cm.CourseID=c.CourseID and u.f_ID=cm.f_ID`);
     },
+    async getEvalue(id){
+      const rows = await db.load(`select evalue from courses where CourseID=${id}`)
+      return rows[0].evalue;
+    },
+    async getNum_evalue(id){
+      const rows = await db.load(`select num_evalue from courses where CourseID=${id}`)
+      return rows[0].num_evalue;
+    },
     async countComment(id){
       const rows=await db.load(`select count(*) as total from comments cm, courses c,users u where c.CourseID=${id} and cm.CourseID=c.CourseID and u.f_ID=cm.f_ID`);
       return rows[0].total;
@@ -94,9 +102,9 @@ module.exports = {
     Rate(id) {
       return db.load(`select * from evaluate e, courses c,users u where c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
     },
-    async avgRate(id){
-      const rows=await db.load(`select count(*) as total, sum(rate) as sum from evaluate e, courses c,users u where c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
-      return rows[0].sum/rows[0].total;
+    async countRate(id){
+      const rows=await db.load(`select count(*) as total from evaluate e, courses c,users u where c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
+      return rows[0].total;
     },
     setEvalue(id,number){
       return db.load(`UPDATE courses SET evalue='${number}' WHERE CourseID='${id}'`);
