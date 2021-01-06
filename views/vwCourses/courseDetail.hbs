@@ -1,4 +1,8 @@
+{{#section 'css'}}
+      <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+{{/section}}
 {{#section 'js'}}
+<script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
 <script >
     $('.reviews-form').on('click', '.rate-wrapper .rate .rate-item', function() {
         var self = $(this),
@@ -74,7 +78,7 @@
     
     <!--====== COURSES SINGEl PART START ======-->
     
-    <section id="corses-singel" class="pt-90 pb-120 gray-bg">
+    <section id="corses-singel" class="pt-90 pb-30 gray-bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -166,7 +170,7 @@
 
                                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                                     <div class="card-body">
-                                                        <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a href="">{{name_video}}</a></p>
+                                                        <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a href="/courses/details?id={{CourseID}}&video={{ID_lect}}">{{name_video}}</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -403,8 +407,39 @@
         </div> <!-- container -->
     </section>
     {{/with}}
+     {{#each unit}}
+        <div class="corses-singel-left mt-30 " style="margin: 0 50px;padding:20px">
+        <div class="text-center">
+        <video
+                    id="my-video"
+                    class="video-js"
+                    controls
+                    preload="auto"
+                    width="800px"
+                    height="500px"
+                    poster="MY_VIDEO_POSTER.jpg"
+                    data-setup="{}">
+                    <source src="/public/video/{{file_vd}}" type="video/mp4" />
+                    {{!-- <source src="MY_VIDEO.webm" type="video/webm" /> --}}
+                    <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+                </div>
+                <div class="lol" style="margin-bottom: 0px;">
+                    <h4>{{name_video}}</h4>
+                </div>
+                {{!-- <div class="video text-lg-left text-center pt-50">
+                        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i class="fa fa-play"></i></a>
+                    </div> <!-- row --> --}}
+    </div>
+
+    {{/each}}
+    
     <!--====== COURSES SINGEl PART ENDS ======-->
-   <section id="course-part" class="pb-120 gray-bg" >
+   <section id="course-part" class="pt-30 pb-120 gray-bg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">

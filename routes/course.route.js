@@ -167,6 +167,7 @@ router.get('/small_aspect/:id', async function (req, res) {
 // Chi tiết khoa học
 router.get('/details', async function (req, res) {
   const id=+req.query.id;
+  const vd=+req.query.video||0;
   try{
     const rows = await courseModel.single(id);
     const row1 = await courseModel.Comment(id);
@@ -176,6 +177,7 @@ router.get('/details', async function (req, res) {
     const lectures=await lectureModel.getLectures(id);
     const intro=await lectureModel.getLectureIntro(id);
     const rate = await courseModel.Rate(id);
+    const rows2= await lectureModel.getLectureById(vd);
 
     
     // console.log(c5);
@@ -201,7 +203,8 @@ router.get('/details', async function (req, res) {
       issAuth:req.session.isAuth,
       lecture:lectures,
       isLec:lectures===null,
-      introduction:intro
+      introduction:intro,
+      unit:rows2
     })
   }
   catch (err) {
