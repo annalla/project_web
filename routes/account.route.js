@@ -13,17 +13,24 @@ router.get('/login', async function (req, res) {
   // if (req.headers.referer) {
   //   req.session.retUrl = ref;
   // }
-  const ref = req.headers.referer;
-  if(ref!=='undefined')
-  {
-    req.session.retUrl = ref;
+  try{
+    const ref = req.headers.referer;
+      if(ref!=='undefined')
+      {
+        req.session.retUrl = ref;
+      }
+      res.render('vwAccount/login');
+
+  }
+  catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
   }
   
-
-  res.render('vwAccount/login');
 })
 
 router.post('/login', async function (req, res) {
+  try{
   const user = await userModel.singleByEmail(req.body.f_Email);
   const id=await userModel.getIdUser(req.body.f_Email);
   const type=await userModel.getTypeUser(req.body.f_Email);
@@ -54,10 +61,15 @@ router.post('/login', async function (req, res) {
     let url = req.session.retUrl || '/';
   res.redirect(url);
   }
-  
+}
+catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 
 router.post('/logout', async function (req, res) {
+  try{
   req.session.isAuth = false;
   req.session.authUser = null;
   req.session.id = null;
@@ -65,13 +77,23 @@ router.post('/logout', async function (req, res) {
   req.session.teacher = 0;
   req.session.cart=[];
   res.redirect(req.headers.referer);
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
 })
 
 router.get('/register', async function (req, res) {
+  try{
   res.render('vwAccount/register');
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
 })
 
 router.post('/register', async function (req, res) {
+  try{
   const hash = bcrypt.hashSync(req.body.f_Password, 10);
   // console.log(hash);
   const user = {
@@ -85,10 +107,15 @@ router.post('/register', async function (req, res) {
   await userModel.add(user);
   // res.render('vwAccount/register');
   res.render('home');
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 
 //kiểm tra tài khoản có sẵn qua email
 router.get('/is-available', async function (req, res) {
+  try{
   const email = req.query.user;
   const user = await userModel.singleByEmail(email);
   if (user === null) {
@@ -96,14 +123,23 @@ router.get('/is-available', async function (req, res) {
   }
 
   res.json(false);
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 
 router.get('/profile', auth, async function (req, res) {
-  
+  try{
   res.render('vwAccount/profile');
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
 })
 
 router.post('/profile',auth,async function(req,res){
+  try{
   const id=req.session.authUser.f_ID;
   if(req.body.f_Email != null){
     await userModel.setEmail(req.body.f_Email,id);
@@ -128,14 +164,23 @@ router.post('/profile',auth,async function(req,res){
   req.session.permission = 0;
   req.session.teacher = 0;
   res.redirect(req.headers.referer);
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 
 router.get('/checkPassword', async function (req, res) {
+  try{
   const password = req.query.Password;
   const ret = bcrypt.compareSync(password, req.session.authUser.f_Password);
   if (ret === false) {
     return res.json(false);
   }
   res.json(true);
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 module.exports = router;

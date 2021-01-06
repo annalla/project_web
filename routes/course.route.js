@@ -1,5 +1,6 @@
 const express = require('express');
 const courseModel = require('../models/course.model');
+const lectureModel = require('../models/lecture.model');
 const joinModel = require('../models/join.model');
 const config=require("../config/default.json");
 const moment=require('moment');
@@ -20,7 +21,11 @@ router.get('/', async function (req, res) {
     }
     page_items.push(item);
   }
-  const page=+req.query.page||1;
+  let page=+req.query.page||1;
+  if(page<=0||page>=nPages)
+  {
+    page=1;
+  }
   const offset=(page-1)*config.pagination.limit;
 
     const rows1 =await courseModel.caterogy1(0);
@@ -71,7 +76,11 @@ router.get('/aspect/:id', async function (req, res) {
     }
     page_items.push(item);
   }
-  const page=+req.query.page||1;
+  let page=+req.query.page||1;
+  if(page<=0||page>=nPages)
+  {
+    page=1;
+  }
   const offset=(page-1)*config.pagination.limit;
 
 
@@ -120,7 +129,11 @@ router.get('/small_aspect/:id', async function (req, res) {
     
     page_items.push(item);
   }
-  const page=+req.query.page||1;
+  let page=+req.query.page||1;
+  if(page<=0||page>=nPages)
+  {
+    page=1;
+  }
   const offset=(page-1)*config.pagination.limit;
 
   const rows2 =await courseModel.caterogy2(catId);
@@ -160,12 +173,11 @@ router.get('/details', async function (req, res) {
     const datetime= await courseModel.getdateById(id);
     const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
     const c5= await courseModel.get5course(id);
+    const lectures=await lectureModel.getLectures(id);
+    const intro=await lectureModel.getLectureIntro(id);
     const rate = await courseModel.Rate(id);
 
-    const countComment = await courseModel.countComment(id);
-    const avgRate = await courseModel.avgRate(id);
-    courseModel.setnum_evalue(id,countComment);
-    courseModel.setEvalue(id,avgRate);
+    
     // console.log(c5);
     if(rows==null)
     {
@@ -187,6 +199,9 @@ router.get('/details', async function (req, res) {
       related:c5,
       isPurchased:isBought,
       issAuth:req.session.isAuth,
+      lecture:lectures,
+      isLec:lectures===null,
+      introduction:intro
     })
   }
   catch (err) {
@@ -243,6 +258,10 @@ router.post('/addComment',async function (req, res) {
   // console.log(rate1);
   courseModel.addComment(detail);
   courseModel.addRate(rate1);
+  const countComment = await courseModel.countComment(id);
+    const avgRate = await courseModel.avgRate(id);
+    courseModel.setnum_evalue(id,countComment);
+    courseModel.setEvalue(id,avgRate);
   res.redirect(req.headers.referer);
 });
 

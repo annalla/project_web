@@ -8,6 +8,7 @@ const joinModel = require('../models/join.model');
 const router = express.Router();
 
 router.get('/', async function (req, res) {
+  try{
     const items = [];
    var total=0;
   for (const ci of req.session.cart) {
@@ -35,9 +36,14 @@ router.get('/', async function (req, res) {
     empty: req.session.cart.length === 0,
     sum:Math.round(total * 100) / 100
   });
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 })
 
 router.post('/add', function (req, res) {
+  try{
   const items={
     Courseid: +req.body.id,
   };
@@ -49,8 +55,13 @@ router.post('/add', function (req, res) {
   cartModel.addData(detail,items,req.session.cart)
   cartModel.add(req.session.cart, items);
   res.redirect(req.headers.referer);
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
 });
 router.get('/checkAdd', function (req, res) {
+  try{
     const items={
       Courseid: +req.query.id,
     } 
@@ -62,6 +73,10 @@ router.get('/checkAdd', function (req, res) {
     {  
         res.json(false);
     }
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
   });
 
 router.post('/remove', function (req, res) {

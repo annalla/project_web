@@ -144,7 +144,7 @@ router.post('/accounts/add', async function (req, res) {
     f_Permission: 0,
     f_Type: 2
   }
-  console.log(user);
+
   await userModel.add(user);
   res.redirect('/admin/accounts');
 })

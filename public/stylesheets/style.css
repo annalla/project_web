@@ -3859,7 +3859,19 @@ p {
 }
 
 
-
+.lol{
+    background-color: #fff;
+    margin-right:10px;
+    margin-bottom:20px;
+    padding:10px;
+    border-radius: 5px;
+}
+.lol .lol2{
+    background-color:#bcbcbc;
+    padding:5px;
+    margin: 5px;
+    border-radius: 5px;
+}
 /*=====================================================
     31. CONTACT PAGE css 
 ======================================================*/
