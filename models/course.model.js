@@ -8,6 +8,10 @@ module.exports = {
   all() {
     return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
   },
+  async find10NewCourse() {
+    return await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+    ORDER by date DESC limit 10`);
+  },
     pageByAll(offset) {
       return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
     },
@@ -126,5 +130,20 @@ module.exports = {
     del(entity) {
       const condition = { CourseID: entity};
       return db.del(condition, TBL_COURSES);
+    },
+    ById(id) {
+      const sql = `
+        select * 
+        from courses where CourseID = ${id}
+      `;
+      return db.load(sql);
+    },
+    ByFullId(id) {
+      const sql = `
+      select * 
+      from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t 
+      where CourseID = ${id} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+      `;
+      return db.load(sql);
     }
 };

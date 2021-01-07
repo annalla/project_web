@@ -1,5 +1,6 @@
 const cartModel = require('../models/cart.model');
 const categoryModel = require('../models/category.model');
+const courseModel = require('../models/course.model');
 
 module.exports = function (app) {
   app.use(async function (req, res, next) {
@@ -53,6 +54,23 @@ module.exports = function (app) {
       
     }
     res.locals.lol=t;
+    next();
+  })
+// khóa học nhiều nhất
+  app.use(async function (req, res, next) {
+    const rows = await courseModel.find10NewCourse();
+    res.locals.lcCourse = rows;
+    const t=[];
+    for( var i=0;i<10;i++)
+    {
+      const m=rows[i].CourseID;
+      const s= await courseModel.ByFullId(m);
+      const item={
+        c: s
+      }
+      t.push(item);
+    }
+    res.locals.c10=t;
     next();
   })
 }
