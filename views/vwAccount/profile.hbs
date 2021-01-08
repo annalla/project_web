@@ -89,31 +89,23 @@
                    <div class="teachers-left mt-50">
                         {{#if isTeacher}}
                         <div class="hero">
-                            <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
+                            <img src="/public/images/teachers/{{infor.image}}" alt="Teachers" style="width: 150px;height:150px">
                         </div>
                         <div class="name">
                             <h6>{{authUser.f_Fullname}}</h6>
                             <span>Email: {{authUser.f_Email}}</span>
                         </div>
-                        
-                            <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            </ul>
-                            </div>
                             <div class="description">
-                                <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
+                                <p>Nghề nghiệp: {{infor.job}}</p>
+                                <p>Giới thiệu: {{infor.intro}}</p>
                             </div>
                             {{else}}
                              <div class="hero">
                                 <img src="/public/images/user.png" alt="Teachers" style="width: 150px;height:150px">
                             </div>
                             <div class="name">
-                                <h6>{{authUser.f_Fullname}}</h6>
-                            <span>Email: {{authUser.f_Email}}</span>
+                                <h6>{{authUser.job}}</h6>
+                            <span>Email: {{authUser.intro}}</span>
                             </div>
                         {{/if}}
                         
@@ -127,10 +119,10 @@
                             </li>
                             {{#if isTeacher}}
                                 <li class="nav-item">
-                                    <a  href="/myCourse" role="tab" >Thêm thông tin giáo viên</a>
+                                    <a  href="/teacher/infoTeacher" role="tab" >Thêm thông tin giáo viên</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a   href="/myFavoriteCourse" role="tab" >Khóa học của tôi</a>
+                                    <a   href="/teacher/yourTeacherCourse" role="tab" >Khóa học của tôi</a>
                                 </li>
                             {{else}}
                             {{#if isAdmin}}
@@ -138,7 +130,7 @@
                            {{else}}
                             <li class="nav-item">
                                 <a  href="/myCourse" role="tab" >Khóa học của tôi</a>
-                            </li>
+                            </li> 
                             <li class="nav-item">
                                 <a   href="/myFavoriteCourse" role="tab" >Danh sách yêu thích</a>
                             </li>

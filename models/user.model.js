@@ -1,6 +1,7 @@
 const db = require('../utils/db');
 
 const TBL_USERS = 'users';
+const TBL_INFOR_TEACHER = "infor_teacher";
 
 module.exports = {
   all() {
@@ -70,5 +71,13 @@ module.exports = {
   async getOTP(email){
     const rows = await db.load(`select f_OTP from ${TBL_USERS} where f_Email = '${email}'`);
     return rows[0].f_OTP;
+  },
+  addInfo(entity) {
+    return db.add(entity, TBL_INFOR_TEACHER);
+  },
+  async singleInfo(id)
+  {
+    const rows=await db.load(`select * from infor_teacher i, users u where i.f_ID=${id} and i.f_ID = u.f_ID`);
+    return rows[0];
   },
 };

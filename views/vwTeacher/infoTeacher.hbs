@@ -1,9 +1,37 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css">
+{{/section}}
 {{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/themes/fa/theme.min.js"></script>
 <script>
   $('.removeItem').on('click', function () {
     const id = $(this).data('id');
     $('#txtProId').val(id);
     $('#frmRemoveItem').submit();
+  });
+</script>
+{{!-- <script>
+    $('#frmRegister').on('submit', function (e) {
+        const job = $('#job').val();
+        const intro = $('#intro').val();
+
+        e.preventDefault();
+        if (job.length === 0) {
+            alert('Vui lòng điền họ tên!');
+            return;
+        }
+        else if (intro.length === 0) {
+            alert('Vui lòng điền địa chỉ email hợp lệ!');
+            return;
+        }
+    })
+</script> --}}
+<script>
+    $('#fuMain').fileinput({
+    theme: 'fa',
+    dropZoneEnabled: false,
+    allowedFileExtensions: ['png', 'jpg', 'gif'],
   });
 </script>
 {{/section}}
@@ -70,46 +98,42 @@
                                 <a href="/account/profile" role="tab">Thông tin</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/teacher/infoTeacher" role="tab">Thêm thông tin giáo viên</a>
+                                <a class="active" href="#createInfo" role="tab">Thêm thông tin giáo viên</a>
                             </li>
                             <li class="nav-item">
-                                <a class="active"  id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Khóa học của tôi</a>
+                                <a href="/teacher/yourTeacherCourse" role="tab">Khóa học của tôi</a>
                             </li>
                         </ul> <!-- nav -->
                         
-                            <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                               {{#unless this.empty}}
-                                <div class="reviews-cont" style="padding: 5px;">
-                                    <ul>
-                                        {{#each items}}
-                                            
-                                       <li>
-                                           <div class="singel-reviews"style="padding: 5px;" >
-                                                <div class="reviews-author">
-                                                    <div class="author-thum">
-                                                        <img src="/public/images/course/{{small_image}}" alt="Reviews" style="width: 100px;height:80px">
-                                                    </div>
-                                                    <div class="author-name" style="width: 80%;">
-                                                        <h6><a href="/courses/details?id={{CourseID}}">{{title}} </a></h6>
-                                                        <span>Ngày tạo:&nbsp; {{date}} </span>
-                                                    </div>
-                                                    <div style="width: 15%;" class="text-right">
-                                                        <a data-id="{{CourseID}}" class="btn btn-sm btn-outline-danger removeItem " href="javascript:;"  role="button"
-                                                        title="Remove Item">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                        </a>
-                                                    </div>
-                                                        
-                                                </div>
-                                               
-                                            </div> <!-- singel reviews -->
-                                       </li>
-                                      {{/each}}
-                                    </ul>
-                                </div> <!-- reviews cont -->
-                                {{/unless}}
+                            <form action="" method="POST" id="createInfo" enctype="multipart/form-data">
+                            <div class="card" style="width:80%; margin: 50px auto;">
+                                <h5 class="card-header">
+                                    Cập nhật thông tin giáo viên
+                                </h5>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="job">Nghề nghiệp</label>
+                                        <input class="form-control" type="text" name="job" id="job" placeholder="Nghề nghiệp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="intro">Giới thiệu bản thân</label>
+                                        <input type="text" class="form-control" name="intro" id="intro" placeholder="Giới thiệu">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image">Ảnh đại diện</label>
+                                            <div class="form-group">
+                                                <input id="fuMain" name="fuMain" type="file" class="file" multiple>
+                                            </div>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        <button type="submit" class="btn btn-outline-success">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                            Cập nhật
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div> <!-- tab content -->
+                        </form>
                     </div> <!-- teachers right -->
                 </div>
             </div> <!-- row -->

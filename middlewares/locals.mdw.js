@@ -1,6 +1,7 @@
 const cartModel = require('../models/cart.model');
 const categoryModel = require('../models/category.model');
 const courseModel = require('../models/course.model');
+const userModel =require('../models/user.model');
 
 module.exports = function (app) {
   app.use(async function (req, res, next) {
@@ -13,6 +14,8 @@ module.exports = function (app) {
     res.locals.isAdmin=false;
     res.locals.isTeacher=false;
     res.locals.cartSummary=0;
+    res.locals.infor = null;
+
     if(req.session.isAuth)
     {
       if(+req.session.authPermission===1)
@@ -21,6 +24,7 @@ module.exports = function (app) {
       }
       else if(+req.session.authType===2){
         res.locals.isTeacher=true;
+        res.locals.infor =await userModel.singleInfo(req.session.authUser.f_ID);
       }
       req.session.cart=await cartModel.getCart(req.session.authUser.f_ID);
 

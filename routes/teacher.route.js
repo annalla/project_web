@@ -4,6 +4,7 @@ const multer = require('multer');
 const courseModel = require('../models/course.model');
 const lectureModel = require('../models/lecture.model');
 const categoryModel = require('../models/category.model');
+const userModel = require('../models/user.model');
 
 
 const router = express.Router();
@@ -137,4 +138,66 @@ router.get('/editCourse', async function (req, res) {
     res.send('View error log at server console.');
   }
 });
+router.get('/yourTeacherCourse', async function (req, res) {
+  try{
+    const course = await courseModel.singleCoursebyTeacher(req.session.authUser.f_ID);
+    res.render('vwTeacher/yourTeacherCourse', {
+    items: course,
+  });
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
+});
+
+router.post('/remove', function (req, res) {
+  console.log(req.body.id);
+  courseModel.del(req.body.id);
+  res.redirect(req.headers.referer);
+});
+
+router.get('/infoTeacher', async function (req,res){
+  try{
+    const rows= await userModel.singleInfo(req.session.authUser.f_ID);
+    res.render('vwTeacher/infoTeacher', {
+      infor:rows,
+    })
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+})
+
+router.post('/infoTeacher', function (req,res){
+try{
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb){
+      cb(null,'./public/images/teachers/')
+    },
+    filename: function (req, file, cb){
+      cb(null,req.session.authUser.f_ID + '.jpg')
+    }
+  })
+  const upload = multer({storage});
+
+  upload.single('fuMain')(req,res,function (err){
+    if(err){
+
+    }else {
+      const infor = {
+        f_ID: req.session.authUser.f_ID,
+        job: req.body.job,
+        image: req.session.authUser.f_ID + '.jpg',
+        intro: req.body.intro,
+      }
+      console.log(infor);
+      userModel.addInfo(infor);
+      res.render('vwTeacher/infoTeacher');
+    }
+  })
+}catch (err) {
+  console.error(err);
+  res.send('View error log at server console.');
+}
+})
 module.exports = router;

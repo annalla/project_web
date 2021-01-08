@@ -219,7 +219,10 @@ router.post('/checkOTP', async function (req, res) {
 
   router.get('/profile', auth, async function (req, res) {
     try {
-      res.render('vwAccount/profile');
+      const rows= await userModel.singleInfo(req.session.authUser.f_ID);
+      res.render('vwAccount/profile', {
+        infor : rows,
+    });
     } catch (err) {
       console.error(err);
       res.send('View error log at server console.');
