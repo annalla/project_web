@@ -126,6 +126,20 @@ p {
 	color: #505050;
 	margin: 0px;
 }
+.label{
+    padding-top: 10px;
+    margin-bottom: 0px;
+    display: flex;
+    font-size: 16px;
+}
+.label div{
+    flex:1;
+}
+.required{
+    text-align: right;
+    color:red;
+    font-weight: bold;
+}
 
 .bg_cover{
     background-position: center center;

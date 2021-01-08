@@ -22,7 +22,7 @@ router.get('/', async function (req, res) {
     page_items.push(item);
   }
   let page=+req.query.page||1;
-  if(page<=0||page>=nPages)
+  if(page<=0||page>nPages)
   {
     page=1;
   }
@@ -77,7 +77,7 @@ router.get('/aspect/:id', async function (req, res) {
     page_items.push(item);
   }
   let page=+req.query.page||1;
-  if(page<=0||page>=nPages)
+  if(page<=0||page>nPages)
   {
     page=1;
   }
@@ -130,7 +130,7 @@ router.get('/small_aspect/:id', async function (req, res) {
     page_items.push(item);
   }
   let page=+req.query.page||1;
-  if(page<=0||page>=nPages)
+  if(page<=0||page>nPages)
   {
     page=1;
   }
@@ -166,10 +166,16 @@ router.get('/small_aspect/:id', async function (req, res) {
 });
 // Chi tiết khoa học
 router.get('/details', async function (req, res) {
-  const id=+req.query.id;
+  const id=+req.query.id||0;
   const vd=+req.query.video||0;
   try{
     const rows = await courseModel.single(id);
+    if(rows==null)
+    {
+      res.render('404', {
+        layout: false
+      });
+    }
     const row1 = await courseModel.Comment(id);
     const datetime= await courseModel.getdateById(id);
     const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
@@ -178,14 +184,10 @@ router.get('/details', async function (req, res) {
     const intro=await lectureModel.getLectureIntro(id);
     const rate = await courseModel.Rate(id);
     const rows2= await lectureModel.getLectureById(vd);
-
-    
-    // console.log(c5);
-    if(rows==null)
+    let num_lect=0;
+    if(rows.status===1)
     {
-      res.render('404', {
-        layout: false
-      });
+      num_lect=await lectureModel.countLecture(id);
     }
     let isBought=false;
     if(req.session.isAuth)
@@ -204,7 +206,8 @@ router.get('/details', async function (req, res) {
       lecture:lectures,
       isLec:lectures===null,
       introduction:intro,
-      unit:rows2
+      unit:rows2,
+      num_lecture:num_lect
     })
   }
   catch (err) {
@@ -258,10 +261,8 @@ router.post('/addComment',async function (req, res) {
       f_ID: req.session.authUser.f_ID,
       rate: req.body.star,
   };
-  // console.log(rate1);
   courseModel.addComment(detail);
   courseModel.addRate(rate1);
-  //
   const countComment = await courseModel.getNum_evalue(id);
   const countRate = await courseModel.countRate(id);
   const sumRate = await courseModel.getEvalue(id);

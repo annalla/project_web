@@ -5,6 +5,13 @@ const TBL_COURSES = 'courses';
 const TBL_COMMENT = 'comments';
 const TBL_RATE = 'evaluate';
 module.exports = {
+  add(entity) {
+    return db.add(entity,  TBL_COURSES);
+  },
+  async isExistNameCourse(name){
+    const rows= await db.load(`select * from courses where title='${name}'`);
+    return (rows.length!==0);
+  },
   all() {
     return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
   },

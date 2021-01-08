@@ -17,5 +17,9 @@ module.exports = {
   getLectureIntro(idCourse)
   {
     return db.load(`select * from ${TBL_LECTURE} where CourseID=${idCourse} and isIntro=1`);
+  },
+  async countLecture(id){
+    const rows= await db.load(`select count(*) as total from ${TBL_LECTURE} where CourseID=${id}`);
+    return rows[0].total;
   }
 };
