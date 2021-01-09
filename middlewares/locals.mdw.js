@@ -18,11 +18,11 @@ module.exports = function (app) {
 
     if(req.session.isAuth)
     {
-      if(+req.session.authPermission===1)
+      if(+req.session.authUser.f_Permission===1)
       {
         res.locals.isAdmin=true;
       }
-      else if(+req.session.authType===2){
+      else if(+req.session.authUser.f_Type===2){
         res.locals.isTeacher=true;
         res.locals.infor =await userModel.singleInfo(req.session.authUser.f_ID);
       }

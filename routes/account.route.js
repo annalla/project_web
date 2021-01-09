@@ -31,27 +31,19 @@ router.get('/login', async function (req, res) {
 router.post('/login', async function (req, res) {
   try {
     const user = await userModel.singleByEmail(req.body.f_Email);
-    const id = await userModel.getIdUser(req.body.f_Email);
-    const type = await userModel.getTypeUser(req.body.f_Email);
-    const permission = await userModel.getPermissionUser(req.body.f_Email);
     const ret = bcrypt.compareSync(req.body.f_Password, user.f_Password);
     if (ret === false) {
       return res.render('vwAccount/login', {
         err_message: 'Email/Mật khẩu không đúng!'
       });
     }
-
-
     req.session.isAuth = true;
     req.session.authUser = user;
-    req.session.authId = id;
-    req.session.authPermission = permission;
-    req.session.authType = type;
     req.session.cart = [];
-    if (+permission === 1) {
-      res.redirect('/admin');
+    if (+req.session.authUser.f_Permission === 1) {
+      res.redirect('/admin/accounts');
     }
-    else if (+type === 2) {
+    else if (+req.session.authUser.f_Type === 2) {
       res.redirect('/account/profile');
     }
     else {
@@ -67,8 +59,6 @@ router.post('/login', async function (req, res) {
         }
          res.redirect(url);
       } else {
-        console.log(user.f_OTP);
-        console.log("vô otp")
         req.session.isAuth = false;
         res.render('vwAccount/otp');
         return;
@@ -86,9 +76,6 @@ router.post('/logout', async function (req, res) {
   try {
     req.session.isAuth = false;
     req.session.authUser = null;
-    req.session.id = null;
-    req.session.permission = 0;
-    req.session.teacher = 0;
     req.session.cart = [];
     res.redirect(req.headers.referer);
   } catch (err) {
