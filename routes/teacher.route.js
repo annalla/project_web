@@ -58,6 +58,7 @@ router.post('/add', async function (req, res) {
             small_image:file,
             title:req.body.f_name,
             ID_aspect:req.body.lv,
+            small_brief:req.body.FullDes2,
             brief:req.body.FullDes,
             fee:f,
             discount:d,
@@ -71,7 +72,7 @@ router.post('/add', async function (req, res) {
             total:t,
         };
         courseModel.add(detail);
-        res.redirect('/');
+        res.redirect('/teacher/yourTeacherCourse');
       }
     });
    
@@ -100,8 +101,23 @@ router.get('/checkNameCourse', async function (req, res) {
 router.get('/editCourse', async function (req, res) {
   const id=+req.query.id||0;
   const vd=+req.query.video||0;
+  const edit=req.query.edit;
   try{
-    
+    let isEditFee=0;
+    let isEditLecture=0;
+    let isEditBrief=0;
+    if(edit==="fee")
+    {
+      isEditFee=1; 
+    }
+    else if( edit==="brief")
+    {
+      isEditBrief=1; 
+    }
+    else if(edit==="lecture")
+    {
+      isEditLecture=1; 
+    }
     const rows = await courseModel.single(id);
     if(rows==null)
     {
@@ -130,10 +146,94 @@ router.get('/editCourse', async function (req, res) {
       lecture:lectures,
       isLec:lectures===null,
       unit:rows2,
-      num_lecture:num_lect
+      num_lecture:num_lect,
+      editFee:isEditFee,
+      editBrief:isEditBrief,
+      editLecture:isEditLecture,
     })
   }
   catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+});
+router.post('/editFee', function (req, res) {
+  try{
+    courseModel.editFee(req.body);
+    const url="/teacher/editCourse?id="+req.body.id;
+    res.redirect(url);
+  }
+  catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+});
+router.post('/editBrief', function (req, res) {
+  try{
+  courseModel.editBrief(req.body);
+  const url="/teacher/editCourse?id="+req.body.id;
+  res.redirect(url);
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+});
+router.get('/checkNameLecture', async function (req, res) {
+  try{
+  const result= await lectureModel.checkName(req.query.name,+req.query.id);
+  res.json(result);
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
+});
+router.post('/addLecture', async function (req, res) {
+  try{
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, './public/video/')
+      },
+      filename: function (req, file, cb) {
+        cb(null, Date.now()+file.originalname)
+      }
+    });
+    const upload = multer({ storage });
+    upload.single('fuMain')(req, res, function (err) {
+      if (err) {
+        redirect(req.headers.referer);
+      } else {
+        const file=res.req.file.filename;
+        // console.log(file);
+        // console.log(req.body);
+        let intro=0;
+        if(req.body.finish==='1')
+        {
+          courseModel.addfinish(+req.body.id);
+        }
+        if(req.body.intro==='1')
+        {
+          intro=1;
+        }
+        const detail={
+          title_name:req.body.f_name,
+          name_video:req.body.f_video,
+          CourseID:+req.body.id,
+          file_vd:file,
+          isIntro:intro
+         };
+         const update={
+           date:moment().format('YYYY-MM-DD HH:mm:ss'),
+         }
+         courseModel.updateDate(update,+req.body.id);
+      // console.log(detail);
+      lectureModel.add(detail);
+        const url="/teacher/editCourse?id="+req.body.id;
+        res.redirect(url);
+      }
+    });
+   
+   
+  }catch (err) {
     console.error(err);
     res.send('View error log at server console.');
   }
@@ -151,7 +251,6 @@ router.get('/yourTeacherCourse', async function (req, res) {
 });
 
 router.post('/remove', function (req, res) {
-  console.log(req.body.id);
   courseModel.del(req.body.id);
   res.redirect(req.headers.referer);
 });
@@ -189,8 +288,7 @@ try{
         job: req.body.job,
         image: req.session.authUser.f_ID + '.jpg',
         intro: req.body.intro,
-      }
-      console.log(infor);
+      };
       userModel.addInfo(infor);
       res.render('vwTeacher/infoTeacher');
     }

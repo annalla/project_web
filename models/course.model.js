@@ -5,8 +5,43 @@ const TBL_COURSES = 'courses';
 const TBL_COMMENT = 'comments';
 const TBL_RATE = 'evaluate';
 module.exports = {
+  updateDate(entity,idcourse)
+  {
+    const condition={CourseID:idcourse};
+    return db.patch(entity,condition,TBL_COURSES);
+  },
+  editFee(entity){
+    const f=Number.parseFloat(entity.f_fee);
+    let d=0;
+    let t=f;
+    if(entity.f_discount==='')
+      d=0;
+    else
+    {
+      d=Number.parseFloat(entity.f_discount);
+      t=d;
+    }
+    const condition = { CourseID: +entity.id};
+    const entity1={fee:f};
+    const entity2={discount:d};
+    const entity3={total:t};
+    db.patch(entity1,condition,TBL_COURSES);
+    db.patch(entity3,condition,TBL_COURSES);
+    return db.patch(entity2,condition,TBL_COURSES);
+  },
+  editBrief(entity)
+  {
+    const entity1={brief:entity.FullDes};
+    const condition={CourseID:+entity.id};
+    return db.patch(entity1,condition,TBL_COURSES);
+  },
   add(entity) {
     return db.add(entity,  TBL_COURSES);
+  },
+  addfinish(id) {
+    const entity={status:1};
+    const condition={CourseID:id}
+    return db.patch(entity,condition,  TBL_COURSES);
   },
   async isExistNameCourse(name){
     const rows= await db.load(`select * from courses where title='${name}'`);
@@ -59,14 +94,41 @@ module.exports = {
     addRate(entity) {
       return db.add(entity, TBL_RATE);
     },
-    filterByRank(catId,offset){
-      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY num_evalue DESC limit ${config.pagination.limit} offset ${offset} `)
+    filterByRankDownl1(catId,offset) {
+      return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where  c.ID_aspect=l2.ID_aspect and l2.ID_aspect1 = l1.ID_aspect1  and  u.f_ID=c.TeacherID and u.f_ID=t.f_ID and l1.ID_aspect1=${catId} ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset}`);
+    },
+    filterByRankUpl1(catId,offset) {
+      return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where  c.ID_aspect=l2.ID_aspect and l2.ID_aspect1 = l1.ID_aspect1  and  u.f_ID=c.TeacherID and u.f_ID=t.f_ID and l1.ID_aspect1=${catId} ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset}`);
+    },
+    filterByFeeDownl1(catId,offset) {
+      return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where  c.ID_aspect=l2.ID_aspect and l2.ID_aspect1 = l1.ID_aspect1  and  u.f_ID=c.TeacherID and u.f_ID=t.f_ID and l1.ID_aspect1=${catId} ORDER BY total DESC limit ${config.pagination.limit} offset ${offset}`);
+    },
+    filterByFeeUpl1(catId,offset) {
+      return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where  c.ID_aspect=l2.ID_aspect and l2.ID_aspect1 = l1.ID_aspect1  and  u.f_ID=c.TeacherID and u.f_ID=t.f_ID and l1.ID_aspect1=${catId} ORDER BY total ASC  limit ${config.pagination.limit} offset ${offset}`);
+    },
+    filterByRankDownl2(catId,offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset} `)
+    },
+    filterByRankUpl2(catId,offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset} `)
+    },
+    filterByFeeDownl2(catId,offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC limit ${config.pagination.limit} offset ${offset} `)
+    },
+    filterByFeeUpl2(catId,offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset} `)
     },
     filterByFeeDown(offset){
-      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY discount DESC  limit ${config.pagination.limit} offset ${offset} `)
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC  limit ${config.pagination.limit} offset ${offset} `)
     },
     filterByFeeUp(offset){
-      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY discount ASC limit ${config.pagination.limit} offset ${offset} `)
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset} `)
+    },
+    filterByRankDown(offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC  limit ${config.pagination.limit} offset ${offset} `)
+    },
+    filterByRankUp(offset){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset} `)
     },
     async single(id) {
       const rows = await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.CourseID=${id} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);

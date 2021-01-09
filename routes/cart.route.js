@@ -3,7 +3,6 @@ const moment = require('moment');
 const cartModel = require('../models/cart.model');
 const courseModel = require('../models/course.model');
 const joinModel = require('../models/join.model');
-// const orderDetailModel = require('../../models/order-detail.model');
 
 const router = express.Router();
 

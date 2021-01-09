@@ -61,20 +61,20 @@ module.exports = function (app) {
     next();
   })
 // khóa học nhiều nhất
-  app.use(async function (req, res, next) {
-    const rows = await courseModel.find10NewCourse();
-    res.locals.lcCourse = rows;
-    const t=[];
-    for( var i=0;i<10;i++)
-    {
-      const m=rows[i].CourseID;
-      const s= await courseModel.ByFullId(m);
-      const item={
-        c: s
-      }
-      t.push(item);
-    }
-    res.locals.c10=t;
-    next();
-  })
+  // app.use(async function (req, res, next) {
+  //   const rows = await courseModel.find10NewCourse();
+  //   res.locals.lcCourse = rows;
+  //   const t=[];
+  //   for( var i=0;i<10;i++)
+  //   {
+  //     const m=rows[i].CourseID;
+  //     const s= await courseModel.ByFullId(m);
+  //     const item={
+  //       c: s
+  //     }
+  //     t.push(item);
+  //   }
+  //   res.locals.c10=t;
+  //   next();
+  // });
 }

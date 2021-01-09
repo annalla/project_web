@@ -67,7 +67,16 @@
 <script>
 tinymce.init({
     selector: '#txtFullDes',
-    height: 600,
+    height: 500,
+    plugins: 'paste link autolink lists table',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
+    ],
+  });
+  tinymce.init({
+    selector: '#txtFullDes2',
+    height: 200,
     plugins: 'paste link autolink lists table',
     menubar: false,
     toolbar: [
@@ -102,13 +111,10 @@ tinymce.init({
                         {{#each category2}}
                             <option value="{{ID_aspect}}">{{name_level2}}</option>
                         {{/each}}
-                        {{!-- <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option> --}}
                     </select>
             </div>
             <div class="form-group">
-                {{!-- <label for="f_name" style="margin-bottom: 0px;margin-top:10px">Tên khóa học</label> --}}
+                
                 <div class="label">
                 ​   <div><label for="fname" style="margin:0px;padding:0px">Tên khóa học</label></div>
                     <div class="required">*</div>
@@ -116,7 +122,6 @@ tinymce.init({
                 <input class="form-control" type="text" name="f_name" id="f_name" >
             </div>
             <div class="form-group">
-                {{!-- <label for="f_fee" style="margin-bottom: 0px;margin-top:10px">Giá ($)</label> --}}
                 <div class="label">
                 ​   <div><label for="f_fee" style="margin:0px;padding:0px">Học phí ($)</label></div>
                     <div class="required">*</div>
@@ -132,17 +137,22 @@ tinymce.init({
                 <input id="fuMain" name="fuMain" type="file" class="file">
             </div>
             <input type="hidden" id="lv" name="lv">
-             {{!-- <div class="form-group"> --}}
-               <div class="form-group">
+            <div class="form-group">
                         <div class="label">
-                        ​   <div><label for="txtFullDes" style="margin:0px;padding:0px">Mô tả khóa học</label></div>
+                        ​   <div><label for="txtFullDes2" style="margin:0px;padding:0px">Mô tả ngắn gọn khóa học</label></div>
                             <div class="required"></div>
                         </div>
                         {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô tả khóa học:</label> --}}
-                        <textarea class="form-control" name="FullDes" id="txtFullDes" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="FullDes2" id="txtFullDes2" cols="30" rows="5"></textarea>
                 </div>
-                
-            {{!-- </div> --}}
+               <div class="form-group">
+                        <div class="label">
+                        ​   <div><label for="txtFullDes" style="margin:0px;padding:0px">Mô tả chi tiết khóa học</label></div>
+                            <div class="required"></div>
+                        </div>
+                        {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô tả khóa học:</label> --}}
+                        <textarea class="form-control" name="FullDes" id="txtFullDes" cols="30" rows="15"></textarea>
+                </div>
             <div class="card-footer text-muted">
                 <button type="submit" class="btn btn-primary"> <i class="fa fa-check" aria-hidden="true"></i>Tạo khóa học</button>
                

@@ -3,42 +3,19 @@ const bcrypt = require('bcryptjs');
 const categoryModel = require('../models/category.model');
 const userModel = require('../models/user.model');
 const courseModel = require('../models/course.model');
-//const locals = require('./middlewares/locals.mdw');
 
 const router = express.Router();
 //Categories----------------------------------------------------------------------------
 router.get('/categories/', async function (req, res) {
   const rows1 = await categoryModel.all1();
   const rows2 = await categoryModel.all2();
-  //const rows = await categoryModel.all();
-
   
   res.render('vwAdmin/manageCategories/allCategories', {
     aspects_level1: rows1,
     aspects_level2: rows2,
     empty: rows1.length === 0,
     empty1: rows2.length === 0
-    
-    //empty: rows.length ===0,
   });
-
-  // const p = db.load('select * from categories');
-  // p.then(function (rows) {
-  //   res.render('vwCategories/index', {
-  //     categories: rows,
-  //     empty: rows.length === 0
-  //   });
-  // }).catch(function (err) {
-  //   console.error(err);
-  //   res.send('View error log at server console.');
-  // });
-
-  // db.load('select * from categories', function (rows) {
-  //   res.render('vwCategories/index', {
-  //     categories: rows,
-  //     empty: rows.length === 0
-  //   });
-  // });
 })
 
 router.get('/categories/add', function (req, res) {
@@ -123,23 +100,7 @@ router.get('/categories/small_aspect/:id', async function (req, res) {
     course
   });
 })
-// router.post('/categories/remove', function (req, res) {
-//   console.log("đã vô đc remove")
-//   categoryModel.del(+req.body.id);
-//   res.redirect(req.headers.referer);
-// });
-// router.post('/categories/save', function (req, res) {
-//   categoryModel.patch(+req.body.id);
-//   res.redirect(req.headers.referer);
-// });
-// router.get('/is-availableCatlv1', async function (req, res) {
-//    const name = req.query.name;
-//    const aspect2 = await categoryModel.singlebyName1(name);
-//    if (aspect2 === null) {
-//      return res.json(true);
-//    }
-//    res.json(false);
-//  })
+
 router.get('/is-availableCat1', async function (req, res) {
  // console.log("vô đc /accounts/is-available");
   const name = req.query.name;
@@ -150,34 +111,25 @@ router.get('/is-availableCat1', async function (req, res) {
     //console.log("true");
     return res.json(true);
   }
-  //console.log("false");
   res.json(false);
 })
 router.get('/is-availableCat', async function (req, res) {
-  //console.log("vô đc /accounts/is-available");
   const name = req.query.name;
- // console.log(name);
   
   const aspect1 = await categoryModel.singlebyName1(name);
   if (aspect1 === null) {
-    //console.log("true");
     return res.json(true);
   }
-  //console.log("false");
   res.json(false);
 })
 router.get('/is-availableCatID', async function (req, res) {
-  //console.log("vô đc availableCatID");
   const id = req.query.id;
   console.log(id);
   
   const aspect1 = await courseModel.singleByIDlv1(id);
-  //console.log(aspect1);
   if (aspect1 === null) {
-    //console.log("true");
     return res.json(true);
   }
-  //console.log("false");
   res.json(false);
 })
 router.get('/is-availableCatID1', async function (req, res) {
@@ -188,10 +140,8 @@ router.get('/is-availableCatID1', async function (req, res) {
   const aspect = await courseModel.singleByIDlv2(id);
   console.log(aspect);
   if (aspect === null) {
-    //console.log("true");
     return res.json(true);
   }
-  //console.log("false");
   res.json(false);
 })
 //--------------------------------------------------------------------------------------
@@ -200,8 +150,6 @@ router.get('/is-availableCatID1', async function (req, res) {
 router.get('/accounts/', async function (req, res) {
   const rowTeachers = await userModel.allTeacher();
   const rowStudents = await userModel.allStudent();
-
-  //const rows = await categoryModel.all();
   res.render('vwAdmin/manageAccounts/allAccounts', {
     teachers: rowTeachers,
     students: rowStudents,
@@ -230,17 +178,6 @@ router.post('/accounts/remove', function (req, res) {
   userModel.del(+req.body.id);
   res.redirect(req.headers.referer);
 });
-//kiểm tra tên đã tồn tại chưa
-// router.get('/accounts/is-available', async function (req, res) {
-//   const name = req.query.name;
-//   console.log("vô đc /accounts/is-available");
-//   const aspect1 = await userModel.singleByEmail(name);
-//   if (aspect1 === null) {
-//     return res.json(true);
-//   }
-//   res.json(false);
-// })
-//--------------------------------------------------------------------------------------
 
 //Courses-------------------------------------------------------------------------------
 router.get('/courses/', async function (req, res) {

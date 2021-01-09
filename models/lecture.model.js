@@ -2,6 +2,15 @@ const db = require('../utils/db');
 const TBL_LECTURE = 'lectures';
 
 module.exports = {
+  add(entity) {
+    console.log(entity);
+    return db.add(entity, TBL_LECTURE);
+  },
+  async checkName(name,id)
+  {
+    const rows=await db.load(`select * from lectures where CourseID=${id} and title_name='${name}'`);
+    return rows.length===0;
+  },
   async getAll(idCourse)
   {
     return await db.load(`select * from lectures where CourseID=${idCourse}`);
