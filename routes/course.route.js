@@ -197,8 +197,11 @@ router.get('/search', async function (req, res) {
     const page=1;
     const nPages=1;
     const search = req.query.search;
-    const rows = await courseModel.fulltextSearch(search);
-      
+    rows = await courseModel.fulltextSearch(search);
+
+    if(rows.length === 0){
+      rows = await courseModel.fulltextSearchCat2(search);
+    }
     res.render('vwCourses/search', {
       courses: rows,
       empty: rows.length === 0,

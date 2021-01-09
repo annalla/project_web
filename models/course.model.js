@@ -84,6 +84,9 @@ module.exports = {
     fulltextSearch(title){
       return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE MATCH( title) AGAINST( "${title}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
     },
+    fulltextSearchCat2(name_level2){
+      return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE MATCH(name_level2) AGAINST( "${name_level2}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+    },
     async singleCoursebyTeacher(id)
     {
       return db.load(`select * from courses c, infor_teacher i where c.TeacherID=i.f_ID and c.TeacherID=${id} `);

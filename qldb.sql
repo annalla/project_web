@@ -90,6 +90,8 @@ CREATE TABLE `aspects_level2` (
   FOREIGN KEY (`ID_aspect1`) REFERENCES `aspects_level1`(`ID_aspect1`) ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE `aspects_level2` 
+ADD FULLTEXT(`name_level2`);
 -- ----------------------------
 -- Records of aspects_level2
 -- ----------------------------
