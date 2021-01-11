@@ -1,108 +1,35 @@
-<style>
-    .stars-outer {
-        position: relative;
-        display: inline-block;
-    }
-
-    .stars-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 0;
-    }
-
-    .stars-outer::before {
-        content: "\f005 \f005 \f005 \f005 \f005";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: #ccc;
-    }
-
-    .stars-inner::before {
-        content: "\f005 \f005 \f005 \f005 \f005";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        color: #f8ce0b;
-    }
-</style>
-
 {{#section 'css'}}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 {{/section}}
 {{#section 'js'}}
 <script>
-    // Initial Ratings
-    const ratings = {
-        ad2: 3,
-        ad3: 1.4,
-        ad4: 1.4,
-        ad5: 1.4,
-        ad6: 1.4,
-        ad7: 1.4,
-        ad8: 1.4,
-        ad12: 1.4,
-        ad13: 1.4,
-        ad14: 1.4,
-        ad15: 1.4,
-        ad16: 1.4
-    }
-    // Total Stars
-    const starsTotal = 5;
+    document.getElementById("stars1").innerHTML = getStars(4);
+    function getStars(rating) {
+        // Round to nearest half
+        rating = Math.round(rating * 2) / 2;
+        let output = [];
 
-    // Run getRatings when DOM loads
-    document.addEventListener('DOMContentLoaded', getRatings);
+        // Append all the filled whole stars
+        for (var i = rating; i >= 1; i--)
+            output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-    // Form Elements
-    const productSelect = document.getElementById('product-select');
-    const ratingControl = document.getElementById('rating-control');
+        // If there is a half a star, append it
+        if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-    // Init product
-    let product;
+        // Fill the empty stars
+        for (let i = (5 - rating); i >= 1; i--)
+            output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
-    // Product select change
-    productSelect.addEventListener('change', (e) => {
-        product = e.target.value;
-        // Enable rating control
-        ratingControl.disabled = false;
-        ratingControl.value = ratings[product];
-    });
+        return output.join('');
 
-    // Rating control change
-    ratingControl.addEventListener('blur', (e) => {
-        const rating = e.target.value;
-
-        // Make sure 5 or under
-        if (rating > 5) {
-            alert('Please rate 1 - 5');
-            return;
-        }
-
-        // Change rating
-        ratings[product] = rating;
-
-        getRatings();
-    });
-
-    // Get ratings
-    function getRatings() {
-        for (let rating in ratings) {
-            // Get percentage
-            const starPercentage = (ratings[rating] / starsTotal) * 100;
-
-            // Round to nearest 10
-            const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-
-            // Set width of stars-inner to percentage
-            document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
-
-            // Add number rating
-            document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
-        }
     }
 </script>
+{{#each this.courses}}
+<script>
+    var star = "stars" + {{ CourseID }};
+    document.getElementById(star).innerHTML = getStars({{ evalue }});
+</script>
+{{/each}}
 {{/section}}
 <!--====== PAGE BANNER PART START ======-->
 
@@ -203,21 +130,8 @@
                             </div>
                             <div class="cont" style="padding:15px 20px">
                                 <ul>
-                                    {{!-- <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li> --}}
-                                  
-                                    <li class=" ad{{CourseID}}">
-                                    
-                                        
-                                            <div class="stars-outer">
-                                                <div class="stars-inner"></div>
-                                            </div>
-                                        
-                                        
-                                    </li>
+                                    <span id="stars{{CourseID}}"></span>
+
                                     <span>{{evalue}}({{num_evalue}} Reviews)</span>
                                 </ul>
                                 <a href="/courses/details?id={{CourseID}}">

@@ -1,3 +1,38 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{{/section}}
+{{#section 'js'}}
+<script>
+    document.getElementById("stars1").innerHTML = getStars(4);
+    function getStars(rating) {
+        // Round to nearest half
+        rating = Math.round(rating * 2) / 2;
+        let output = [];
+
+        // Append all the filled whole stars
+        for (var i = rating; i >= 1; i--)
+            output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        // If there is a half a star, append it
+        if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        // Fill the empty stars
+        for (let i = (5 - rating); i >= 1; i--)
+            output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        return output.join('');
+
+    }
+</script>
+{{#each t}}
+{{#each c}}
+<script>
+    var star = "stars" + {{ CourseID }};
+    document.getElementById(star).innerHTML = getStars({{ evalue }});
+</script>
+{{/each}}
+{{/each}}
+{{/section}}
 {{#if message}}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -92,7 +127,7 @@
 
                         <div class="col-lg-4">
                             {{#each c1}}
-                            
+
                             <a href="/courses/small_aspect/{{ID_aspect}}">
                                 <span class="singel-category text-center color-1">
                                     <span class="icon">
@@ -369,13 +404,10 @@
                     </div>
                     <div class="cont">
                         <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
+                            <span id="stars{{CourseID}}"></span>
+
+                            <span>{{evalue}}({{num_evalue}} Reviews)</span>
                         </ul>
-                        <span>{{evalue}}({{num_evalue}} Reviews)</span>
                         <a href="/courses/details?id={{CourseID}}">
                             <h4>
                                 {{title}}

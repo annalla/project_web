@@ -110,16 +110,9 @@ router.get('/', async function (req, res) {
      
       rows4=rows2;
     };
-    // var array=[];
-    // for (ci in rows)
-    // {
-    //   var name="ad"+ci.CourseID;
-    //   const item={
-    //     name:ci.evalue
-    //   };
-    //   array.push(item);
-    // }
-    // console.log(array);
+    
+    
+
   res.render('vwCourses/course', {
     courses: rows,
     category:rows4,
@@ -138,6 +131,7 @@ router.get('/', async function (req, res) {
     n2:nPages-1===page,
     n1:nPages===page,
     maxThan3:nPages>=4,
+    
     
   })
   }

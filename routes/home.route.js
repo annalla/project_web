@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', async function (req, res) {
     const rows10 = await courseModel.find10NewCourse();
     const rows5 = await courseModel.findMostAspectWeek();
+    console.log(rows5);
     const row = await courseModel.countfindMostAspectWeek();
     const t = [];
     for (var i = 0; i < 10; i++) {
@@ -29,5 +30,6 @@ router.get('/', async function (req, res) {
     }
    
     res.render('home', { t, t1 });
+
 });
 module.exports = router;
