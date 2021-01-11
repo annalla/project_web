@@ -28,9 +28,6 @@ router.get('/', function (req, res) {
 
 router.post('/categories/add', async function (req, res) {
   const ret = await categoryModel.add(req.body);
-  // console.log(ret);
-  // res.send('OK');
-  //res.render('vwAdmin/manageCategories/add');
   res.redirect('/admin/categories');
 })
 
@@ -60,20 +57,15 @@ router.post('/categories/del', async function (req, res) {
 })
 
 router.post('/categories/dellv2', async function (req, res) {
-  //console.log("sao chui vô đây dị ba dellv2");
-  console.log(req.body);
   const ret = await categoryModel.dellv2(req.body);
   res.redirect('/admin/categories');
 })
 
 router.post('/categories/patch', async function (req, res) {
-  //console.log(req.body);
   const ret = await categoryModel.patch(req.body);
   res.redirect('/admin/categories');
 })
 router.post('/categories/patchlv2', async function (req, res) {
- // console.log(req.body);
-  //console.log("vô patch nhen");
   const ret = await categoryModel.patchlv2(req.body);
   res.redirect('/admin/categories');
 })
@@ -124,7 +116,6 @@ router.get('/is-availableCat', async function (req, res) {
 })
 router.get('/is-availableCatID', async function (req, res) {
   const id = req.query.id;
-  console.log(id);
   
   const aspect1 = await courseModel.singleByIDlv1(id);
   if (aspect1 === null) {
@@ -133,12 +124,9 @@ router.get('/is-availableCatID', async function (req, res) {
   res.json(false);
 })
 router.get('/is-availableCatID1', async function (req, res) {
-  console.log("vô đc availableCatID1");
   const id = req.query.id;
-  console.log(id);
   
   const aspect = await courseModel.singleByIDlv2(id);
-  console.log(aspect);
   if (aspect === null) {
     return res.json(true);
   }
@@ -170,7 +158,6 @@ router.post('/accounts/add', async function (req, res) {
     f_Permission: 0,
     f_Type: 2
   }
-  console.log(user);
   await userModel.add(user);
   res.redirect('/admin/accounts');
 })

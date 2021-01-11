@@ -39,10 +39,10 @@ router.get('/learn', async function (req, res) {
     res.send('View error log at server console.');
   };
 });
-router.post('/add', function (req, res) {
+router.post('/add',async function (req, res) {
     try{
     const id=+req.body.id;
-    const course=courseModel.singleCourse(id);
+    const course=await courseModel.singleCourse(id);
     let total=0;
     if(course.discount){
         total=course.discount;
@@ -58,7 +58,10 @@ router.post('/add', function (req, res) {
         status: 0,
         price: total,
     };
-    // console.log(detail);
+    var num=+course.num_join;
+    num+=1;
+    const entity={num_join:num};
+    courseModel.updateDate(entity,course.CourseID);
     joinModel.add(detail);
   res.redirect(req.headers.referer);
 }catch (err) {

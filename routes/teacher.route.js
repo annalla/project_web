@@ -203,8 +203,6 @@ router.post('/addLecture', async function (req, res) {
         redirect(req.headers.referer);
       } else {
         const file=res.req.file.filename;
-        // console.log(file);
-        // console.log(req.body);
         let intro=0;
         if(req.body.finish==='1')
         {
@@ -225,7 +223,6 @@ router.post('/addLecture', async function (req, res) {
            date:moment().format('YYYY-MM-DD HH:mm:ss'),
          }
          courseModel.updateDate(update,+req.body.id);
-      // console.log(detail);
       lectureModel.add(detail);
         const url="/teacher/editCourse?id="+req.body.id;
         res.redirect(url);

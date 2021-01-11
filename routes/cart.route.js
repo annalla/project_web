@@ -89,6 +89,10 @@ router.post('/checkout', async function (req, res) {
   let total = 0;
   for (const ci of req.session.cart) {
     const course = await courseModel.singleCourse(ci.Courseid);
+    var num=+course.num_join;
+    num+=1;
+    const entity={num_join:num};
+    courseModel.updateDate(entity,course.CourseID);
     if(course.discount)
     {
       total = course.discount;

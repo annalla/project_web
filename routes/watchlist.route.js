@@ -40,7 +40,6 @@ router.get('/checkAdd', async function (req, res) {
     const items={
       Courseid: +req.query.id,
     } 
-    // console.log(await watchlistModel.isWatchList(req.session.authUser.f_ID,items.Courseid));
     if ( await watchlistModel.isWatchList(req.session.authUser.f_ID,items.Courseid))
     {
         res.json(true);

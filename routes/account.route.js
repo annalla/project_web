@@ -49,7 +49,6 @@ router.post('/login', async function (req, res) {
     else {
       if (user.f_OTP === "0") {
         req.session.isAuth = true;
-        console.log("vô đăng nhập bt");
         let url = req.session.retUrl || '/';
         if (req.session.retUrl === '/account/sendotp') {
           url = '/';
