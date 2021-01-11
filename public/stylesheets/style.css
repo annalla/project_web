@@ -149,6 +149,15 @@ p {
     height: 150px;
 }
 
+.bg_cover1{
+    /* background-position: center center;
+    background-size: 100% 150px;
+    background-repeat: no-repeat; */
+    width: 100%;
+    height: 100%;
+}
+
+
 /*===== All Button Style =====*/
 
 .main-btn {

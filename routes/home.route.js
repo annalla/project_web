@@ -9,6 +9,10 @@ router.get('/', async function (req, res) {
     const rows10 = await courseModel.find10NewCourse();
     const rows5 = await courseModel.findMostAspectWeek();
     const row = await courseModel.countfindMostAspectWeek();
+    const rowtopWatch = await courseModel.findWatchMost();
+    const rowsCourseTrend = await courseModel.find4CourseTrend();
+    const row1 = await courseModel.countfind4CourseTrend()
+
     const t = [];
     for (var i = 0; i < 10; i++) {
         const m = rows10[i].CourseID;
@@ -27,8 +31,25 @@ router.get('/', async function (req, res) {
         }
         t1.push(item1);
     }
-   
-    res.render('home', { t, t1 });
+    const t2 = [];
+    for (var i = 0; i < 10; i++) {
+        const m2 = rowtopWatch[i].CourseID;
+        const s2 = await courseModel.ByFullId(m2);
+        const item2 = {
+            c2: s2
+        }
+        t2.push(item2);
+    }
+    const t3 = [];
+    for (var i = 0; i < row1; i++) {
+        const m3 = rowsCourseTrend[i].CourseID;
+        const s3 = await courseModel.ById(m3);
+        const item3 = {
+            c3: s3
+        }
+        t3.push(item3);
+    }
+    res.render('home', { t, t1, t2, t3 });
 
 });
 module.exports = router;

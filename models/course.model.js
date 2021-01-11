@@ -67,6 +67,26 @@ module.exports = {
     ORDER by count DESC limit 5) as subquery `);
     return rows[0].total;
   },
+  async findWatchMost() {
+    return await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+    ORDER by num_count DESC limit 10`);
+  },
+  async find4CourseTrend() {
+    return await db.load(`SELECT c.title , c.ID_aspect ,c.CourseID, COUNT(c.CourseID) as count
+    FROM course_join j, courses c 
+    WHERE j.CourseID = c.CourseID and j.orderDate >= SUBDATE(CURRENT_DATE(), 7) and orderDate <= CURRENT_DATE()
+    GROUP by c.CourseID
+    ORDER by count DESC limit 5`);
+  },
+  async countfind4CourseTrend() {
+    const rows = await db.load(`SELECT COUNT(*) as total FROM
+    (SELECT c.ID_aspect ,c.CourseID, COUNT(c.CourseID) as count
+    FROM course_join j, courses c
+    WHERE j.CourseID = c.CourseID and j.orderDate >= SUBDATE(CURRENT_DATE(), 7) and orderDate <= CURRENT_DATE()
+    GROUP by c.CourseID
+    ORDER by count DESC limit 5) as subquery `);
+    return rows[0].total;
+  },
   pageByAll(offset) {
     return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
   },

@@ -44,68 +44,24 @@
 <!--====== SLIDER PART START ======-->
 
 <section id="slider-part" class="slider-active">
-    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-1.jpg)" data-overlay="4">
+    {{#each t3}}
+        {{#each c3}}
+    <div class="single-slider bg_cover1 pt-150" style="background-image:url(public/images/course/{{small_image}}); background-size:cover" data-overlay="4">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">Khoá học nổi bật nhất trong tuần qua</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus.
-                            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed fringilla mauri amet
-                            nibh.</p>
-                        <ul>
-                            <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a>
-                            </li>
-                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get
-                                    Started</a></li>
-                        </ul>
+                        <h1 data-animation="bounceInLeft" data-delay="1s">{{title}}</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">{{{small_brief}}}</p>
+                        <a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="/courses/details?id={{CourseID}}">Xem khóa học</a>
                     </div>
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </div> <!-- single slider -->
+         {{/each}}
+    {{/each}}
 
-    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-2.jpg)" data-overlay="4">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-7 col-lg-9">
-                    <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right theme for education</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus.
-                            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed fringilla mauri amet
-                            nibh.</p>
-                        <ul>
-                            <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a>
-                            </li>
-                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get
-                                    Started</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- single slider -->
-
-    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-3.jpg)" data-overlay="4">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-7 col-lg-9">
-                    <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right theme for education</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus.
-                            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed fringilla mauri amet
-                            nibh.</p>
-                        <ul>
-                            <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a>
-                            </li>
-                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get
-                                    Started</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- single slider -->
 </section>
 
 <!--====== SLIDER PART ENDS ======-->
@@ -166,14 +122,17 @@
             </div>
         </div>
         <div class="row course-slied mt-30">
+            {{#each t2}}
             <div class="col-lg-4">
                 <div class="singel-course">
+                    {{#each c2}}
                     <div class="thum">
+
                         <div class="image">
-                            <img src="images/course/cu-1.jpg" alt="Course">
+                            <img src="/public/images/course/{{small_image}}" alt="Course">
                         </div>
                         <div class="price">
-                            <span>Free</span>
+                            <span>New</span>
                         </div>
                     </div>
                     <div class="cont">
@@ -184,196 +143,41 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                         </ul>
-                        <span>(20 Reviws)</span>
-                        <a href="courses-singel.html">
-                            <h4>Learn basis javascirpt from start for beginner</h4>
+                        <span>{{evalue}}({{num_evalue}} Reviews)</span>
+                        <a href="/courses/details?id={{CourseID}}">
+                            <h4>
+                                {{title}}
+                            </h4>
                         </a>
                         <div class="course-teacher">
                             <div class="thum">
-                                <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
+                                <a href="#"><img src="/public/images/course/teacher/{{image}}" alt="teacher"></a>
                             </div>
                             <div class="name">
                                 <a href="#">
-                                    <h6>Mark anthem</h6>
+                                    <h6>
+                                        {{f_Fullname}}
+                                    </h6>
                                 </a>
                             </div>
                             <div class="admin">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i><span>{{num_join}}</span></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    {{/each}}
                 </div> <!-- singel course -->
+
+
             </div>
-            <div class="col-lg-4">
-                <div class="singel-course">
-                    <div class="thum">
-                        <div class="image">
-                            <img src="images/course/cu-2.jpg" alt="Course">
-                        </div>
-                        <div class="price">
-                            <span>Free</span>
-                        </div>
-                    </div>
-                    <div class="cont">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>(20 Reviws)</span>
-                        <a href="courses-singel.html">
-                            <h4>Learn basis javascirpt from start for beginner</h4>
-                        </a>
-                        <div class="course-teacher">
-                            <div class="thum">
-                                <a href="#"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
-                            </div>
-                            <div class="name">
-                                <a href="#">
-                                    <h6>Mark anthem</h6>
-                                </a>
-                            </div>
-                            <div class="admin">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- singel course -->
-            </div>
-            <div class="col-lg-4">
-                <div class="singel-course">
-                    <div class="thum">
-                        <div class="image">
-                            <img src="images/course/cu-3.jpg" alt="Course">
-                        </div>
-                        <div class="price">
-                            <span>Free</span>
-                        </div>
-                    </div>
-                    <div class="cont">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>(20 Reviws)</span>
-                        <a href="courses-singel.html">
-                            <h4>Learn basis javascirpt from start for beginner</h4>
-                        </a>
-                        <div class="course-teacher">
-                            <div class="thum">
-                                <a href="#"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
-                            </div>
-                            <div class="name">
-                                <a href="#">
-                                    <h6>Mark anthem</h6>
-                                </a>
-                            </div>
-                            <div class="admin">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- singel course -->
-            </div>
-            <div class="col-lg-4">
-                <div class="singel-course">
-                    <div class="thum">
-                        <div class="image">
-                            <img src="images/course/cu-4.jpg" alt="Course">
-                        </div>
-                        <div class="price">
-                            <span>Free</span>
-                        </div>
-                    </div>
-                    <div class="cont">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>(20 Reviws)</span>
-                        <a href="courses-singel.html">
-                            <h4>Learn basis javascirpt from start for beginner</h4>
-                        </a>
-                        <div class="course-teacher">
-                            <div class="thum">
-                                <a href="#"><img src="images/course/teacher/t-4.jpg" alt="teacher"></a>
-                            </div>
-                            <div class="name">
-                                <a href="#">
-                                    <h6>Mark anthem</h6>
-                                </a>
-                            </div>
-                            <div class="admin">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- singel course -->
-            </div>
-            <div class="col-lg-4">
-                <div class="singel-course">
-                    <div class="thum">
-                        <div class="image">
-                            <img src="images/course/cu-5.jpg" alt="Course">
-                        </div>
-                        <div class="price">
-                            <span>Free</span>
-                        </div>
-                    </div>
-                    <div class="cont">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>(20 Reviws)</span>
-                        <a href="courses-singel.html">
-                            <h4>Learn basis javascirpt from start for beginner</h4>
-                        </a>
-                        <div class="course-teacher">
-                            <div class="thum">
-                                <a href="#"><img src="images/course/teacher/t-5.jpg" alt="teacher"></a>
-                            </div>
-                            <div class="name">
-                                <a href="#">
-                                    <h6>Mark anthem</h6>
-                                </a>
-                            </div>
-                            <div class="admin">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- singel course -->
-            </div>
+            {{/each}}
+
         </div> <!-- course slied -->
     </div> <!-- container -->
 </section>
+
 
 <!--====== COURSE TOP 10 WATCHING ENDS ======-->
 
