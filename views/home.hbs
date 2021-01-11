@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-9">
                     <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">3-4 khoá học nổi bật nhất trong tuần qua</h1>
+                        <h1 data-animation="bounceInLeft" data-delay="1s">Khoá học nổi bật nhất trong tuần qua</h1>
                         <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus.
                             Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed fringilla mauri amet
                             nibh.</p>
@@ -88,78 +88,27 @@
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2">
                     <div class="row category-slied mt-40">
+                        {{#each t1}}
+
                         <div class="col-lg-4">
-                            <a href="#">
+                            {{#each c1}}
+                            
+                            <a href="/courses/small_aspect/{{ID_aspect}}">
                                 <span class="singel-category text-center color-1">
                                     <span class="icon">
-                                        <img src="images/all-icon/ctg-1.png" alt="Icon">
+                                        <img src="/public/images/all-icon/email.png" alt="Icon">
                                     </span>
                                     <span class="cont">
-                                        <span>Language</span>
+                                        <span>
+                                            {{name_level2}}
+                                        </span>
                                     </span>
                                 </span> <!-- singel category -->
                             </a>
+                            {{/each}}
                         </div>
-                        <div class="col-lg-4">
-                            <a href="#">
-                                <span class="singel-category text-center color-2">
-                                    <span class="icon">
-                                        <img src="images/all-icon/ctg-2.png" alt="Icon">
-                                    </span>
-                                    <span class="cont">
-                                        <span>Business</span>
-                                    </span>
-                                </span> <!-- singel category -->
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="#">
-                                <span class="singel-category text-center color-3">
-                                    <span class="icon">
-                                        <img src="images/all-icon/ctg-3.png" alt="Icon">
-                                    </span>
-                                    <span class="cont">
-                                        <span>Literature</span>
-                                    </span>
-                                </span> <!-- singel category -->
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="#">
-                                <span class="singel-category text-center color-1">
-                                    <span class="icon">
-                                        <img src="images/all-icon/ctg-1.png" alt="Icon">
-                                    </span>
-                                    <span class="cont">
-                                        <span>Language</span>
-                                    </span>
-                                </span> <!-- singel category -->
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="#">
-                                <span class="singel-category text-center color-2">
-                                    <span class="icon">
-                                        <img src="images/all-icon/ctg-2.png" alt="Icon">
-                                    </span>
-                                    <span class="cont">
-                                        <span>Business</span>
-                                    </span>
-                                </span> <!-- singel category -->
-                            </a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="#">
-                                <span class="singel-category text-center color-3">
-                                    <span class="icon">
-                                        <img src="images/all-icon/ctg-3.png" alt="Icon">
-                                    </span>
-                                    <span class="cont">
-                                        <span>Literature</span>
-                                    </span>
-                                </span> <!-- singel category -->
-                            </a>
-                        </div>
+
+                        {{/each}}
                     </div> <!-- category slied -->
                 </div>
             </div> <!-- row -->
@@ -405,12 +354,12 @@
             </div>
         </div>
         <div class="row course-slied mt-30">
-            {{#each c10}}
+            {{#each t}}
             <div class="col-lg-4">
                 <div class="singel-course">
                     {{#each c}}
                     <div class="thum">
-                        
+
                         <div class="image">
                             <img src="/public/images/course/{{small_image}}" alt="Course">
                         </div>
@@ -429,7 +378,7 @@
                         <span>{{evalue}}({{num_evalue}} Reviews)</span>
                         <a href="/courses/details?id={{CourseID}}">
                             <h4>
-                                    {{title}}
+                                {{title}}
                             </h4>
                         </a>
                         <div class="course-teacher">
@@ -438,15 +387,14 @@
                             </div>
                             <div class="name">
                                 <a href="#">
-                                    <h6>                    
-                                            {{f_Fullname}}
+                                    <h6>
+                                        {{f_Fullname}}
                                     </h6>
                                 </a>
                             </div>
                             <div class="admin">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i><span>{{num_join}}</span></a></li>
                                 </ul>
                             </div>
                         </div>

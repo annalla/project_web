@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/annalla/project_web#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "bcryptjs": "^2.4.3",
     "bootstrap-fileinput": "^5.1.3",
     "express": "^4.17.1",

@@ -1,10 +1,41 @@
+<style>
+    .stars-outer {
+        position: relative;
+        display: inline-block;
+    }
+
+    .stars-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+    }
+
+    .stars-outer::before {
+        content: "\f005 \f005 \f005 \f005 \f005";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: #ccc;
+    }
+
+    .stars-inner::before {
+        content: "\f005 \f005 \f005 \f005 \f005";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: #f8ce0b;
+    }
+</style>
 {{#section 'css'}}
-      <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
 {{/section}}
 {{#section 'js'}}
 <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
-<script >
-    $('.reviews-form').on('click', '.rate-wrapper .rate .rate-item', function() {
+<script>
+    $('.reviews-form').on('click', '.rate-wrapper .rate .rate-item', function () {
         var self = $(this),
             target = self.parent('.rate');
         target.addClass('selected');
@@ -18,512 +49,608 @@
         if (comment.length === 0) {
             e.preventDefault();
             alert('Nhập bình luận!');
-        return;
+            return;
         }
     });
 </script>
 <script>
-  $('#frmAddCart').on('submit', function (e) {
-    const id = $('#id').val();
-    e.preventDefault();
-    $.getJSON(`/yourCart/checkAdd?id=${id}`, function (data) {
-      if (data === false) {       
-        $('#frmAddCart').off('submit').submit();
-      } else {
-        alert('Trong giỏ đã tồn tại khóa học này! ');    
-       
-      }
-    })
-  });
-  $('#frmAddCourse').on('submit', function (e) {
-    const id = $('#id').val();
-  });
-  $('#frmFC').on('submit', function (e) {
-    const id = $('#id').val();
-    e.preventDefault();
-    $.getJSON(`/myFavoriteCourse/checkAdd?id=${id}`, function (data) {
-      if (data === false) {       
-        $('#frmFC').off('submit').submit();
-      } else {
-          alert('Trong danh sách yêu thích đã tồn tại khóa học này! '); 
-      }
-    })
-  });
+    $('#frmAddCart').on('submit', function (e) {
+        const id = $('#id').val();
+        e.preventDefault();
+        $.getJSON(`/yourCart/checkAdd?id=${id}`, function (data) {
+            if (data === false) {
+                $('#frmAddCart').off('submit').submit();
+            } else {
+                alert('Trong giỏ đã tồn tại khóa học này! ');
+
+            }
+        })
+    });
+    $('#frmAddCourse').on('submit', function (e) {
+        const id = $('#id').val();
+    });
+    $('#frmFC').on('submit', function (e) {
+        const id = $('#id').val();
+        e.preventDefault();
+        $.getJSON(`/myFavoriteCourse/checkAdd?id=${id}`, function (data) {
+            if (data === false) {
+                $('#frmFC').off('submit').submit();
+            } else {
+                alert('Trong danh sách yêu thích đã tồn tại khóa học này! ');
+            }
+        })
+    });
 </script>
 <script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
 
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more >>"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less <<"; 
-    moreText.style.display = "inline";
-  }
-}
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more >>";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less <<";
+            moreText.style.display = "inline";
+        }
+    }
 </script>
-{{/section}} 
+{{/section}}
 {{!-- 369px x height 251px --}}
 {{#with this.course}}
 
-  
-    <section id="page-banner" class="pt-30 pb-110 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-2.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-banner-cont">
-                        <h4>{{title}}</h4>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Courses</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
-                            </ol>
-                        </nav>
-                    </div>  <!-- page banner cont -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-    
-    <!--====== PAGE BANNER PART ENDS ======-->
-    
-    <!--====== COURSES SINGEl PART START ======-->
-    
-    <section id="corses-singel" class="pt-90 pb-30 gray-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="corses-singel-left mt-30">
-                        <div class="title">
-                            <h3>{{title}}</h3>
-                        </div> <!-- title -->
-                        <div class="course-terms">
-                            <ul>
-                                <li>
-                                    <div class="teacher-name">
-                                        <div class="thum">
-                                            <img src="/public/images/instructor/{{image}}" alt="Teacher" style="width: 40px;height:40px">
-                                        </div>
-                                        <div class="name">
-                                            <span>Teacher</span>
-                                            <h6>{{f_Fullname}}</h6>
-                                        </div>
+
+<section id="page-banner" class="pt-30 pb-110 bg_cover" data-overlay="8"
+    style="background-image: url(/public/images/page-banner-2.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h4>{{title}}</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                        </ol>
+                    </nav>
+                </div> <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== PAGE BANNER PART ENDS ======-->
+
+<!--====== COURSES SINGEl PART START ======-->
+
+<section id="corses-singel" class="pt-90 pb-30 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="corses-singel-left mt-30">
+                    <div class="title">
+                        <h3>{{title}}</h3>
+                    </div> <!-- title -->
+                    <div class="course-terms">
+                        <ul>
+                            <li>
+                                <div class="teacher-name">
+                                    <div class="thum">
+                                        <img src="/public/images/instructor/{{image}}" alt="Teacher"
+                                            style="width: 40px;height:40px">
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="course-category">
-                                        <span>Category</span>
-                                        <h6>{{name_level1}} </h6>
+                                    <div class="name">
+                                        <span>Teacher</span>
+                                        <h6>{{f_Fullname}}</h6>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="review">
-                                        <span>Review</span>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li class="rating">{{evalue}}({{num_evalue}} Đánh giá)</li>
-                                        </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="course-category">
+                                    <span>Category</span>
+                                    <h6>{{name_level1}} </h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="review">
+                                    <span>Review</span>
+                                    <ul>
+                                        {{!-- <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i></a></li> --}}
+                                        <script>
+                                            // Initial Ratings
+                                            const ratings = {
+                                                countstar: {{ evalue }}
+    }
+
+                                            // Total Stars
+                                            const starsTotal = 5;
+
+                                            // Run getRatings when DOM loads
+                                            document.addEventListener('DOMContentLoaded', getRatings);
+
+                                            // Form Elements
+                                            const productSelect = document.getElementById('product-select');
+                                            const ratingControl = document.getElementById('rating-control');
+
+                                            // Init product
+                                            let product;
+
+                                            // Product select change
+                                            productSelect.addEventListener('change', (e) => {
+                                                product = e.target.value;
+                                                // Enable rating control
+                                                ratingControl.disabled = false;
+                                                ratingControl.value = ratings[product];
+                                            });
+
+                                            // Rating control change
+                                            ratingControl.addEventListener('blur', (e) => {
+                                                const rating = e.target.value;
+
+                                                // Make sure 5 or under
+                                                if (rating > 5) {
+                                                    alert('Please rate 1 - 5');
+                                                    return;
+                                                }
+
+                                                // Change rating
+                                                ratings[product] = rating;
+
+                                                getRatings();
+                                            });
+
+                                            // Get ratings
+                                            function getRatings() {
+                                                for (let rating in ratings) {
+                                                    // Get percentage
+                                                    const starPercentage = (ratings[rating] / starsTotal) * 100;
+
+                                                    // Round to nearest 10
+                                                    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+                                                    // Set width of stars-inner to percentage
+                                                    document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+
+                                                    // Add number rating
+                                                    document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
+                                                }
+                                            }
+                                        </script>
+                                        <li class="stars-outer countstar">
+                                            <div class="stars-inner"></div>
+                                        </li>
+                                        <li class="rating">{{evalue}}({{num_evalue}} Đánh giá)</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> <!-- course terms -->
+
+                    <div class="corses-singel-image pt-50">
+                        <img src="/public/images/course/{{small_image}}" alt="Courses">
+                    </div> <!-- corses singel image -->
+
+                    <div class="corses-tab mt-30">
+                        <ul class="nav nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="active" id="overview-tab" data-toggle="tab" href="#overview" role="tab"
+                                    aria-controls="overview" aria-selected="true">Giới thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab"
+                                    aria-controls="curriculam" aria-selected="false">Nội dung</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab"
+                                    aria-controls="instructor" aria-selected="false">Giảng viên</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                    aria-selected="false">Reviews</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="overview" role="tabpanel"
+                                aria-labelledby="overview-tab">
+                                <div class="overview-description">
+                                    <p>{{{small_brief}}}<span id="dots">...</span>
+                                    <div id="more">{{{brief}}}</div>
+                                    </p>
+                                    <button onclick="myFunction()" style="background-color:#fff;" id="myBtn"
+                                        class="main-btn">Read less &lt;&lt;</button>
+                                </div> <!-- overview description -->
+                            </div>
+                            <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
+                                <div class="curriculam-cont">
+                                    <div class="title">
+                                        <h6>{{title}}</h6>
                                     </div>
-                                </li>
-                            </ul>
-                        </div> <!-- course terms -->
-                        
-                        <div class="corses-singel-image pt-50">
-                            <img src="/public/images/course/{{small_image}}" alt="Courses">
-                        </div> <!-- corses singel image -->
-                        
-                        <div class="corses-tab mt-30">
-                            <ul class="nav nav-justified" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Giới thiệu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Nội dung</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Giảng viên</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
-                                </li>
-                            </ul>
-                            
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                                    <div class="overview-description">
-                                        <p>{{{small_brief}}}<span id="dots">...</span><div id="more">{{{brief}}}</div></p>
-                                        <button onclick="myFunction()" style="background-color:#fff;" id="myBtn" class="main-btn">Read less &lt;&lt;</button>
-                                    </div> <!-- overview description -->
-                                </div>
-                                <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
-                                    <div class="curriculam-cont">
-                                        <div class="title">
-                                            <h6>{{title}}</h6>
-                                        </div>
-                                        <div class="accordion" id="accordionExample">
-                                            {{/with}}
-                                            {{#each  introduction}}
-                                                <div class="card">
-                                                <div class="card-header" id="headingOne">
-                                                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-                                                        <ul>
-                                                            <li><i class="fa fa-file-o"></i></li>
-                                                            <li><span class="lecture"></span></li>
-                                                            <li><span class="head">{{title_name}}</span></li>
-                                                            <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> </span></span></li>
-                                                        </ul>
-                                                    </a>
-                                                  
-                                                </div>
+                                    <div class="accordion" id="accordionExample">
+                                        {{/with}}
+                                        {{#each introduction}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <a href="#" data-toggle="collapse" data-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    <ul>
+                                                        <li><i class="fa fa-file-o"></i></li>
+                                                        <li><span class="lecture"></span></li>
+                                                        <li><span class="head">{{title_name}}</span></li>
+                                                        <li><span class="time d-none d-md-block"><i
+                                                                    class="fa fa-clock-o"></i> <span> </span></span>
+                                                        </li>
+                                                    </ul>
+                                                </a>
 
-                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                    <div class="card-body">
-                                                        <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a href="/courses/details?id={{CourseID}}&video={{ID_lect}}">{{name_video}}</a></p>
-                                                    </div>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a
+                                                            href="/courses/details?id={{CourseID}}&video={{ID_lect}}">{{name_video}}</a>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            {{/each}}
-                                        
-                                            {{#each lecture }}
-                                                
-                                            
-                                            
-                                            <div class="card">
-                                                <div class="card-header" id="headingTow">
-                                                    <a href="/courses" data-toggle="collapse" class="collapsed" data-target="#collapseTow" aria-expanded="true" aria-controls="collapseTow">
-                                                        <ul>
-                                                            <li><i class="fa fa-file-o"></i></li>
-                                                            <li><span class="lecture"></span></li>
-                                                            <li><span class="head">{{title_name}}</span></li>
-                                                            <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> </span></span></li>
-                                                        </ul>
-                                                    </a>
-                                                    
-                                                </div>
+                                        </div>
+                                        {{/each}}
 
-                                                
-                                            </div>
-                                            {{/each}}
+                                        {{#each lecture }}
 
 
-                                           
-                                        
-                                       
-                                        </div>
-                                        <div class="price-button pt-10">
-                                            {{#if isPurchased}}
-                                                 {{#with this.course}}
-                                                <span><a href="/myCourse/learn?id={{CourseID}}" class="main-btn" style="background-color: white; border: 1px solid darkblue">Start</a></span>
-                                                {{/with}}
-                                            {{/if}}
-                                    
-                                    
-                                </div>
-                                    </div> <!-- curriculam cont -->
-                                </div>
-                               {{#with this.course}}
-                                <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                                    <div class="instructor-cont">
-                                        <div class="instructor-author">
-                                            <div class="author-thum">
-                                                <img src="/public/images/instructor/{{image}}" alt="Instructor"style="width: 150px;height:150px">
+
+                                        <div class="card">
+                                            <div class="card-header" id="headingTow">
+                                                <a href="/courses" data-toggle="collapse" class="collapsed"
+                                                    data-target="#collapseTow" aria-expanded="true"
+                                                    aria-controls="collapseTow">
+                                                    <ul>
+                                                        <li><i class="fa fa-file-o"></i></li>
+                                                        <li><span class="lecture"></span></li>
+                                                        <li><span class="head">{{title_name}}</span></li>
+                                                        <li><span class="time d-none d-md-block"><i
+                                                                    class="fa fa-clock-o"></i> <span> </span></span>
+                                                        </li>
+                                                    </ul>
+                                                </a>
+
                                             </div>
-                                            <div class="author-name">
-                                                <a href="#"><h5>{{f_Fullname}}</h5></a>
-                                                <span>{{job}}</span>
-                                                <ul class="social">
-                                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                                </ul>
-                                            </div>
+
+
                                         </div>
-                                        <div class="instructor-description pt-25">
-                                            {{intro}}
-                                        </div>
-                                    </div> <!-- instructor cont -->
-                                </div>
-                                {{/with}}
-                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                    <div class="reviews-cont">
-                                        
-                                        <div class="title">
-                                            <h6>Student Reviews</h6>
-                                        </div>
-                                        <ul>
-                                            <div>
-                                               {{!-- div class="singel-reviews"> --}}
-                                                       
-                                                        
-                                                {{#each comment }}
-                                                    <div class="reviews-description pt-20">
-                                                         <div class="author-name">
-                                                            <img src="/public/images/user.png" style="width: 40px;height:40px">
-                                                            <b>{{f_Fullname}}</b>
-                                                        </div>
-                                                        <p>{{content}}</p>
-                                                        {{!-- <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div> --}}
-                                                    </div>
-                                                {{/each}}
-                                                {{!-- </div> <!-- singel reviews --> --}}
-                                                    
-                                            </div>
-{{#with this.course}}
-                                        </ul>
-                                        <div class="title pt-15">
-                                            <h6>Leave A Comment</h6>
-                                        </div>
-                                        <div class="reviews-form">
-                                            <form action="/courses/addComment" method="POST" id="frmComment">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <div class="rate-wrapper">
-                                                                <div class="rate-label">Your Rating:</div>
-                                                                <div class="rate">
-                                                                    <input type="hidden" name="star" id="txtStar">
-                                                                    <div class="rate-item" data-rate="1"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item" data-rate="2"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item" data-rate="3"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item" data-rate="4"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item" data-rate="5"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <input type="hidden" value="{{CourseID}}" name="id" id="id">
-                                                            <textarea name="comment" id="comment" placeholder="Comment"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <button type="submit" class="main-btn">Bình luận</button>
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- row -->
-                                            </form>
-                                        </div>
-                                    </div> <!-- reviews cont -->
-                                </div>
-                            </div> <!-- tab content -->
-                        </div>
-                    </div> <!-- corses singel left -->
-                    
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-6">
-                            <div class="course-features mt-30">
-                               <h4>Course Features </h4>
-                                <ul>
-                                    {{/with}}
-                                    {{#if this.num_lecture}}
-                                         <li><i class="fa fa-clone"></i>Bài giảng : <span>{{this.num_lecture}}</span></li>
-                                         {{else}}
-                                          <li><i class="fa fa-clone"></i>Bài giảng : <span>chưa hoàn thiện</span></li>
-                                    {{/if}}
-                                   
-                                    
-                                     <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{this.dm}}</span></li>
-                                    {{#with this.course}}
-                                    <li><i class="fa fa-user-o"></i>Học viên :  <span>{{num_join}}</span></li>
-                                </ul>
-                                {{#if discount}}
+                                        {{/each}}
+
+
+
+
+
+                                    </div>
                                     <div class="price-button pt-10">
-                                    <span>Price : <b><strike>{{fee}}$</strike></b></span>
-                                    <span style="margin-left: 40px;">Discount : <b>{{discount}}$</b></span>
-                                </div>
-                                {{else}}
-                                
-                                <div class="price-button pt-10">
-                                    <span>Price : <b>{{fee}}$</b></span>
-                                   
-                                </div>
-                               {{/if}}
-                               
-                                {{/with}}
-                                {{#if this.issAuth}}
-                                {{#unless this.isPurchased}}
-                                    <div class="price-button pt-10">
+                                        {{#if isPurchased}}
                                         {{#with this.course}}
-                                        <span>
-                                            <form action="/myCourse/add" method="POST" id="frmAddCourse">
-                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
-                                                <button class="main-btn" style="margin-top: 12px " type="summit">Mua ngay</button>
-                                            </form>
-                                        </span>
-                                        <span>
-                                            <form action="/yourCart/add" method="POST" id="frmAddCart">
-                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
-                                                <button class="main-btn" style="margin-top: 12px " type="summit">Thêm vào giỏ</button>
-                                            </form>
-                                        </span>
-                                        
+                                        <span><a href="/myCourse/learn?id={{CourseID}}" class="main-btn"
+                                                style="background-color: white; border: 1px solid darkblue">Start</a></span>
+                                        {{/with}}
+                                        {{/if}}
+
+
                                     </div>
-                                    {{/with}}
-                                
-                                  {{/unless}}
-                                  {{#with this.course}}
-                                    <div class="price-button pt-10" >
-                                        <form action="/myFavoriteCourse/add" method="POST" id="frmFC">
-                                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
-                                                <button type="submit"class="main1-btn">Danh sách yêu thích<i class="fa fa-heart heart" style="font-size: 26px;color:gray"></i></button>
-                                        </form>    
-                                    {{/with}}                                        
+                                </div> <!-- curriculam cont -->
+                            </div>
+                            {{#with this.course}}
+                            <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
+                                <div class="instructor-cont">
+                                    <div class="instructor-author">
+                                        <div class="author-thum">
+                                            <img src="/public/images/instructor/{{image}}" alt="Instructor"
+                                                style="width: 150px;height:150px">
+                                        </div>
+                                        <div class="author-name">
+                                            <a href="#">
+                                                <h5>{{f_Fullname}}</h5>
+                                            </a>
+                                            <span>{{job}}</span>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="instructor-description pt-25">
+                                        {{intro}}
+                                    </div>
+                                </div> <!-- instructor cont -->
+                            </div>
+                            {{/with}}
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <div class="reviews-cont">
+
+                                    <div class="title">
+                                        <h6>Student Reviews</h6>
+                                    </div>
+                                    <ul>
+                                        <div>
+                                            {{!-- div class="singel-reviews"> --}}
+
+
+                                            {{#each comment }}
+                                            <div class="reviews-description pt-20">
+                                                <div class="author-name">
+                                                    <img src="/public/images/user.png" style="width: 40px;height:40px">
+                                                    <b>{{f_Fullname}}</b>
+                                                </div>
+                                                <p>{{content}}</p>
+                                                {{!-- <div class="rating">
+                                                    <ul>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                    <span>/ 5 Star</span>
+                                                </div> --}}
+                                            </div>
+                                            {{/each}}
+                                            {{!--
+                                        </div> <!-- singel reviews --> --}}
+
                                 </div>
-                                 {{/if}}
-                                 {{#with this.course}}
-                            </div> <!-- course features -->
+                                {{#with this.course}}
+                                </ul>
+                                <div class="title pt-15">
+                                    <h6>Leave A Comment</h6>
+                                </div>
+                                <div class="reviews-form">
+                                    <form action="/courses/addComment" method="POST" id="frmComment">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-singel">
+                                                    <div class="rate-wrapper">
+                                                        <div class="rate-label">Your Rating:</div>
+                                                        <div class="rate">
+                                                            <input type="hidden" name="star" id="txtStar">
+                                                            <div class="rate-item" data-rate="1"><i class="fa fa-star"
+                                                                    aria-hidden="true"></i></div>
+                                                            <div class="rate-item" data-rate="2"><i class="fa fa-star"
+                                                                    aria-hidden="true"></i></div>
+                                                            <div class="rate-item" data-rate="3"><i class="fa fa-star"
+                                                                    aria-hidden="true"></i></div>
+                                                            <div class="rate-item" data-rate="4"><i class="fa fa-star"
+                                                                    aria-hidden="true"></i></div>
+                                                            <div class="rate-item" data-rate="5"><i class="fa fa-star"
+                                                                    aria-hidden="true"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-singel">
+                                                    <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                                    <textarea name="comment" id="comment"
+                                                        placeholder="Comment"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-singel">
+                                                    <button type="submit" class="main-btn">Bình luận</button>
+                                                </div>
+                                            </div>
+                                        </div> <!-- row -->
+                                    </form>
+                                </div>
+                            </div> <!-- reviews cont -->
                         </div>
-                        <div class="col-lg-12 col-md-6">
-                            <div class="You-makelike mt-30">
-                                <h4>Life is a story</h4> 
-                                <h4>Learn is a best way</h4> 
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                    
-                                </div>
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                  
-                                </div>
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                    </div>
-                               
+                    </div> <!-- tab content -->
+                </div>
+            </div> <!-- corses singel left -->
+
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                    <div class="course-features mt-30">
+                        <h4>Course Features </h4>
+                        <ul>
+                            {{/with}}
+                            {{#if this.num_lecture}}
+                            <li><i class="fa fa-clone"></i>Bài giảng : <span>{{this.num_lecture}}</span></li>
+                            {{else}}
+                            <li><i class="fa fa-clone"></i>Bài giảng : <span>chưa hoàn thiện</span></li>
+                            {{/if}}
+
+
+                            <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{this.dm}}</span></li>
+                            {{#with this.course}}
+                            <li><i class="fa fa-user-o"></i>Học viên : <span>{{num_join}}</span></li>
+                        </ul>
+                        {{#if discount}}
+                        <div class="price-button pt-10">
+                            <span>Price : <b><strike>{{fee}}$</strike></b></span>
+                            <span style="margin-left: 40px;">Discount : <b>{{discount}}$</b></span>
+                        </div>
+                        {{else}}
+
+                        <div class="price-button pt-10">
+                            <span>Price : <b>{{fee}}$</b></span>
+
+                        </div>
+                        {{/if}}
+
+                        {{/with}}
+                        {{#if this.issAuth}}
+                        {{#unless this.isPurchased}}
+                        <div class="price-button pt-10">
+                            {{#with this.course}}
+                            <span>
+                                <form action="/myCourse/add" method="POST" id="frmAddCourse">
+                                    <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                    <button class="main-btn" style="margin-top: 12px " type="summit">Mua ngay</button>
+                                </form>
+                            </span>
+                            <span>
+                                <form action="/yourCart/add" method="POST" id="frmAddCart">
+                                    <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                    <button class="main-btn" style="margin-top: 12px " type="summit">Thêm vào
+                                        giỏ</button>
+                                </form>
+                            </span>
+
+                        </div>
+                        {{/with}}
+
+                        {{/unless}}
+                        {{#with this.course}}
+                        <div class="price-button pt-10">
+                            <form action="/myFavoriteCourse/add" method="POST" id="frmFC">
+                                <input type="hidden" value="{{CourseID}}" name="id" id="id">
+                                <button type="submit" class="main1-btn">Danh sách yêu thích<i class="fa fa-heart heart"
+                                        style="font-size: 26px;color:gray"></i></button>
+                            </form>
+                            {{/with}}
+                        </div>
+                        {{/if}}
+                        {{#with this.course}}
+                    </div> <!-- course features -->
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="You-makelike mt-30">
+                        <h4>Life is a story</h4>
+                        <h4>Learn is a best way</h4>
+                        <div class="singel-makelike mt-20">
+                            <div class="image">
+                                <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                            </div>
+
+                        </div>
+                        <div class="singel-makelike mt-20">
+                            <div class="image">
+                                <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                            </div>
+
+                        </div>
+                        <div class="singel-makelike mt-20">
+                            <div class="image">
+                                <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- row -->
+
+    </div>
+    </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+{{/with}}
+{{#each unit}}
+<div class="corses-singel-left mt-30 " style="margin: 0 50px;padding:20px">
+    <div class="text-center">
+        <video id="my-video" class="video-js" controls preload="auto" width="800px" height="500px"
+            poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+            <source src="/public/video/{{file_vd}}" type="video/mp4" />
+            {{!--
+            <source src="MY_VIDEO.webm" type="video/webm" /> --}}
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+    <div class="lol" style="margin-bottom: 0px;">
+        <h4>{{name_video}}</h4>
+    </div>
+    {{!-- <div class="video text-lg-left text-center pt-50">
+        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i class="fa fa-play"></i></a>
+    </div> <!-- row --> --}}
+</div>
+
+{{/each}}
+
+<!--====== COURSES SINGEl PART ENDS ======-->
+<section id="course-part" class="pt-30 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title pb-45">
+
+                    <h2>Khóa học liên quan </h2>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+        <div class="row course-slied mt-30">
+
+            {{#each this.related}}
+            <div class="col-lg-4">
+                <div class="singel-course">
+                    <div class="thum">
+                        <div class="image">
+                            <img src="/public/images/course/{{small_image}}" alt="Course">
+                        </div>
+                        {{#if discount}}
+                        <div class="price1">
+                            <span style="background-color: white;"><strike>{{fee}}$</strike></span>
+                        </div>
+                        <div class="discount">
+                            <span>{{discount}}$</span>
+                        </div>
+                        {{else}}
+                        <div class="price">
+                            <span>{{fee}}$</span>
+
+                        </div>
+                        {{/if}}
+
+                    </div>
+                    <div class="cont" style="padding: 15px 20px">
+                        <ul>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>{{evalue}}({{num_evalue}} Đánh giá)</span>
+                        <a href="/courses/details?id={{CourseID}}">
+                            <h4>{{title}}</h4>
+                        </a>
+                        <a href="" class="disabled">
+                            <h6>{{name_level1}}</h6>
+                        </a>
+                        <div class="course-teacher" style="height:60px;padding:0px;padding-top:5px">
+                            <div class="thum">
+                                <a href="#"><img src="/public/images/course/teacher/{{image}}" alt="teacher"></a>
+                            </div>
+                            <div class="name" style="padding-top: 0px">
+                                <a href="#">
+                                    <h6>{{f_Fullname}}</h6>
+                                </a>
+                            </div>
+                            <div class="admin">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-user"></i><span>{{num_join}}</span></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div> <!-- row -->
-            
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-    {{/with}}
-     {{#each unit}}
-        <div class="corses-singel-left mt-30 " style="margin: 0 50px;padding:20px">
-        <div class="text-center">
-        <video
-                    id="my-video"
-                    class="video-js"
-                    controls
-                    preload="auto"
-                    width="800px"
-                    height="500px"
-                    poster="MY_VIDEO_POSTER.jpg"
-                    data-setup="{}">
-                    <source src="/public/video/{{file_vd}}" type="video/mp4" />
-                    {{!-- <source src="MY_VIDEO.webm" type="video/webm" /> --}}
-                    <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a
-                    web browser that
-                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                    </p>
-                </video>
-                </div>
-                <div class="lol" style="margin-bottom: 0px;">
-                    <h4>{{name_video}}</h4>
-                </div>
-                {{!-- <div class="video text-lg-left text-center pt-50">
-                        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i class="fa fa-play"></i></a>
-                    </div> <!-- row --> --}}
-    </div>
-
-    {{/each}}
-    
-    <!--====== COURSES SINGEl PART ENDS ======-->
-   <section id="course-part" class="pt-30 pb-120 gray-bg" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-45">
-                        
-                        <h2>Khóa học liên quan </h2>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row course-slied mt-30">
-               
-                {{#each this.related}}
-                <div class="col-lg-4">
-                    <div class="singel-course">
-                        <div class="thum">
-                            <div class="image">
-                                <img src="/public/images/course/{{small_image}}" alt="Course">
-                            </div>
-                            {{#if discount}}
-                                    <div  class="price1" >
-                                        <span style="background-color: white;"><strike >{{fee}}$</strike></span>    
-                                    </div>
-                                    <div class="discount">
-                                        <span>{{discount}}$</span>
-                                    </div>
-                                        {{else}}
-                                        <div class="price">
-                                        <span>{{fee}}$</span>
-                                        
-                                    </div>
-                                    {{/if}}
-                            
-                        </div>
-                        <div class="cont" style="padding: 15px 20px">
-                            <ul>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                            <span>{{evalue}}({{num_evalue}} Đánh giá)</span>
-                            <a href="/courses/details?id={{CourseID}}"><h4>{{title}}</h4></a>
-                            <a href="" class="disabled"><h6>{{name_level1}}</h6></a>
-                            <div class="course-teacher"  style="height:60px;padding:0px;padding-top:5px">
-                                <div class="thum">
-                                    <a href="#"><img src="/public/images/course/teacher/{{image}}" alt="teacher"></a>
-                                </div>
-                                <div class="name" style="padding-top: 0px">
-                                    <a href="#"><h6>{{f_Fullname}}</h6></a>
-                                </div>
-                                <div class="admin">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-user"></i><span>{{num_join}}</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- singel course -->
-                </div>
-                {{/each}}
-            </div> <!-- course slied -->
-        </div> <!-- container -->
-    </section>
+                </div> <!-- singel course -->
+            </div>
+            {{/each}}
+        </div> <!-- course slied -->
+    </div> <!-- container -->
+</section>

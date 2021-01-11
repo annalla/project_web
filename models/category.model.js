@@ -47,7 +47,13 @@ module.exports = {
     `;
     return db.load(sql);
   },
-
+  ById3(id) {
+    const sql = `
+      select * 
+      from ${TBL_CATEGORIES2} where ID_aspect = ${id}
+    `;
+    return db.load(sql);
+  },
   async single(id) {
     const rows = await db.load(`select * from ${TBL_CATEGORIES1} where ID_aspect1 = ${id}`);
     if (rows.length === 0)
