@@ -5,20 +5,8 @@ module.exports = function auth(req, res, next) {
   }
   next();
 };
-// module.exports = function authAdmin(req, res, next) {
-//   if (req.session.authPermission === 1) {
-//     req.session.retUrl = req.originalUrl;
-//     return res.redirect('/account/login');
-//   }
-//   next();
-// };
-// module.exports = function authTeacher(req, res, next) {
-//   if (req.session.authType === 2) {
-//     req.session.retUrl = req.originalUrl;
-//     return res.redirect('/account/login');
-//   }
-//   next();
-// };
+
+
 // module.exports = function authUser(req, res, next) {
 //   if (req.session.authType === 1) {
 //     req.session.retUrl = req.originalUrl;

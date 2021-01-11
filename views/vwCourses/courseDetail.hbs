@@ -346,8 +346,12 @@
                                         </div> <!-- singel reviews --> --}}
 
                                 </div>
-                                {{#with this.course}}
                                 </ul>
+                                {{#if isPurChased}}
+                                    
+                               
+                                {{#with this.course}}
+                                
                                 <div class="title pt-15">
                                     <h6>Leave A Comment</h6>
                                 </div>
@@ -389,6 +393,8 @@
                                         </div> <!-- row -->
                                     </form>
                                 </div>
+                                {{/with}}
+                                 {{/if}}
                             </div> <!-- reviews cont -->
                         </div>
                     </div> <!-- tab content -->
@@ -402,7 +408,7 @@
                     <div class="course-features mt-30">
                         <h4>Course Features </h4>
                         <ul>
-                            {{/with}}
+                        
                             {{#if this.num_lecture}}
                             <li><i class="fa fa-clone"></i>Bài giảng : <span>{{this.num_lecture}}</span></li>
                             {{else}}

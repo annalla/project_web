@@ -103,6 +103,7 @@ router.get('/editCourse', async function (req, res) {
   const vd=+req.query.video||0;
   const edit=req.query.edit;
   try{
+    
     let isEditFee=0;
     let isEditLecture=0;
     let isEditBrief=0;
@@ -124,6 +125,10 @@ router.get('/editCourse', async function (req, res) {
       res.render('404', {
         layout: false
       });
+    }
+    if(rows.TeacherID!==req.session.authUser.f_ID)
+    {
+      return res.redirect('/account/login');
     }
     const row1 = await courseModel.Comment(id);
     const datetime= await courseModel.getdateById(id);

@@ -3,6 +3,8 @@ const moment = require('moment');
 const cartModel = require('../models/cart.model');
 const courseModel = require('../models/course.model');
 const joinModel = require('../models/join.model');
+const statusModel = require('../models/status.model');
+const lectureModel = require('../models/lecture.model');
 
 const router = express.Router();
 
@@ -93,6 +95,21 @@ router.post('/checkout', async function (req, res) {
     num+=1;
     const entity={num_join:num};
     courseModel.updateDate(entity,course.CourseID);
+    const lect=await lectureModel.getAll(course.CourseID);
+    const statuss=[];
+    for(var i=0;i<lect.length;i++)
+    {
+      const status={
+        f_ID: req.session.authUser.f_ID,
+        ID_lect:lect[i].ID_lect,
+        status:0,
+      }
+      statuss.push(status);
+    }
+    for(const s of statuss)
+    {
+      statusModel.add(s);
+    }
     if(course.discount)
     {
       total = course.discount;
@@ -109,7 +126,6 @@ router.post('/checkout', async function (req, res) {
       CourseID: ci.Courseid
     });
   }
-  // console.log(details);
   for (const detail of details) {
     await joinModel.add(detail);
   }

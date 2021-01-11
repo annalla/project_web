@@ -5,6 +5,20 @@
 
 {{#section 'js'}}
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script>
+        var player = videojs("#my-video");
+        player.bigPlayButton.on('click', function(){
+        const id=$('#lect').val();
+        $.getJSON(`/myCourse/addStatus?id=${id}`, function (data) {
+            if (data === true) {
+                alert('ok ! ');
+            } else {
+               
+            }
+        });
+        });
+        
+    </script>
 {{/section}}
     <!--====== PAGE BANNER PART START ======-->
     
@@ -52,7 +66,7 @@
                                         <li><i class="fa fa-clone"></i></li>
                                         <li><span class="lecture"></span></li>
                                         <li><span class="head">{{title_name}}</span></li>
-                                        <li><span class="time d-none d-md-block"><i class="fa fa-check"></i> <span> </span></span></li>
+                                        <li><span class="time d-none d-md-block">{{#if status}}<i class="fa fa-check"></i>{{/if}} <span> </span></span></li>
                                     </ul>
                                     </a>
                                                   
@@ -74,6 +88,9 @@
            </div> <!-- row -->
            {{#unless isNaN}}
            {{#each this.unit}}
+           <form action="/myCourse/addStatus" method="post" id="frmAddStatus">
+           <input type="hidden" id="lect" name="lect" value={{ID_s}}>
+           </form>
            <div class="row" style="display: block;width:60%; margin-left:20px">
                <div class="lol" style="width: 750px;">
                     <h4>{{title_name}}</h4>
