@@ -31,6 +31,11 @@ router.get('/login', async function (req, res) {
 router.post('/login', async function (req, res) {
   try {
     const user = await userModel.singleByEmail(req.body.f_Email);
+    if (user === null) {
+      return res.render('vwAccount/login', {
+        err_message: 'Email chưa được đăng ký!'
+      });
+    }
     const ret = bcrypt.compareSync(req.body.f_Password, user.f_Password);
     if (ret === false) {
       return res.render('vwAccount/login', {
