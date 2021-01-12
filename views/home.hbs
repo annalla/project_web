@@ -84,11 +84,13 @@
                         <div class="col-lg-4">
                             {{#each c1}}
 
-                            <a href="/courses/small_aspect/{{ID_aspect}}">
+                            <a href="/courses?aspect2={{ID_aspect}}" >
                                 <span class="singel-category text-center color-1">
+                                    {{/each}}
                                     <span class="icon">
-                                        <img src="/public/images/all-icon/email.png" alt="Icon">
+                                        <img src="/public/images/all-icon/{{h1}}" alt="Icon" style="width:50px;height:50px">
                                     </span>
+                                    {{#each c1}}
                                     <span class="cont">
                                         <span>
                                             {{name_level2}}
@@ -129,11 +131,21 @@
                     <div class="thum">
 
                         <div class="image">
-                            <img src="/public/images/course/{{small_image}}" alt="Course">
+                            <img src="/public/images/course/{{small_image}}" alt="Course" style="width: 369px;height:251px">
                         </div>
-                        <div class="price">
-                            <span>New</span>
-                        </div>
+                        {{#if discount}}
+                                <div class="price1">
+                                    <span style="background-color: white;"><strike>{{fee}}$</strike></span>
+                                </div>
+                                <div class="discount">
+                                    <span>{{discount}}$</span>
+                                </div>
+                                {{else}}
+                                <div class="price">
+                                    <span>{{fee}}$</span>
+
+                                </div>
+                                {{/if}}
                     </div>
                     <div class="cont">
                         <ul>
@@ -200,11 +212,24 @@
                     <div class="thum">
 
                         <div class="image">
-                            <img src="/public/images/course/{{small_image}}" alt="Course">
+                            <img src="/public/images/course/{{small_image}}" alt="Course" style="width: 369px;height:251px">
                         </div>
-                        <div class="price">
-                            <span>New</span>
-                        </div>
+                        <div class="price" style="top:-15px;right:-5px">
+                                    <span>New</span>
+                                </div>
+                        {{#if discount}}
+                                <div class="price1">
+                                    <span style="background-color: white;"><strike>{{fee}}$</strike></span>
+                                </div>
+                                <div class="discount">
+                                    <span>{{discount}}$</span>
+                                </div>
+                                {{else}}
+                                <div class="price">
+                                    <span>{{fee}}$</span>
+
+                                </div>
+                                {{/if}}
                     </div>
                     <div class="cont">
                         <ul>

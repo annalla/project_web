@@ -154,6 +154,7 @@ router.get('/details', async function (req, res) {
       });
     }
     var num=rows.num_count;
+    num+=1;
     const count={num_count:num};
     courseModel.updateDate(count,id);
     const row1 = await courseModel.Comment(id);

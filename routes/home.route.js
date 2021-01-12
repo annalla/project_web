@@ -23,10 +23,12 @@ router.get('/', async function (req, res) {
         t.push(item);
     }
     const t1 = [];
+    const logo=["1.png","2.png","3.png","4.png","4.png"]
     for (var i = 0; i < row; i++) {
         const m1 = rows5[i].ID_aspect;
         const s1 = await categoryModel.ById3(m1);
         const item1 = {
+            h1:logo[i],
             c1: s1
         }
         t1.push(item1);
@@ -49,7 +51,11 @@ router.get('/', async function (req, res) {
         }
         t3.push(item3);
     }
-    res.render('home', { t, t1, t2, t3 });
+    res.render('home', { 
+        t, 
+        t1, 
+        t2, 
+        t3});
 
 });
 module.exports = router;

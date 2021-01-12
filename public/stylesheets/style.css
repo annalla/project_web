@@ -1290,6 +1290,12 @@ p {
     right: 60px;
     bottom: -24px;
 }
+.singel-course .thum .pricen{
+    position: absolute;
+    top:0px;
+    right: 20px;
+    
+}
 .singel-course .thum .price1{
     position: absolute;
     right: 30px;
