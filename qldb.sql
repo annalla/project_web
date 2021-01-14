@@ -40,7 +40,21 @@ INSERT INTO `users` VALUES (6, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe
 INSERT INTO `users` VALUES (7, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Muskaan','3@gmail.com',2,0,0);
 INSERT INTO `users` VALUES (8, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Yashashree','4@gmail.com',2,0,0);
 
+INSERT INTO `users` VALUES (50, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher50@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (51, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher51@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (52, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher52@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (53, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher53@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (54, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher54@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (55, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher55@gmail.com',2,0,0);
+INSERT INTO `users` VALUES (56, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Teacher','teacher56@gmail.com',2,0,0);
 
+INSERT INTO `users` VALUES (57, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 1','student50@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (58, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 2','student51@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (59, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 3','student52@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (60, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 4','student53@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (61, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 5','student54@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (62, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 6','student55@gmail.com',1,0,0);
+INSERT INTO `users` VALUES (63, '$2a$10$VM.dmFPuDX2x4pFpB8oRBe6g73t/Mg7nJ962VLSAe2NYYmSv9.Iyi','Student 7','student56@gmail.com',1,0,0);
 COMMIT;
 -- ----------------------------
 -- Table structure for infor_teacher
@@ -66,6 +80,14 @@ INSERT INTO `infor_teacher` VALUES (3, 5,'Giáo viên','5.jpg','<p>Thạc sĩ&nb
 INSERT INTO `infor_teacher` VALUES (4, 6,'Giáo viên','6.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p>Sơn Đặng, sinh năm 1993, hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019, Sơn Đặng đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016, Sơn Đặng được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
 INSERT INTO `infor_teacher` VALUES (5, 7,'Giáo viên','7.jpg','<p>Tốt nghiệp thạc sĩ Linguistics, Đại học Curtin. &Ocirc;ng hiện l&agrave; giảng vi&ecirc;n khoa tiếng Anh tại Đại học Sư phạm TP. HCM v&agrave; l&agrave; ủy vi&ecirc;n Ban Chấp H&agrave;nh Hội Nghi&ecirc;n cứu v&agrave; Giảng dạy tiếng Anh TP. HCM.&nbsp;Ngo&agrave;i ra, thầy c&ograve;n l&agrave; &nbsp;người s&aacute;ng lập Anh Ngữ English Master Center</p><p>KINH NGHIỆM GIẢNG DẠY:</p><ul><li>C&aacute;c m&ocirc;n tham gia giảng dạy ở khoa tiếng Anh ĐHSP TP. HCM: &nbsp;</li><li>Nghe, N&oacute;i, Đọc v&agrave; Viết Tiếng Anh</li><li>Ng&ocirc;n ngữ học ứng dụng.</li></ul>');
 INSERT INTO `infor_teacher` VALUES (6, 8,'Giáo viên','8.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+
+INSERT INTO `infor_teacher` VALUES (NULL, 50,'Giảng viên','t-50.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 51,'Giảng viên','t-51.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 52,'Giảng viên','t-52.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 53,'Giảng viên','t-53.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 54,'Giảng viên','t-54.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 55,'Giảng viên','t-55.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
+INSERT INTO `infor_teacher` VALUES (NULL, 56,'Giảng viên','t-56.jpg','<div class="TeacherCourses_heading__3S7ol"><h1>Giới thiệu</h1></div><div class="TeacherCourses_description__1WgNG"><div><p> hiện tại anh đang l&agrave;m việc tại F8 với vai tr&ograve; sản xuất nội dung c&aacute;c kh&oacute;a học.</p><p>Anh xuất th&acirc;n l&agrave; lập tr&igrave;nh vi&ecirc;n đ&atilde; c&oacute; tr&ecirc;n 7 năm kinh nghiệm l&agrave;m việc tại c&aacute;c vị tr&iacute; Front-end, Back-end developer, DevOps Engineer, Team lead, BA v&agrave; chuy&ecirc;n vi&ecirc;n đ&agrave;o tạo nh&acirc;n sự, cung cấp đầu ra l&agrave; nh&acirc;n sự c&oacute; kỹ năng l&agrave;m việc thực tế tại c&aacute;c doanh nghiệp IT phần mềm.</p><h3>Sản phẩm:</h3><p>Ri&ecirc;ng trong năm 2019 ADD đ&atilde; cho ra mắt 2 sản phẩm l&agrave; MyCV.vn v&agrave; Fullstack.edu.vn</p><h3>Giải thưởng:</h3><p>Năm 2016 được đ&aacute;nh gi&aacute; l&agrave; th&iacute; sinh v&ocirc; c&ugrave;ng tiềm năng khi xuất sắc vượt qua gần 50 th&iacute; sinh trong 2 cuộc thi thường kỳ của FPT l&agrave; Poly s&aacute;ng tạo v&agrave; FE s&aacute;ng tạo. Anh đ&atilde; rất xuất sắc khi d&agrave;nh chọn cả 2 giải qu&aacute;n qu&acirc;n tại 2 cuộc thi tr&ecirc;n.</p></div></div>');
 COMMIT;
 -- ----------------------------
 -- Table structure for aspects_level1
@@ -188,6 +210,41 @@ INSERT INTO `courses` VALUES (10, 7,11,'Tiếng Pháp','c2.jpg','<b>Rất nhiề
 INSERT INTO `courses` VALUES (11, 8,10,'Khoá Học Tiếng Hàn Quốc','c3.jpg','<b>Khóa học tiếng Trung giao tiếp cấp tốc giúp học viên rèn luyện kỹ năng nghe, nói, một cách nhanh nhất. Chương trình này gồm 5 khóa, sau khi tham gia các khóa học tiếng Trung giao tiếp cấp tốc thì bạn có thể tự tin trong giao tiếp hằng ngày.</b>','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; 100% nghe - nói, học dựa trên phiên âm, không học viết chữ Hán tuy nhiên vẫn có thể nhắn tin, đánh máy.</div><div>&nbsp;&nbsp;-&nbsp;Thời gian học là 3 tháng, trong đó mỗi tuần học 2 buổi nhằm giúp học viên dễ tiếp thu, nhớ lâu mà không quá nhồi nhét kiến thức.</div><div>&nbsp;&nbsp;-&nbsp;Nội dung xoay quanh giao tiếp sinh hoạt hàng ngày như: chào hỏi, giới thiệu bản thân, địa chỉ, thời gian, miêu tả vị trí, du lịch, khám bệnh, đổi tiền, đặt phòng v.v.</div><div>&nbsp;&nbsp;-&nbsp;Khóa học cơ bản (khoá 1 - khoá 3): Dành cho học viên chưa từng học tiếng Trung.</div><div>&nbsp;&nbsp;-&nbsp;Khóa học trung cấp và cao cấp (khoá 4 - khoá 5): Dành cho học viên đã từng học tiếng Trung và có nhu cầu nâng cao khả năng nghe nói. 100% các buổi học trực tiếp với giáo viên bản xứ.</div>',20,1,5,1,72,'2020/12/6',1,1,19);
 INSERT INTO `courses` VALUES (12, 8,9,'Tiếng Nhật','c4.jpg','<b>Bạn cần học tiếng Trung cấp tốc để phục vụ công việc, giao tiếp hàng ngày hay buôn bán, du học</b>','<div class="singel-description pt-40"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp;Học và ứng dụng giao tiếp những chủ đề thông dụng với người Trung Quốc</div><div>&nbsp;&nbsp;-&nbsp;Hiểu được cấu trúc ngữ pháp câu và cách sử dụng ngữ pháp để hành văn</div><div>&nbsp;&nbsp;-&nbsp;Tự tin giao tiếp tiếng Trung như người bản xứ qua 72 bài học</div><div>&nbsp;&nbsp;-&nbsp;Học ONLINE 24/7 ngay tại nhà tiết kiệm thời gian và chi phí</div>',23,7.1,5,2,14,'2020/12/11',1,1,7.1);
 
+INSERT INTO `courses` VALUES (24, '12', '50', 'Quản trị học cơ bản', 'c30.jpg', '<b>Quản trị Kinh doanh là ngành học đào tạo các kiến thức và kỹ năng cần thiết liên quan đến việc thành lập và điều hành một doanh nghiệp bất kể đó là công ty tư nhân, trực thuộc nhà nước hay phi chính phủ. Bạn sẽ được học về mọi bộ phận trong một công ty như kế toán, marketing, tài chính, nhân sự,… cùng nhiều kỹ năng mềm liên quan đến công việc như lãnh đạo, phân tích và cả đạo đức kinh doanh.</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '10.00', '9.00', '3.5', '49', '123', '2021-1-06', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (25, '13', '51', 'Đạo đức kinh doanh 1', 'c31.jpg', '<b>Trang bị cho sinh viên kiến thức về hệ thống thông tin và quản trị hệ thống thông tin kế\r\ntoán, nhằm kiểm soát tài sản và cung cấp thông tin hữu ích kịp thời cho nhà quản trị trong\r\nvà ngoài doanh nghiệp khi ra quyết định kinh doanh. Giới thiệu hệ thống thông tin kế toán\r\ntrong doanh nghiệp; mô tả quy trình kinh doanh chính và mục tiêu kiểm soát trong từng\r\nquy trình; các tiêu chí để lựa chọn vận hành hệ thống thông tin kế toán trong doanh nghiệp.\r\n</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; TỔNG QUAN VỀ HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;HỆ THỐNG QUẢN LÝ CƠ SỞ DỮ LIỆU. </div><div>&nbsp;&nbsp;-&nbsp; HỆ THỐNG KIỂM SOÁT NỘI BỘ.</div><div>&nbsp;&nbsp;-&nbsp; TỔ CHỨC HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;CHU TRÌNH CHI PHÍ\r\n.</div><div>&nbsp;&nbsp;-&nbsp; CHU TRÌNH DOANH THU.</div>', '12.00', '9.00', '3.4', '76', '99', '2021-01-07', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (26, '14', '52', 'Kinh tế vi mô 1', 'c32.jpg', '<b>Ngành Tài chính ngân hàng học những gì? chính là chủ đề được quan tâm khá nhiều khi các bạn học sinh tìm hiểu về ngành này. Sinh viên ngành Tài chính ngân hàng được cung cấp kiến thức về lĩnh vực phân tích tài chính và đầu tư trên thị trường vốn, thị trường tiền tệ trong quá trình toàn cầu hóa;  Nắm bắt kiến thức vững chắc về thực hành các nghiệp vụ trong ngân hàng thương mại hiện đại; có chuyên môn sâu về phân tích, dự báo liên quan đến tài chính, tiền tệ nhằm đưa ra quyết định trong quản trị tài chính.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '13.00', '6.00', '2.5', '90', '645', '2021-01-13', '132', '1', '6.00');
+INSERT INTO `courses` VALUES (27, '15', '53', 'Chuyên viên digital marketing 1', 'c33.jpg', '<b>Hiểu và triển khai hiệu quả Digital Marketing vào kinh doanh sau 29 buổi. Chương trình được phát triển với nội dung từ căn bản đến nâng cao và lấy thực hành làm trọng tâm với các khóa học Digital Marketing tại đây.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Giáo trình tiêu chuẩn cùng kiến thức cập nhật thường xuyên giúp học viên tiếp cận Internet Marketing trong thời gian ngắn nhất. </div><div>&nbsp;&nbsp;-&nbsp; Giảng viên giàu kinh nghiệm sẵn giải đáp thắc mắc xuyên suốt khóa học Digital Marketing về việc triển khai trên chính dự án marketing online của học viên. </div><div>&nbsp;&nbsp;-&nbsp; Hỗ trợ giải đáp trong khóa học về các khó khăn gặp phải của học viên khi thực thi các dự án Marketing online.</div>', '10.00', '9.00', '4.5', '20', '244', '2021-01-13', '134', '1', '9.00');
+INSERT INTO `courses` VALUES (28, '16', '54', 'Khóa học kinh doanh online Thương mại điện tử 1', 'c34.jpg', '<b>Khóa học này khá thích hợp cho người mới, chưa biết bắt đầu kinh doanh trên các sàn từ đâu. Đặc biệt là khi bạn muốn bắt đầu với sàn Sendo, một mảnh đất ít cạnh tranh hơn so với các sàn hiện tại. Khóa học này có 5 module chính, mỗi chương tác giả lại chia ra nhiều nội dung nhỏ để người đọc dễ dàng theo dõi.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '15.00', '14.00', '5', '40', '134', '2021-01-14', '134', '1', '14.00');
+INSERT INTO `courses` VALUES (29, '17', '55', 'khóa học kinh doanh online Thương mại điện tử 2', 'c35.jpg', '<b>Học ngành Kinh doanh quốc tế, sinh viên sẽ được trang bị kiến thức nền tảng về kinh doanh, luật quốc tế và môi trường kinh doanh quốc tế, quản trị nguồn nhân lực quốc tế, hoạt động hậu cần kinh doanh quốc tế và xuất- nhập khẩu, nghiên cứu thị trường, xây dựng chương trình truyền thông và hệ thống phân phối quốc tế, kỹ năng giao tiếp và đàm phán quốc tế, cùng nghiệp vụ về thanh toán quốc tế, bảo hiểm ngoại thương, cách thức xâm nhập thị trường nước ngoài…\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '9.00', '8.00', '2.0', '41', '136', '2021-01-14', '134', '1', '8.00');
+INSERT INTO `courses` VALUES (30, '18', '56', 'Lịch sử mỹ thuật thế giới 1', 'c36.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (31, '19', '50', 'Thiết kế đồ họa 1', 'c37.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (32, '20', '51', 'Quy trình cung ứng thiết kế 1', 'c38.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (33, '21', '52', 'Thiết kế nội thất 1', 'c39.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (34, '21', '53', 'Thiết kế thời trang 1', 'c40.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+
+INSERT INTO `courses` VALUES (35, '12', '50', 'Quản trị học nâng cao', 'c30.jpg', '<b>Quản trị Kinh doanh là ngành học đào tạo các kiến thức và kỹ năng cần thiết liên quan đến việc thành lập và điều hành một doanh nghiệp bất kể đó là công ty tư nhân, trực thuộc nhà nước hay phi chính phủ. Bạn sẽ được học về mọi bộ phận trong một công ty như kế toán, marketing, tài chính, nhân sự,… cùng nhiều kỹ năng mềm liên quan đến công việc như lãnh đạo, phân tích và cả đạo đức kinh doanh.</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '10.00', '9.00', '3.5', '49', '123', '2021-1-06', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (36, '13', '51', 'Đạo đức kinh doanh nâng cao', 'c31.jpg', '<b>Trang bị cho sinh viên kiến thức về hệ thống thông tin và quản trị hệ thống thông tin kế\r\ntoán, nhằm kiểm soát tài sản và cung cấp thông tin hữu ích kịp thời cho nhà quản trị trong\r\nvà ngoài doanh nghiệp khi ra quyết định kinh doanh. Giới thiệu hệ thống thông tin kế toán\r\ntrong doanh nghiệp; mô tả quy trình kinh doanh chính và mục tiêu kiểm soát trong từng\r\nquy trình; các tiêu chí để lựa chọn vận hành hệ thống thông tin kế toán trong doanh nghiệp.\r\n</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; TỔNG QUAN VỀ HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;HỆ THỐNG QUẢN LÝ CƠ SỞ DỮ LIỆU. </div><div>&nbsp;&nbsp;-&nbsp; HỆ THỐNG KIỂM SOÁT NỘI BỘ.</div><div>&nbsp;&nbsp;-&nbsp; TỔ CHỨC HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;CHU TRÌNH CHI PHÍ\r\n.</div><div>&nbsp;&nbsp;-&nbsp; CHU TRÌNH DOANH THU.</div>', '12.00', '9.00', '3.4', '76', '99', '2021-01-07', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (37, '14', '52', 'Kinh tế vi mô nâng cao', 'c32.jpg', '<b>Ngành Tài chính ngân hàng học những gì? chính là chủ đề được quan tâm khá nhiều khi các bạn học sinh tìm hiểu về ngành này. Sinh viên ngành Tài chính ngân hàng được cung cấp kiến thức về lĩnh vực phân tích tài chính và đầu tư trên thị trường vốn, thị trường tiền tệ trong quá trình toàn cầu hóa;  Nắm bắt kiến thức vững chắc về thực hành các nghiệp vụ trong ngân hàng thương mại hiện đại; có chuyên môn sâu về phân tích, dự báo liên quan đến tài chính, tiền tệ nhằm đưa ra quyết định trong quản trị tài chính.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '13.00', '6.00', '2.5', '90', '645', '2021-01-13', '132', '1', '6.00');
+INSERT INTO `courses` VALUES (38, '15', '53', 'Chuyên viên digital marketing nâng cao', 'c33.jpg', '<b>Hiểu và triển khai hiệu quả Digital Marketing vào kinh doanh sau 29 buổi. Chương trình được phát triển với nội dung từ căn bản đến nâng cao và lấy thực hành làm trọng tâm với các khóa học Digital Marketing tại đây.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Giáo trình tiêu chuẩn cùng kiến thức cập nhật thường xuyên giúp học viên tiếp cận Internet Marketing trong thời gian ngắn nhất. </div><div>&nbsp;&nbsp;-&nbsp; Giảng viên giàu kinh nghiệm sẵn giải đáp thắc mắc xuyên suốt khóa học Digital Marketing về việc triển khai trên chính dự án marketing online của học viên. </div><div>&nbsp;&nbsp;-&nbsp; Hỗ trợ giải đáp trong khóa học về các khó khăn gặp phải của học viên khi thực thi các dự án Marketing online.</div>', '10.00', '9.00', '4.5', '20', '244', '2021-01-13', '134', '1', '9.00');
+INSERT INTO `courses` VALUES (39, '16', '54', 'Khóa học kinh doanh online Thương mại điện tử 3', 'c34.jpg', '<b>Khóa học này khá thích hợp cho người mới, chưa biết bắt đầu kinh doanh trên các sàn từ đâu. Đặc biệt là khi bạn muốn bắt đầu với sàn Sendo, một mảnh đất ít cạnh tranh hơn so với các sàn hiện tại. Khóa học này có 5 module chính, mỗi chương tác giả lại chia ra nhiều nội dung nhỏ để người đọc dễ dàng theo dõi.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '15.00', '14.00', '5', '40', '134', '2021-01-14', '134', '1', '14.00');
+INSERT INTO `courses` VALUES (40, '17', '55', 'khóa học kinh doanh online Thương mại điện tử 4', 'c35.jpg', '<b>Học ngành Kinh doanh quốc tế, sinh viên sẽ được trang bị kiến thức nền tảng về kinh doanh, luật quốc tế và môi trường kinh doanh quốc tế, quản trị nguồn nhân lực quốc tế, hoạt động hậu cần kinh doanh quốc tế và xuất- nhập khẩu, nghiên cứu thị trường, xây dựng chương trình truyền thông và hệ thống phân phối quốc tế, kỹ năng giao tiếp và đàm phán quốc tế, cùng nghiệp vụ về thanh toán quốc tế, bảo hiểm ngoại thương, cách thức xâm nhập thị trường nước ngoài…\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '9.00', '8.00', '2.0', '41', '136', '2021-01-14', '134', '1', '8.00');
+INSERT INTO `courses` VALUES (41, '18', '56', 'Lịch sử mỹ thuật thế giới 2', 'c36.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (42, '19', '50', 'Thiết kế đồ họa 2', 'c37.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (43, '20', '51', 'Quy trình cung ứng thiết kế 2', 'c38.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (44, '21', '52', 'Thiết kế nội thất 2', 'c39.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (45, '21', '53', 'Thiết kế thời trang 2', 'c40.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+
+INSERT INTO `courses` VALUES (46, '12', '50', 'Quản trị học 3', 'c30.jpg', '<b>Quản trị Kinh doanh là ngành học đào tạo các kiến thức và kỹ năng cần thiết liên quan đến việc thành lập và điều hành một doanh nghiệp bất kể đó là công ty tư nhân, trực thuộc nhà nước hay phi chính phủ. Bạn sẽ được học về mọi bộ phận trong một công ty như kế toán, marketing, tài chính, nhân sự,… cùng nhiều kỹ năng mềm liên quan đến công việc như lãnh đạo, phân tích và cả đạo đức kinh doanh.</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '10.00', '9.00', '3.5', '49', '123', '2021-1-06', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (47, '13', '51', 'Đạo đức kinh doanh 3', 'c31.jpg', '<b>Trang bị cho sinh viên kiến thức về hệ thống thông tin và quản trị hệ thống thông tin kế\r\ntoán, nhằm kiểm soát tài sản và cung cấp thông tin hữu ích kịp thời cho nhà quản trị trong\r\nvà ngoài doanh nghiệp khi ra quyết định kinh doanh. Giới thiệu hệ thống thông tin kế toán\r\ntrong doanh nghiệp; mô tả quy trình kinh doanh chính và mục tiêu kiểm soát trong từng\r\nquy trình; các tiêu chí để lựa chọn vận hành hệ thống thông tin kế toán trong doanh nghiệp.\r\n</b>', '<div class=\"singel-description pt-40\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; TỔNG QUAN VỀ HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;HỆ THỐNG QUẢN LÝ CƠ SỞ DỮ LIỆU. </div><div>&nbsp;&nbsp;-&nbsp; HỆ THỐNG KIỂM SOÁT NỘI BỘ.</div><div>&nbsp;&nbsp;-&nbsp; TỔ CHỨC HỆ THỐNG THÔNG TIN KẾ TOÁN.</div><div>&nbsp;&nbsp;-&nbsp;CHU TRÌNH CHI PHÍ\r\n.</div><div>&nbsp;&nbsp;-&nbsp; CHU TRÌNH DOANH THU.</div>', '12.00', '9.00', '3.4', '76', '99', '2021-01-07', '11', '1', '9.00');
+INSERT INTO `courses` VALUES (48, '14', '52', 'Kinh tế vi mô 3', 'c32.jpg', '<b>Ngành Tài chính ngân hàng học những gì? chính là chủ đề được quan tâm khá nhiều khi các bạn học sinh tìm hiểu về ngành này. Sinh viên ngành Tài chính ngân hàng được cung cấp kiến thức về lĩnh vực phân tích tài chính và đầu tư trên thị trường vốn, thị trường tiền tệ trong quá trình toàn cầu hóa;  Nắm bắt kiến thức vững chắc về thực hành các nghiệp vụ trong ngân hàng thương mại hiện đại; có chuyên môn sâu về phân tích, dự báo liên quan đến tài chính, tiền tệ nhằm đưa ra quyết định trong quản trị tài chính.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Chức năng, vai trò và đặc điểm của Quản Trị. </div><div>&nbsp;&nbsp;-&nbsp; Khái niệm tổ chức và các hoạt động cơ bản của tổ chức. </div><div>&nbsp;&nbsp;-&nbsp; Trình bày khái niệm và chức năng của quyết định trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phân loại và yêu cầu đối với quyết định quản trị.</div><div>&nbsp;&nbsp;-&nbsp;Khái niệm thông tin, vai trò và phân loại thông tin.</div><div>&nbsp;&nbsp;-&nbsp; Các phương pháp lập kế hoạch chiến lược.</div><div>&nbsp;&nbsp;-&nbsp; Phân tích ma trận BCG của nhóm Boston và đưa ra các biện pháp chiến lược cho doanh nghiệp.</div><div>&nbsp;&nbsp;-&nbsp; Các thuộc tính của cơ cấu tổ chức.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, ý nghĩa của lập kế hoạch chiến lược trong quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Phong cách làm việc của cán bộ quản trị.</div><div>&nbsp;&nbsp;-&nbsp; Khái niệm, nguyên tắc tạo lập uy tín và phân tích một số quy luật tâm lý xấu dẫn đến sự hư hỏng, đổ vỡ của cán bộ quản trị.</div>', '13.00', '6.00', '2.5', '90', '645', '2021-01-13', '132', '1', '6.00');
+INSERT INTO `courses` VALUES (49, '15', '53', 'Chuyên viên digital marketing 3', 'c33.jpg', '<b>Hiểu và triển khai hiệu quả Digital Marketing vào kinh doanh sau 29 buổi. Chương trình được phát triển với nội dung từ căn bản đến nâng cao và lấy thực hành làm trọng tâm với các khóa học Digital Marketing tại đây.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Giáo trình tiêu chuẩn cùng kiến thức cập nhật thường xuyên giúp học viên tiếp cận Internet Marketing trong thời gian ngắn nhất. </div><div>&nbsp;&nbsp;-&nbsp; Giảng viên giàu kinh nghiệm sẵn giải đáp thắc mắc xuyên suốt khóa học Digital Marketing về việc triển khai trên chính dự án marketing online của học viên. </div><div>&nbsp;&nbsp;-&nbsp; Hỗ trợ giải đáp trong khóa học về các khó khăn gặp phải của học viên khi thực thi các dự án Marketing online.</div>', '10.00', '9.00', '4.5', '20', '244', '2021-01-13', '134', '1', '9.00');
+INSERT INTO `courses` VALUES (50, '16', '54', 'Khóa học kinh doanh online Thương mại điện tử 5', 'c34.jpg', '<b>Khóa học này khá thích hợp cho người mới, chưa biết bắt đầu kinh doanh trên các sàn từ đâu. Đặc biệt là khi bạn muốn bắt đầu với sàn Sendo, một mảnh đất ít cạnh tranh hơn so với các sàn hiện tại. Khóa học này có 5 module chính, mỗi chương tác giả lại chia ra nhiều nội dung nhỏ để người đọc dễ dàng theo dõi.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '15.00', '14.00', '5', '40', '134', '2021-01-14', '134', '1', '14.00');
+INSERT INTO `courses` VALUES (51, '17', '55', 'khóa học kinh doanh online Thương mại điện tử 6', 'c35.jpg', '<b>Học ngành Kinh doanh quốc tế, sinh viên sẽ được trang bị kiến thức nền tảng về kinh doanh, luật quốc tế và môi trường kinh doanh quốc tế, quản trị nguồn nhân lực quốc tế, hoạt động hậu cần kinh doanh quốc tế và xuất- nhập khẩu, nghiên cứu thị trường, xây dựng chương trình truyền thông và hệ thống phân phối quốc tế, kỹ năng giao tiếp và đàm phán quốc tế, cùng nghiệp vụ về thanh toán quốc tế, bảo hiểm ngoại thương, cách thức xâm nhập thị trường nước ngoài…\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; Tổng quan về TMĐT tại Việt Nam. </div><div>&nbsp;&nbsp;-&nbsp; Sự khác nhau giữa các sàn TMĐT. </div><div>&nbsp;&nbsp;-&nbsp; Hướng dẫn chi tiết cách bán hàng với Sendo.</div>', '9.00', '8.00', '2.0', '41', '136', '2021-01-14', '134', '1', '8.00');
+INSERT INTO `courses` VALUES (52, '18', '56', 'Lịch sử mỹ thuật thế giới 3', 'c36.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (53, '19', '50', 'Thiết kế đồ họa 3', 'c37.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (54, '20', '51', 'Quy trình cung ứng thiết kế 3', 'c38.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (55, '21', '52', 'Thiết kế nội thất 3', 'c39.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
+INSERT INTO `courses` VALUES (56, '21', '53', 'Thiết kế thời trang 3', 'c40.jpg', '<b>Môn học lịch sử mỹ thuật là môn học nghiên cứu về lịch sử hình thành và phát triển của các loại hình nghệ thuật tạo hình theo tiến trình thời gian lịch s ử. Sau khi nghiên cứu và học lịch sử mỹ thuật sẽ giúp chúng ta biết được các giai đoạn phát tri ển của mỹ thuật. Nhờ thành tựu của nhiều ngành khoa học tự nhiên cũng như xã hội, chúng ta có thể dựng lại bức tranh về cuộc sống con người từ thời nguyên thuỷ. Trên cơ sở đó giúp con người ngày nay hiểu về đời sống sinh hoạt cũng như thẩm mỹ của con người. Mỹ thuật, hay nói đúng hơn là nghệ thuật tạo hình, đã ra đời hàng nghìn năm trước đây. Do xuất hiện trong quá trình lao động nên nó đã trở thành hình thức thể hiện ý nghĩa, tình cảm của con người, trở thành một phương tiện đắc lực của sự nhận thức hiện thực.\r\n</b>', '<div class=\\\"singel-description pt-40\\\"><h6>Những gì bạn sẽ học?</h6></div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT NGUYÊN THỦY VÀ CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT PHƯƠNG ĐÔNG CỔ ĐẠI. </div><div>&nbsp;&nbsp;-&nbsp; MỸ THUẬT TRUNG QUỐC CỔ.</div>', '10.00', '8.00', '4.0', '42', '120', '2021-01-14', '133', '1', '8.00');
 COMMIT;
 
 
@@ -268,6 +325,91 @@ INSERT INTO `course_join` VALUES (null, 4,'2021/1/13',1,15,0);
 INSERT INTO `course_join` VALUES (null, 4,'2021/1/13',1,16,0);
 INSERT INTO `course_join` VALUES (null, 4,'2021/1/13',1,17,0);
 INSERT INTO `course_join` VALUES (null, 4,'2021/1/13',1,18,0);
+
+INSERT INTO `course_join` (`ID_join`, `f_ID`, `orderDate`, `price`, `CourseID`, `status`) VALUES
+(NULL, 57, '2021-01-14', '9.00', 24, 0),
+(NULL, 57, '2021-01-14', '9.00', 25, 0),
+(NULL, 57, '2021-01-14', '6.00', 26, 0),
+(NULL, 57, '2021-01-14', '9.00', 27, 0),
+(NULL, 57, '2021-01-14', '14.00', 28, 0),
+(NULL, 57, '2021-01-14', '8.00', 29, 0),
+(NULL, 57, '2021-01-14', '8.00', 31, 0),
+(NULL, 57, '2021-01-14', '8.00', 32, 0),
+(NULL, 57, '2021-01-14', '8.00', 33, 0),
+(NULL, 57, '2021-01-14', '8.00', 34, 0),
+(NULL, 57, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 58, '2021-01-14', '9.00', 24, 0),
+(NULL, 58, '2021-01-14', '9.00', 25, 0),
+(NULL, 58, '2021-01-14', '6.00', 26, 0),
+(NULL, 58, '2021-01-14', '9.00', 27, 0),
+(NULL, 58, '2021-01-14', '14.00', 28, 0),
+(NULL, 58, '2021-01-14', '8.00', 29, 0),
+(NULL, 58, '2021-01-14', '8.00', 31, 0),
+(NULL, 58, '2021-01-14', '8.00', 32, 0),
+(NULL, 58, '2021-01-14', '8.00', 33, 0),
+(NULL, 58, '2021-01-14', '8.00', 34, 0),
+(NULL, 58, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 59, '2021-01-14', '9.00', 24, 0),
+(NULL, 59, '2021-01-14', '9.00', 25, 0),
+(NULL, 59, '2021-01-14', '6.00', 26, 0),
+(NULL, 59, '2021-01-14', '9.00', 27, 0),
+(NULL, 59, '2021-01-14', '14.00', 28, 0),
+(NULL, 59, '2021-01-14', '8.00', 29, 0),
+(NULL, 59, '2021-01-14', '8.00', 31, 0),
+(NULL, 59, '2021-01-14', '8.00', 32, 0),
+(NULL, 59, '2021-01-14', '8.00', 33, 0),
+(NULL, 59, '2021-01-14', '8.00', 34, 0),
+(NULL, 59, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 60, '2021-01-14', '9.00', 24, 0),
+(NULL, 60, '2021-01-14', '9.00', 25, 0),
+(NULL, 60, '2021-01-14', '6.00', 26, 0),
+(NULL, 60, '2021-01-14', '9.00', 27, 0),
+(NULL, 60, '2021-01-14', '14.00', 28, 0),
+(NULL, 60, '2021-01-14', '8.00', 29, 0),
+(NULL, 60, '2021-01-14', '8.00', 31, 0),
+(NULL, 60, '2021-01-14', '8.00', 32, 0),
+(NULL, 60, '2021-01-14', '8.00', 33, 0),
+(NULL, 60, '2021-01-14', '8.00', 34, 0),
+(NULL, 60, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 61, '2021-01-14', '9.00', 24, 0),
+(NULL, 61, '2021-01-14', '9.00', 25, 0),
+(NULL, 61, '2021-01-14', '6.00', 26, 0),
+(NULL, 61, '2021-01-14', '9.00', 27, 0),
+(NULL, 61, '2021-01-14', '14.00', 28, 0),
+(NULL, 61, '2021-01-14', '8.00', 29, 0),
+(NULL, 61, '2021-01-14', '8.00', 31, 0),
+(NULL, 61, '2021-01-14', '8.00', 32, 0),
+(NULL, 61, '2021-01-14', '8.00', 33, 0),
+(NULL, 61, '2021-01-14', '8.00', 34, 0),
+(NULL, 61, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 62, '2021-01-14', '9.00', 24, 0),
+(NULL, 62, '2021-01-14', '9.00', 25, 0),
+(NULL, 62, '2021-01-14', '6.00', 26, 0),
+(NULL, 62, '2021-01-14', '9.00', 27, 0),
+(NULL, 62, '2021-01-14', '14.00', 28, 0),
+(NULL, 62, '2021-01-14', '8.00', 29, 0),
+(NULL, 62, '2021-01-14', '8.00', 31, 0),
+(NULL, 62, '2021-01-14', '8.00', 32, 0),
+(NULL, 62, '2021-01-14', '8.00', 33, 0),
+(NULL, 62, '2021-01-14', '8.00', 34, 0),
+(NULL, 62, '2021-01-14', '8.00', 30, 0),
+
+(NULL, 63, '2021-01-14', '9.00', 24, 0),
+(NULL, 63, '2021-01-14', '9.00', 25, 0),
+(NULL, 63, '2021-01-14', '6.00', 26, 0),
+(NULL, 63, '2021-01-14', '9.00', 27, 0),
+(NULL, 63, '2021-01-14', '14.00', 28, 0),
+(NULL, 63, '2021-01-14', '8.00', 29, 0),
+(NULL, 63, '2021-01-14', '8.00', 31, 0),
+(NULL, 63, '2021-01-14', '8.00', 32, 0),
+(NULL, 63, '2021-01-14', '8.00', 33, 0),
+(NULL, 63, '2021-01-14', '8.00', 34, 0),
+(NULL, 63, '2021-01-14', '8.00', 30, 0);
 COMMIT;
 -- ----------------------------3-- Table structure for cart
 -- ----------------------------
@@ -356,6 +498,91 @@ INSERT INTO `comments` VALUES (null, 4,1,'GOOD');
 INSERT INTO `comments` VALUES (null, 4,1,'GOOD');
 INSERT INTO `comments` VALUES (null, 4,1,'GOOD');
 INSERT INTO `comments` VALUES (null, 4,1,'GOOD');
+
+INSERT INTO `comments`VALUES (NULL, 57, 24, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 25, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 26, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 27, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 28, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 29, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 30, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 31, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 32, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 33, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 57, 34, 'Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 58, 24, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 25, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 26, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 27, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 28, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 29, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 30, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 31, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 32, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 33, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 58, 34, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 59, 24, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 25, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 26, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 27, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 28, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 29, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 30, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 31, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 32, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 33, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 59, 34, 'Rất xứng đáng! Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 60, 24, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 25, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 26, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 27, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 28, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 29, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 30, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 31, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 32, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 33, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 60, 34, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 61, 24, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 25, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 26, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 27, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 28, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 29, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 30, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 31, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 32, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 33, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 61, 34, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 62, 24, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 25, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 26, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 27, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 28, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 29, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 30, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 31, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 32, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 33, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 62, 34, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
+INSERT INTO `comments`VALUES (NULL, 63, 24, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 25, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 26, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 27, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 28, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 29, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 30, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 31, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 32, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 33, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+INSERT INTO `comments`VALUES (NULL, 63, 34, 'Quá tuyệt vời! Thầy rất thân thiện, nhiệt tình đẹp trai, khóa học đơn giản dễ tiếp thu');
+
 
 COMMIT;
 -- ----------------------------
@@ -486,6 +713,304 @@ INSERT INTO `lectures` VALUES (null, 12,'Tìm hiểu HTML và CSS','video 2','zo
 INSERT INTO `lectures` VALUES (null, 12,'Học Javascript và tạo trò chơi trực tuyến','video 3','zoom_4.mp4',0);
 INSERT INTO `lectures` VALUES (null, 12,'Học jQuety và tạo trang web tương tác','video 4','zoom_5.mp4',1);
 INSERT INTO `lectures` VALUES (null, 12,'Tìm hiểu Bottstrap và tạo CV trực tuyến','video 5','zoom_6.mp4',0);
+
+
+INSERT INTO `lectures` VALUES (NULL, 24,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 24,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 24,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 25,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 25,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 25,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 26,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 26,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 26,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 27,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 27,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 27,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 28,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 28,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 28,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 29,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 29,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 29,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 30,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 30,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 30,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 31,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 31,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 31,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 32,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 32,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 32,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 33,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 33,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 33,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 34,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 34,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 34,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 35,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 35,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 35,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 36,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 36,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 36,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 37,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 37,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 37,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 39,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 39,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 39,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 39,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 39,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 40,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 40,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 40,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 41,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 41,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 41,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 42,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 42,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 42,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 43,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 43,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 43,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 44,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 44,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 44,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 45,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 45,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 45,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 46,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 46,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 46,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 47,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 47,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 47,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 48,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 48,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 48,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 49,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 49,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 49,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 50,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 50,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 50,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 51,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 51,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 51,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 52,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 52,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 52,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 53,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 53,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 53,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 54,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 54,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 54,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 55,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 55,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 55,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
+
+INSERT INTO `lectures` VALUES (NULL, 56,'Giới thiệu về Thiết lập và Phát triển web','Video giới thiệu','zoom_1.mp4',1);
+INSERT INTO `lectures` VALUES (NULL, 56,'Tìm hiểu HTML và CSS','Html','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Học Javascript và tạo trò chơi trực tuyến','Video giới thiệu','zoom_2.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Học jQuery và tạo trang web tương tác','Video giới thiệu','zoom_3.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Tìm hiểu Bootstrap và tạo CV trực tuyến','Video giới thiệu','zoom_4.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Lưu trữ tên miền và đưa trang web lên mạng','Video giới thiệu','zoom_5.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Học NodeJS tạo một web server','Video giới thiệu','zoom_6.mp4',0);
+INSERT INTO `lectures` VALUES (NULL, 56,'Học MySQL và xây dựng trang web động','Video giới thiệu','zoom_3.mp1',0);
 
 
 COMMIT;
