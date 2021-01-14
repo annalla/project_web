@@ -273,7 +273,7 @@ router.post('/infoTeacher', function (req,res){
 try{
   const storage = multer.diskStorage({
     destination: function (req, file, cb){
-      cb(null,'./public/images/teachers/')
+      cb(null,'./public/images/course/teacher/')
     },
     filename: function (req, file, cb){
       cb(null,req.session.authUser.f_ID + '.jpg')

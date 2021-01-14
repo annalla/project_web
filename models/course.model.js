@@ -80,7 +80,7 @@ module.exports = {
     FROM course_join j, courses c 
     WHERE j.CourseID = c.CourseID and j.orderDate >= SUBDATE(CURRENT_DATE(), 7) and orderDate <= CURRENT_DATE()
     GROUP by c.CourseID
-    ORDER by count DESC limit 5`);
+    ORDER by count DESC limit 3`);
   },
   async countfind4CourseTrend() {
     const rows = await db.load(`SELECT COUNT(*) as total FROM
@@ -88,7 +88,7 @@ module.exports = {
     FROM course_join j, courses c
     WHERE j.CourseID = c.CourseID and j.orderDate >= SUBDATE(CURRENT_DATE(), 7) and orderDate <= CURRENT_DATE()
     GROUP by c.CourseID
-    ORDER by count DESC limit 5) as subquery `);
+    ORDER by count DESC limit 3) as subquery `);
     return rows[0].total;
   },
   pageByAll(offset) {
