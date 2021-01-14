@@ -110,9 +110,28 @@ router.get('/', async function (req, res) {
      
       rows4=rows2;
     };
+    const newC=await courseModel.find10NewCourse();
+    const newBest= await courseModel.find10BestSellerCourse();
+    for(const i of rows)
+    {
+      i.isNew=false;
+      i.BestSeller=false;
+      for( const j of newC)
+      {
+        if (i.CourseID===j.CourseID)
+        {
+          i.isNew=true;
+        }
+      }
+      for( const j of newBest)
+      {
+        if (i.CourseID===j.CourseID)
+        {
+          i.isBestSeller=true;
+        }
+      }
+    }
     
-    
-
   res.render('vwCourses/course', {
     courses: rows,
     category:rows4,
@@ -206,6 +225,27 @@ router.get('/search', async function (req, res) {
 
     if(rows.length === 0){
       rows = await courseModel.fulltextSearchCat2(search);
+    }
+    const newC=await courseModel.find10NewCourse();
+    const newBest= await courseModel.find10BestSellerCourse();
+    for(const i of rows)
+    {
+      i.isNew=false;
+      i.BestSeller=false;
+      for( const j of newC)
+      {
+        if (i.CourseID===j.CourseID)
+        {
+          i.isNew=true;
+        }
+      }
+      for( const j of newBest)
+      {
+        if (i.CourseID===j.CourseID)
+        {
+          i.isBestSeller=true;
+        }
+      }
     }
     res.render('vwCourses/search', {
       courses: rows,

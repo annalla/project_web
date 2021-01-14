@@ -1325,6 +1325,17 @@ p {
     background-color: #ffc600;
     text-align: center;
 }
+.singel-course .thum .price .np{
+    font-size: 14px;
+    color: #07294d;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 60px;
+    height: 60px;
+    line-height: 55px;
+    background-image: url("/public/images/all-icon/fire.png");
+    text-align: center;
+}
 .singel-course .thum .discount{
     position: absolute;
     right: 60px;

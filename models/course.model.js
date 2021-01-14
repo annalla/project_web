@@ -51,6 +51,10 @@ module.exports = {
     return await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
     ORDER by date DESC limit 10`);
   },
+  async find10BestSellerCourse() {
+    return await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+    ORDER by num_join DESC limit 10`);
+  },
   async findMostAspectWeek() {
     return await db.load(`SELECT a.name_level2 ,c.ID_aspect ,c.CourseID, COUNT(a.name_level2) as count
     FROM course_join j, courses C , aspects_level2 a 
