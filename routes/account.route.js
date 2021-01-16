@@ -61,10 +61,13 @@ router.post('/login', async function (req, res) {
       if (user.f_OTP === "0") {
         req.session.isAuth = true;
         let url = req.session.retUrl || '/';
-        if (req.session.retUrl === '/account/sendotp') {
+        if (req.session.retUrl === 'http://localhost:3000/account/sendotp') {
           url = '/';
         }
-        if (req.session.retUrl === '/login') {
+        if (req.session.retUrl === 'http://localhost:3000/account/login') {
+          url = '/';
+        }
+        if (req.session.retUrl === 'http://localhost:3000/account/register') {
           url = '/';
         }
          res.redirect(url);

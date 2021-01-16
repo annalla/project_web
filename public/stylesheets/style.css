@@ -1333,10 +1333,10 @@ p {
     color: #07294d;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 70px;
     line-height: 55px;
-    background-image: url("/public/images/all-icon/fire.png");
+    background-image: url("/public/images/all-icon/fire2png.png");
     text-align: center;
 }
 .singel-course .thum .discount{

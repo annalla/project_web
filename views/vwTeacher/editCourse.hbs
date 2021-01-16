@@ -1,58 +1,56 @@
 {{#section 'css'}}
-      <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css"/>
+<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 {{/section}}
 {{#section 'js'}}
 <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/themes/fa/theme.min.js"></script>
 <script>
-  $('#fuMain').fileinput({
-    theme: 'fa',
-    dropZoneEnabled: false,
-    allowedFileExtensions: ['mp4', 'mov', 'wmv','avi','flv'],
-  });
+    $('#fuMain').fileinput({
+        theme: 'fa',
+        dropZoneEnabled: false,
+        allowedFileExtensions: ['mp4', 'mov', 'wmv', 'avi', 'flv'],
+    });
 </script>
 <script src="https://cdn.tiny.cloud/1/ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6/tinymce/5/tinymce.min.js"
-  referrerpolicy="origin"></script>
+    referrerpolicy="origin"></script>
 <script>
-tinymce.init({
-    selector: '#txtFullDes',
-    height: 600,
-    plugins: 'paste link autolink lists table',
-    menubar: false,
-    toolbar: [
-      'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
-    ],
-  });
+    tinymce.init({
+        selector: '#txtFullDes',
+        height: 600,
+        plugins: 'paste link autolink lists table',
+        menubar: false,
+        toolbar: [
+            'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
+        ],
+    });
 </script>
 <script>
     $('#frmFee').on('submit', function (e) {
         const fee = $('#f_fee').val();
         const discount = $('#f_discount').val();
         e.preventDefault();
-       
-        if (fee.length===0) {
+
+        if (fee.length === 0) {
             alert('Vui lòng không để trống học phí!');
             return;
         }
-        else if(discount!=="")
-        {
-            if(Number.isFinite(Number.parseFloat(discount))===false)
-            {
+        else if (discount !== "") {
+            if (Number.isFinite(Number.parseFloat(discount)) === false) {
                 alert('Vui lòng nhập giảm giá là số!');
-            return;
+                return;
             }
-            var n=Number.parseFloat(fee);
-            var n2=Number.parseFloat(discount);
-            if(n2>n)
-            {
+            var n = Number.parseFloat(fee);
+            var n2 = Number.parseFloat(discount);
+            if (n2 > n) {
                 alert(`Vui lòng nhập giảm giá nhỏ hơn học phí!`);
                 return;
-            } 
-            
+            }
+
         }
-        else if(Number.isFinite(Number.parseFloat(fee))===false){
+        else if (Number.isFinite(Number.parseFloat(fee)) === false) {
             alert('Vui lòng nhập học phí là số!');
             return;
         }
@@ -61,24 +59,22 @@ tinymce.init({
     $('#frmLecture').on('submit', function (e) {
         const name = $('#f_name').val();
         const video = $('#f_video').val();
-        const id= $('#id').val();
-        var checkBox1= document.getElementById("inlineCheckbox1");
+        const id = $('#id').val();
+        var checkBox1 = document.getElementById("inlineCheckbox1");
         var checkBox2 = document.getElementById("inlineCheckbox2");
         e.preventDefault();
-       
-        if (name.length===0||video.length===0) {
+
+        if (name.length === 0 || video.length === 0) {
             alert('Vui lòng không để trống thông tin bài giảng!');
             return;
         }
         $.getJSON(`/teacher/checkNameLecture?name=${name}&id=${id}`, function (data) {
             if (data === true) {
-                if(checkBox1.checked===true)
-                {
-                    $('#finish').val('1');   
+                if (checkBox1.checked === true) {
+                    $('#finish').val('1');
                 }
-                if(checkBox2.checked===true)
-                {
-                    $('#intro').val('1');   
+                if (checkBox2.checked === true) {
+                    $('#intro').val('1');
                 }
                 $('#frmLecture').off('submit').submit();
             } else {
@@ -87,438 +83,501 @@ tinymce.init({
         });
     });
 </script>
-{{/section}} 
+<script>
+    document.getElementById("stars0").innerHTML = getStars(4);
+    function getStars(rating) {
+        // Round to nearest half
+        rating = Math.round(rating * 2) / 2;
+        let output = [];
+
+        // Append all the filled whole stars
+        for (var i = rating; i >= 1; i--)
+            output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        // If there is a half a star, append it
+        if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        // Fill the empty stars
+        for (let i = (5 - rating); i >= 1; i--)
+            output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+        return output.join('');
+
+    }
+</script>
+{{#with this.course}}
+<script>
+    var star = "stars";
+    document.getElementById(star).innerHTML = getStars({{ evalue }});
+</script>
+{{/with}}
+{{/section}}
 {{!-- 369px x height 251px --}}
 {{#with this.course}}
 
-  
-    <section id="page-banner" class="pt-30 pb-110 bg_cover" data-overlay="8" style="background-image: url(/public/images/page-banner-2.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-banner-cont">
-                        <h4>{{title}}</h4>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Courses</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
-                            </ol>
-                        </nav>
-                    </div>  <!-- page banner cont -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-    
-    <!--====== PAGE BANNER PART ENDS ======-->
-    
-    <!--====== COURSES SINGEl PART START ======-->
-    
-    <section id="corses-singel" class="pt-90 pb-30 gray-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="corses-singel-left mt-30">
-                        <div class="title">
-                            <h3>{{title}}</h3>
-                        </div> <!-- title -->
-                        <div class="course-terms">
-                            <ul>
-                                <li>
-                                    <div class="teacher-name">
-                                        <div class="thum">
-                                            <img src="/public/images/instructor/{{image}}" alt="Teacher" style="width: 40px;height:40px">
-                                        </div>
-                                        <div class="name">
-                                            <span>Teacher</span>
-                                            <h6>{{f_Fullname}}</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="course-category">
-                                        <span>Category</span>
-                                        <h6>{{name_level1}} </h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="review">
-                                        <span>Review</span>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li class="rating">{{evalue}}({{num_evalue}} Đánh giá)</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> <!-- course terms -->
-                        
-                        <div class="corses-singel-image pt-50">
-                            <img src="/public/images/course/{{small_image}}" alt="Courses">
-                        </div> <!-- corses singel image -->
-                        {{/with}}
-                        
-                        <div class="corses-tab mt-30">
-                            <ul class="nav nav-justified" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a {{#unless editLecture}}class="active" {{/unless}}id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Giới thiệu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a {{#if editLecture}}class="active" {{/if}}id="curriculam-tab" data-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Nội dung</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Giảng viên</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
-                                </li>
-                            </ul>
-                            
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade {{#unless editLecture}}show active{{/unless}}" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                                    {{#if editBrief}}
-                                    {{#with this.course}}
-                                     <div class="overview-description">
-                                        <form action="/teacher/editBrief" method="post" id="frmDescribe" >
-                                            <div class="form-group">
-                                                {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô tả khóa học:</label> --}}
-                                                <textarea class="form-control" name="FullDes" id="txtFullDes" cols="30" rows="10" autofocus>{{{brief}}}</textarea>
-                                            </div>
-                                            <input type="hidden" class="form-control" name="id" id="id" value="{{CourseID}}">
-                                            <div class="text-muted" style="margin-top:10px">
-                                                <button type="submit" class="btn btn-primary"> <i class="fa fa-check" aria-hidden="true"></i>Lưu</button>
-                                            </div>
-                                        </form>
-                                    </div> <!-- overview description -->
-                                    {{/with}}
-                                    {{else}}
-                                    {{#with this.course}}
-                                        <div class="overview-description">
-                                        {{{brief}}}
-                                        <div class="text-right">
-                                        <a class="main-btn" href="/teacher/editCourse?id={{CourseID}}&edit=brief"><i class="fa fa-pencil"></i></a>
-                                        </div>
-                                    </div> <!-- overview description -->
-                                   
-                                    {{/with}}                                        
-                                    {{/if}}
-                                             
-                                </div>
-                               
-                                <div class="tab-pane fade  {{#if editLecture}}show active {{/if}}" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
-                                    <div class="curriculam-cont">
-                                         {{#with this.course}}
-                                        <div class="title">
-                                            <h6>{{title}}</h6>
-                                        </div>
-                                        
-                                         {{/with}}
-                                         {{#if editLecture}}
-                                            {{#with this.course}}
-                                            <div class="accordion" id="accordionExample">
-                                                <form action="/teacher/addLecture" method="post" id="frmLecture" enctype="multipart/form-data">
-                                                    <div class="form-group">
-                                                    <div class="label">
-                                                    ​   <div><label for="f_name" style="margin:0px;padding:0px">Tên bài giảng</label></div>
-                                                        <div class="required">*</div>
-                                                    </div>
-                                                    <input type="hidden" class="form-control" name="id" id="id" value="{{CourseID}}">
-                                                    <input type="text" class="form-control" name="f_name" id="f_name" >
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="label">
-                                                    ​   <div><label for="f_video" style="margin:0px;padding:0px">Tên video</label></div>
-                                                        <div class="required">*</div>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="f_video" id="f_video" >
-                                                </div>
-                                                <div class="form-group" >
-                                                    <label for="fuMain" style="margin-bottom: 0px;margin-top:20px">File video</label>
-                                                    <input id="fuMain" name="fuMain" type="file" class="file">
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="label" style="margin-bottom: 5px;">
-                                                    ​   <div><label for="f_checkIntro" style="margin:0px;padding:0px">Check Introduction nếu đây là bài giảng cho xem trước</label></div>
-                                                    
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="hidden" id="intro" name="intro">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1"style="margin-left: 20px;">
-                                                        <label class="form-check-label" for="inlineCheckbox2" >Introduction</label>
-                                                    </div>
-                                                    
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="label" style="margin-bottom: 5px;">
-                                                    ​   <div><label for="f_check" style="margin:0px;padding:0px">Check hoàn thành nếu đây là bài giảng cuối cùng</label></div>
-                                                    
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="hidden" id="finish" name="finish">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"style="margin-left: 20px;">
-                                                        <label class="form-check-label" for="inlineCheckbox1" >Hoàn thành</label>
-                                                    </div>
-                                                    
-                                                </div>
-                                                <div class="text-muted" style="margin-top:10px">
-                                                        <button type="submit" class="btn btn-primary"> <i class="fa fa-check" aria-hidden="true"></i>Lưu</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                                
-                                                {{/with}}
-                                         {{else}}
-                                             
-                                           <div class="accordion" id="accordionExample">
-                                            {{#each  lecture}}
-                                            
-                                                <div class="card">
-                                                    <div class="card-header" id="headingOne">
-                                                        <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-                                                            <ul>
-                                                                <li><i class="fa fa-file-o"></i></li>
-                                                                <li><span class="lecture"></span></li>
-                                                                <li><span class="head">{{title_name}}</span></li>
-                                                                <li><span class="time d-none d-md-block"><i class="fa fa-clock-o"></i> <span> </span></span></li>
-                                                            </ul>
-                                                        </a>
-                                                    
-                                                    </div>
 
-                                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                        <div class="card-body">
-                                                            <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a href="/teacher/editCourse?id={{CourseID}}&video={{ID_lect}}">{{name_video}}</a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                 {{/each}}
-                            
-                                        </div>
-                                            
-                                           
-                                            {{#with this.course}}
-                                            <div class="price-button pt-10">
-                                                
-                                                <span><a href="/teacher/editCourse?id={{CourseID}}&edit=lecture" class="main-btn" style="background-color: white; border: 1px solid darkblue">Thêm bài giảng</a></span>
-                                                
-                                            </div>
-                                            {{/with}}
-                                         {{/if}}
-                                        
-                                         
-                                    </div> <!-- curriculam cont -->
+<section id="page-banner" class="pt-30 pb-110 bg_cover" data-overlay="8"
+    style="background-image: url(/public/images/page-banner-2.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h4>{{title}}</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                        </ol>
+                    </nav>
+                </div> <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== PAGE BANNER PART ENDS ======-->
+
+<!--====== COURSES SINGEl PART START ======-->
+
+<section id="corses-singel" class="pt-90 pb-30 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="corses-singel-left mt-30">
+                    <div class="title">
+                        <h3>{{title}}</h3>
+                    </div> <!-- title -->
+                    <div class="course-terms">
+                        <ul>
+                            <li>
+                                <div class="teacher-name">
+                                    <div class="thum">
+                                        <img src="/public/images/course/teacher/{{image}}" alt="Teacher"
+                                            style="width: 40px;height:40px">
+                                    </div>
+                                    <div class="name">
+                                        <span>Teacher</span>
+                                        <h6>{{f_Fullname}}</h6>
+                                    </div>
                                 </div>
-                               {{#with this.course}}
-                                <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                                    <div class="instructor-cont">
-                                        <div class="instructor-author">
-                                            <div class="author-thum">
-                                                <img src="/public/images/course/teacher/{{image}}" alt="Instructor"style="width: 150px;height:150px">
-                                            </div>
-                                            <div class="author-name">
-                                                <a href="#"><h5>{{f_Fullname}}</h5></a>
-                                                <span>{{job}}</span>
-                                                <ul class="social">
-                                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="instructor-description pt-25">
-                                            {{{intro}}}
-                                        </div>
-                                        <div class="text-right">
-                                        <a class="main-btn" href="/teacher/infoTeacher"><i class="fa fa-pencil"></i></a>
-                                        </div>
-                                    </div> <!-- instructor cont -->
+                            </li>
+                            <li>
+                                <div class="course-category">
+                                    <span>Category</span>
+                                    <h6>{{name_level1}} </h6>
                                 </div>
-                                {{/with}}
-                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                    <div class="reviews-cont">
-                                        
-                                        <div class="title">
-                                            <h6>Student Reviews</h6>
-                                        </div>
-                                        <ul>
-                                            
-                                               <div> class="singel-reviews">
-                                                       
-                                                        
-                                                {{#each comment }}
-                                                    <div class="reviews-description pt-20">
-                                                         <div class="author-name">
-                                                            <img src="/public/images/user.png" style="width: 40px;height:40px">
-                                                            <b>{{f_Fullname}}</b>
-                                                        </div>
-                                                        <p>{{content}}</p>
-                                                        {{!-- <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div> --}}
-                                                    </div>
-                                                {{/each}}
-                                                {{!-- </div> <!-- singel reviews --> --}}
-                                                    
-                                            
-                                            {{#with this.course}}
-                                        </ul>
-                                        <!-- tab content -->
-                             
-                                    </div> <!-- reviews cont -->
-                                </div>    
-                                
-                            </div> <!-- tab content -->
-                        </div> <!-- course tab content -->
-                    </div><!-- corses singel left -->
-                </div> 
-           
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-6">
-                            <div class="course-features mt-30">
-                               <h4>Course Features </h4>
-                                <ul>
-                                    
-                                   
-                                    {{/with}}
-                                     {{#if this.num_lecture}}
-                                         <li><i class="fa fa-clone"></i>Bài giảng : <span>{{this.num_lecture}}</span></li>
-                                         {{else}}
-                                          <li><i class="fa fa-clone"></i>Bài giảng : <span>chưa hoàn thiện</span></li>
-                                    {{/if}}
-                                     <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{this.dm}}</span></li>
-                                    {{#with this.course}}
-                                    <li><i class="fa fa-user-o"></i>Học viên :  <span>{{num_join}}</span></li>
-                                </ul>
-                                {{#if discount}}
-                                    <div class="price-button pt-10">
-                                    <span>Price : <b><strike>{{fee}}$</strike></b></span>
-                                    <span style="margin-left: 40px;">Discount : <b>{{discount}}$</b></span>
+                            </li>
+                            <li>
+                                <div class="review">
+                                    <span>Review</span>
+                                    <ul>
+                                        <span id="stars"></span>
+
+                                        <span>{{evalue}}({{num_evalue}} Reviews)</span>
+                                    </ul>
                                 </div>
-                                {{else}}
-                                
-                                <div class="price-button pt-10">
-                                    <span>Price : <b>{{fee}}$</b></span>
-                                   
-                                </div>
-                               {{/if}}
-                               
-                                
-                                
-                                 {{/with}}
-                                {{#if editFee}}
+                            </li>
+                        </ul>
+                    </div> <!-- course terms -->
+
+                    <div class="corses-singel-image pt-50">
+                        <img src="/public/images/course/{{small_image}}" alt="Courses">
+                    </div> <!-- corses singel image -->
+                    {{/with}}
+
+                    <div class="corses-tab mt-30">
+                        <ul class="nav nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a {{#unless editLecture}}class="active" {{/unless}}id="overview-tab" data-toggle="tab"
+                                    href="#overview" role="tab" aria-controls="overview" aria-selected="true">Giới
+                                    thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a {{#if editLecture}}class="active" {{/if}}id="curriculam-tab" data-toggle="tab"
+                                    href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false">Nội
+                                    dung</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="instructor-tab" data-toggle="tab" href="#instructor" role="tab"
+                                    aria-controls="instructor" aria-selected="false">Giảng viên</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                    aria-selected="false">Reviews</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade {{#unless editLecture}}show active{{/unless}}" id="overview"
+                                role="tabpanel" aria-labelledby="overview-tab">
+                                {{#if editBrief}}
                                 {{#with this.course}}
-                                    
-                                
-                                     <form action="/teacher/editFee" method="post" id="frmFee">
+                                <div class="overview-description">
+                                    <form action="/teacher/editBrief" method="post" id="frmDescribe">
                                         <div class="form-group">
-                                            <div class="label">
-                                            ​   <div><label for="f_fee" style="margin:0px;padding:0px">Học phí ($)</label></div>
-                                                <div class="required">*</div>
-                                            </div>
-                                            <input type="text" class="form-control" name="f_fee" id="f_fee" value="{{fee}}" autofocus>
-                                            <input type="hidden" class="form-control" name="id" id="id" value="{{CourseID}}">
+                                            {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô
+                                                tả khóa học:</label> --}}
+                                            <textarea class="form-control" name="FullDes" id="txtFullDes" cols="30"
+                                                rows="10" autofocus>{{{brief}}}</textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="f_discount" style="margin-bottom: 0px;margin-top:10px">Giảm giá (nếu có)</label>
-                                            <input type="text" class="form-control" name="f_discount" id="f_discount" >
-                                        </div>
+                                        <input type="hidden" class="form-control" name="id" id="id"
+                                            value="{{CourseID}}">
                                         <div class="text-muted" style="margin-top:10px">
-                                                    <button type="submit" class="btn btn-primary"> <i class="fa fa-check" aria-hidden="true"></i>Lưu</button>
+                                            <button type="submit" class="btn btn-primary"> <i class="fa fa-check"
+                                                    aria-hidden="true"></i>Lưu</button>
                                         </div>
                                     </form>
+                                </div> <!-- overview description -->
+                                {{/with}}
+                                {{else}}
+                                {{#with this.course}}
+                                <div class="overview-description">
+                                    {{{brief}}}
+                                    <div class="text-right">
+                                        <a class="main-btn" href="/teacher/editCourse?id={{CourseID}}&edit=brief"><i
+                                                class="fa fa-pencil"></i></a>
+                                    </div>
+                                </div> <!-- overview description -->
+
+                                {{/with}}
+                                {{/if}}
+
+                            </div>
+
+                            <div class="tab-pane fade  {{#if editLecture}}show active {{/if}}" id="curriculam"
+                                role="tabpanel" aria-labelledby="curriculam-tab">
+                                <div class="curriculam-cont">
+                                    {{#with this.course}}
+                                    <div class="title">
+                                        <h6>{{title}}</h6>
+                                    </div>
+
+                                    {{/with}}
+                                    {{#if editLecture}}
+                                    {{#with this.course}}
+                                    <div class="accordion" id="accordionExample">
+                                        <form action="/teacher/addLecture" method="post" id="frmLecture"
+                                            enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <div class="label">
+                                                    ​ <div><label for="f_name" style="margin:0px;padding:0px">Tên bài
+                                                            giảng</label></div>
+                                                    <div class="required">*</div>
+                                                </div>
+                                                <input type="hidden" class="form-control" name="id" id="id"
+                                                    value="{{CourseID}}">
+                                                <input type="text" class="form-control" name="f_name" id="f_name">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="label">
+                                                    ​ <div><label for="f_video" style="margin:0px;padding:0px">Tên
+                                                            video</label></div>
+                                                    <div class="required">*</div>
+                                                </div>
+                                                <input type="text" class="form-control" name="f_video" id="f_video">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fuMain" style="margin-bottom: 0px;margin-top:20px">File
+                                                    video</label>
+                                                <input id="fuMain" name="fuMain" type="file" class="file">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="label" style="margin-bottom: 5px;">
+                                                    ​ <div><label for="f_checkIntro"
+                                                            style="margin:0px;padding:0px">Check Introduction nếu đây là
+                                                            bài giảng cho xem trước</label></div>
+
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input type="hidden" id="intro" name="intro">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                        value="option1" style="margin-left: 20px;">
+                                                    <label class="form-check-label"
+                                                        for="inlineCheckbox2">Introduction</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="label" style="margin-bottom: 5px;">
+                                                    ​ <div><label for="f_check" style="margin:0px;padding:0px">Check
+                                                            hoàn thành nếu đây là bài giảng cuối cùng</label></div>
+
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input type="hidden" id="finish" name="finish">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                        value="option1" style="margin-left: 20px;">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Hoàn
+                                                        thành</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="text-muted" style="margin-top:10px">
+                                                <button type="submit" class="btn btn-primary"> <i class="fa fa-check"
+                                                        aria-hidden="true"></i>Lưu</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
                                     {{/with}}
                                     {{else}}
-                                    {{#with this.course}}
-                                        <div class="price-button text-right">
-                                    <span>
-                                           
-                                        <a class="main-btn" href="/teacher/editCourse?id={{CourseID}}&edit=fee"><i class="fa fa-pencil"></i></a>
-                                            
-                                     </span>
-                                    {{/with}}
-                                    
-                                        
-                                </div>
-                                {{/if}}
-                               
-                               
-                                 {{#with this.course}}
-                            </div> <!-- course features -->
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                            <div class="You-makelike mt-30">
-                                <h4>Life is a story</h4> 
-                                <h4>Learn is a best way</h4> 
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                    
-                                </div>
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                  
-                                </div>
-                                <div class="singel-makelike mt-20">
-                                    <div class="image">
-                                        <img src="/public/images/your-make/y-1.jpg" alt="Image">
-                                    </div>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div><!-- row -->
-                </div>
-           
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-    {{/with}}
-     {{#each unit}}
-        <div class="corses-singel-left mt-30 " style="margin: 0 50px;padding:20px">
-        <div class="text-center">
-        <video
-                    id="my-video"
-                    class="video-js"
-                    controls
-                    preload="auto"
-                    width="800px"
-                    height="500px"
-                    poster="MY_VIDEO_POSTER.jpg"
-                    data-setup="{}">
-                    <source src="/public/video/{{file_vd}}" type="video/mp4" />
-                    {{!-- <source src="MY_VIDEO.webm" type="video/webm" /> --}}
-                    <p class="vjs-no-js">
-                    To view this video please enable JavaScript, and consider upgrading to a
-                    web browser that
-                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                    </p>
-                </video>
-                </div>
-                <div class="lol" style="margin-bottom: 0px;">
-                    <h4>{{name_video}}</h4>
-                </div>
-                {{!-- <div class="video text-lg-left text-center pt-50">
-                        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i class="fa fa-play"></i></a>
-                    </div> <!-- row --> --}}
-    </div>
 
-    {{/each}}
-    
-  
+                                    <div class="accordion" id="accordionExample">
+                                        {{#each lecture}}
+
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <a href="#" data-toggle="collapse" data-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    <ul>
+                                                        <li><i class="fa fa-file-o"></i></li>
+                                                        <li><span class="lecture"></span></li>
+                                                        <li><span class="head">{{title_name}}</span></li>
+                                                        <li><span class="time d-none d-md-block"><i
+                                                                    class="fa fa-clock-o"></i> <span> </span></span>
+                                                        </li>
+                                                    </ul>
+                                                </a>
+
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <p><i class="fa fa-play-circle" style="margin-right:5px"></i><a
+                                                            href="/teacher/editCourse?id={{CourseID}}&video={{ID_lect}}">{{name_video}}</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+
+                                    </div>
+
+
+                                    {{#with this.course}}
+                                    <div class="price-button pt-10">
+
+                                        <span><a href="/teacher/editCourse?id={{CourseID}}&edit=lecture"
+                                                class="main-btn"
+                                                style="background-color: white; border: 1px solid darkblue">Thêm bài
+                                                giảng</a></span>
+
+                                    </div>
+                                    {{/with}}
+                                    {{/if}}
+
+
+                                </div> <!-- curriculam cont -->
+                            </div>
+                            {{#with this.course}}
+                            <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
+                                <div class="instructor-cont">
+                                    <div class="instructor-author">
+                                        <div class="author-thum">
+                                            <img src="/public/images/course/teacher/{{image}}" alt="Instructor"
+                                                style="width: 150px;height:150px">
+                                        </div>
+                                        <div class="author-name">
+                                            <a href="#">
+                                                <h5>{{f_Fullname}}</h5>
+                                            </a>
+                                            <span>{{job}}</span>
+                                            <ul class="social">
+                                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="instructor-description pt-25">
+                                        {{{intro}}}
+                                    </div>
+                                    <div class="text-right">
+                                        <a class="main-btn" href="/teacher/infoTeacher"><i class="fa fa-pencil"></i></a>
+                                    </div>
+                                </div> <!-- instructor cont -->
+                            </div>
+                            {{/with}}
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <div class="reviews-cont">
+
+                                    <div class="title">
+                                        <h6>Student Reviews</h6>
+                                    </div>
+                                    <ul>
+
+                                        <div class="singel-reviews">
+
+
+                                            {{#each comment }}
+                                            <div class="reviews-description pt-20">
+                                                <div class="author-name">
+                                                    <img src="/public/images/user.png" style="width: 40px;height:40px">
+                                                    <b>{{f_Fullname}}</b>
+                                                </div>
+                                                <p>{{content}}</p>
+                                                {{!-- <div class="rating">
+                                                    <ul>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                    <span>/ 5 Star</span>
+                                                </div> --}}
+                                            </div>
+                                            {{/each}}
+                                            {{!--
+                                        </div> <!-- singel reviews --> --}}
+
+
+                                        {{#with this.course}}
+                                    </ul>
+                                    <!-- tab content -->
+
+                                </div> <!-- reviews cont -->
+                            </div>
+
+                        </div> <!-- tab content -->
+                    </div> <!-- course tab content -->
+                </div><!-- corses singel left -->
+            </div>
+
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6">
+                        <div class="course-features mt-30">
+                            <h4>Course Features </h4>
+                            <ul>
+
+
+                                {{/with}}
+                                {{#if this.num_lecture}}
+                                <li><i class="fa fa-clone"></i>Bài giảng : <span>{{this.num_lecture}}</span></li>
+                                {{else}}
+                                <li><i class="fa fa-clone"></i>Bài giảng : <span>chưa hoàn thiện</span></li>
+                                {{/if}}
+                                <li><i class="fa fa-clock-o"></i>Cập nhật lần cuối: <span> {{this.dm}}</span></li>
+                                {{#with this.course}}
+                                <li><i class="fa fa-user-o"></i>Học viên : <span>{{num_join}}</span></li>
+                            </ul>
+                            {{#if discount}}
+                            <div class="price-button pt-10">
+                                <span>Price : <b><strike>{{fee}}$</strike></b></span>
+                                <span style="margin-left: 40px;">Discount : <b>{{discount}}$</b></span>
+                            </div>
+                            {{else}}
+
+                            <div class="price-button pt-10">
+                                <span>Price : <b>{{fee}}$</b></span>
+
+                            </div>
+                            {{/if}}
+
+
+
+                            {{/with}}
+                            {{#if editFee}}
+                            {{#with this.course}}
+
+
+                            <form action="/teacher/editFee" method="post" id="frmFee">
+                                <div class="form-group">
+                                    <div class="label">
+                                        ​ <div><label for="f_fee" style="margin:0px;padding:0px">Học phí ($)</label>
+                                        </div>
+                                        <div class="required">*</div>
+                                    </div>
+                                    <input type="text" class="form-control" name="f_fee" id="f_fee" value="{{fee}}"
+                                        autofocus>
+                                    <input type="hidden" class="form-control" name="id" id="id" value="{{CourseID}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="f_discount" style="margin-bottom: 0px;margin-top:10px">Giảm giá (nếu
+                                        có)</label>
+                                    <input type="text" class="form-control" name="f_discount" id="f_discount">
+                                </div>
+                                <div class="text-muted" style="margin-top:10px">
+                                    <button type="submit" class="btn btn-primary"> <i class="fa fa-check"
+                                            aria-hidden="true"></i>Lưu</button>
+                                </div>
+                            </form>
+                            {{/with}}
+                            {{else}}
+                            {{#with this.course}}
+                            <div class="price-button text-right">
+                                <span>
+
+                                    <a class="main-btn" href="/teacher/editCourse?id={{CourseID}}&edit=fee"><i
+                                            class="fa fa-pencil"></i></a>
+
+                                </span>
+                                {{/with}}
+
+
+                            </div>
+                            {{/if}}
+
+
+                            {{#with this.course}}
+                        </div> <!-- course features -->
+                    </div>
+                    <div class="col-lg-12 col-md-6">
+                        <div class="You-makelike mt-30">
+                            <h4>Life is a story</h4>
+                            <h4>Learn is a best way</h4>
+                            <div class="singel-makelike mt-20">
+                                <div class="image">
+                                    <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                                </div>
+
+                            </div>
+                            <div class="singel-makelike mt-20">
+                                <div class="image">
+                                    <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                                </div>
+
+                            </div>
+                            <div class="singel-makelike mt-20">
+                                <div class="image">
+                                    <img src="/public/images/your-make/y-1.jpg" alt="Image">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!-- row -->
+            </div>
+
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+{{/with}}
+{{#each unit}}
+<div class="corses-singel-left mt-30 " style="margin: 0 50px;padding:20px">
+    <div class="text-center">
+        <video id="my-video" class="video-js" controls preload="auto" width="800px" height="500px"
+            poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+            <source src="/public/video/{{file_vd}}" type="video/mp4" />
+            {{!--
+            <source src="MY_VIDEO.webm" type="video/webm" /> --}}
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+    <div class="lol" style="margin-bottom: 0px;">
+        <h4>{{name_video}}</h4>
+    </div>
+    {{!-- <div class="video text-lg-left text-center pt-50">
+        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i class="fa fa-play"></i></a>
+    </div> <!-- row --> --}}
+</div>
+
+{{/each}}
