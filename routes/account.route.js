@@ -44,6 +44,12 @@ router.post('/login', async function (req, res) {
     }
     req.session.isAuth = true;
     req.session.authUser = user;
+    if(req.session.authUser.isDisabled===1)
+    {
+      return res.render('vwAccount/login', {
+        err_message: 'Tài khoản này đã bị khóa!'
+      });
+    }
     req.session.cart = [];
     if (+req.session.authUser.f_Permission === 1) {
       res.redirect('/admin/accounts');
