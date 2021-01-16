@@ -70,6 +70,7 @@ router.post('/add', async function (req, res) {
             status:0,
             TeacherID:req.session.authUser.f_ID,
             total:t,
+            Disabled:0
         };
         courseModel.add(detail);
         res.redirect('/teacher/yourTeacherCourse');

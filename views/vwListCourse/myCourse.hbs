@@ -89,7 +89,13 @@
                                                     <div class="image">
                                                         <img src="/public/images/course/{{small_image}}" alt="Course" style="height:140px">
                                                     </div>
-                                                
+                                                    {{#if isFinish}}
+                                                        
+                                                    {{else}}
+                                                    <div class="price" style="right:5px">
+                                                        <span style="width: 100px;">Not&nbsp;finish</span>
+                                                    </div>
+                                                    {{/if}}
                                                 </div>
                                                 <div class="cont border" style="padding:0px 15px">
                                                     <div class="admin" style="display: block;margin: 0px">

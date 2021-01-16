@@ -291,7 +291,7 @@ router.post('/addComment',async function (req, res) {
   const countRate = await courseModel.countRate(id);
   const sumRate = await courseModel.getEvalue(id);
   courseModel.setnum_evalue(id,countComment + 1);
-  var star1 = (req.body.star)*1.0;
+  var star1 = (+req.body.star)*1.0;
   const avgRate = (sumRate*(countRate-1) + star1)/(countRate);
   courseModel.setEvalue(id,Math.round(avgRate * 100) / 100);
 

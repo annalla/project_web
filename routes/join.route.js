@@ -11,7 +11,19 @@ router.get('/', async function (req, res) {
     try{
 
     const rows=await joinModel.getMyCourse(req.session.authUser.f_ID);
-    // console.log(rows);
+    for (const i of rows)
+    {
+      i.isFinish=true;
+      const lect=await statusModel.getLectureStatus(i.CourseID,req.session.authUser.f_ID);
+      for (const j of lect)
+      {
+        if(j.status===0)
+        {
+          i.isFinish=false;
+          break;
+        }
+      }
+    }
   res.render('vwListCourse/myCourse', {
       course:rows
   });
