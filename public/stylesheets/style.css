@@ -1089,9 +1089,11 @@ p {
 }
 
 .singel-category {
-	padding: 20px 0;
-	border-radius: 5px;
-	display: block;
+    padding: 20px 0;
+    border-radius: 5px;
+    display: block;
+    widows: 190px;
+    height: 160px;
 }
 .singel-category .icon{
     display: inline-block;
@@ -1268,6 +1270,7 @@ p {
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
+    height: 520px;
 }
 .singel-course > .thum{
     position: relative;
