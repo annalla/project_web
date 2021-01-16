@@ -234,11 +234,11 @@ module.exports = {
     return db.load(`select * from comments cm, courses c,users u where c.Disabled!=1 and c.CourseID=${id} and cm.CourseID=c.CourseID and u.f_ID=cm.f_ID`);
   },
   async getEvalue(id) {
-    const rows = await db.load(`select evalue from courses where c.Disabled!=1 and CourseID=${id}`)
+    const rows = await db.load(`select evalue from courses where Disabled!=1 and CourseID=${id}`)
     return rows[0].evalue;
   },
   async getNum_evalue(id) {
-    const rows = await db.load(`select num_evalue from courses where c.Disabled!=1 and CourseID=${id}`)
+    const rows = await db.load(`select num_evalue from courses where Disabled!=1 and CourseID=${id}`)
     return rows[0].num_evalue;
   },
   async countComment(id) {
@@ -246,7 +246,7 @@ module.exports = {
     return rows[0].total;
   },
   setnum_evalue(id, number) {
-    return db.load(`UPDATE courses SET num_evalue='${number}' WHERE c.Disabled!=1 and CourseID='${id}'`);
+    return db.load(`UPDATE courses SET num_evalue='${number}' WHERE CourseID='${id}'`);
   },
   Rate(id) {
     return db.load(`select * from evaluate e, courses c,users u where c.Disabled!=1 and c.CourseID=${id} and e.CourseID=c.CourseID and u.f_ID=e.f_ID`);
