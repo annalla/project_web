@@ -91,4 +91,8 @@ module.exports = {
     const rows=await db.load(`select * from infor_teacher i, users u where i.f_ID=${id} and i.f_ID = u.f_ID`);
     return rows[0];
   },
+  updateInfo(entity,id) {
+    const condition = { f_ID: id };
+    return db.patch(entity,condition, TBL_INFOR_TEACHER);
+  },
 };

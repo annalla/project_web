@@ -270,35 +270,59 @@ router.get('/infoTeacher', async function (req,res){
   }
 })
 
-router.post('/infoTeacher', function (req,res){
-try{
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb){
-      cb(null,'./public/images/course/teacher/')
-    },
-    filename: function (req, file, cb){
-      cb(null,req.session.authUser.f_ID + '.jpg')
-    }
-  })
-  const upload = multer({storage});
+router.post('/infoTeacher',async function (req,res){
+  try{
 
-  upload.single('fuMain')(req,res,function (err){
-    if(err){
-
-    }else {
-      const infor = {
-        f_ID: req.session.authUser.f_ID,
-        job: req.body.job,
-        image: req.session.authUser.f_ID + '.jpg',
-        intro: req.body.intro,
-      };
-      userModel.addInfo(infor);
-      res.render('vwTeacher/infoTeacher');
-    }
+    const id = await userModel.singleInfo(req.session.authUser.f_ID);
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb){
+        cb(null,'./public/images/course/teacher/')
+      },
+      filename: function (req, file, cb){
+        cb(null,req.session.authUser.f_ID + '.jpg')
+      }
+    })
+    const upload = multer({storage});
+  
+  
+    upload.single('fuMain')(req,res,function (err){
+      if(err){
+  
+      }else {
+        var job1 = req.body.job;
+        var intro1 = req.body.intro;
+        console.log(req.body.job);
+        if (intro1.length === 0){
+          intro1 = id.intro;
+        }
+        if (job1.length === 0){
+          job1 =id.job;
+        }
+      
+        if(id.f_ID )
+        {
+          const infor = {
+            job: job1,
+            image: req.session.authUser.f_ID + '.jpg',
+            intro: intro1
+          };
+          userModel.updateInfo(infor,id.f_ID);
+        }
+        else{
+          const infor = {
+            f_ID: req.session.authUser.f_ID,
+            job: req.body.job,
+            image: req.session.authUser.f_ID + '.jpg',
+            intro: req.body.intro,
+          };
+          userModel.addInfo(infor);
+        }
+        res.redirect('/teacher/infoTeacher');
+      }
+    })
+  }catch (err) {
+    console.error(err);
+    res.send('View error log at server console.');
+  }
   })
-}catch (err) {
-  console.error(err);
-  res.send('View error log at server console.');
-}
-})
 module.exports = router;
