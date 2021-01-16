@@ -1,13 +1,82 @@
+{{#section 'css'}}
+<style>
+    #myInput {
+        background-image: url('/public/images/all-icon/searchicon2.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+    #myInput1 {
+        background-image: url('/public/images/all-icon/searchicon2.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+</style>
+{{/section}}
 {{#section 'js'}}
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+<script>
+function myFunction1() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput1");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 <script>
     $('.removeItem').on('click', function () {
+        const block = $(this).data('lock');
         const id = $(this).data('id');
         $('#txtProId').val(id);
+        $('#txtBlock').val(block);
         $('#frmRemoveItem').submit();
+
     });
 </script>
 {{/section}}
-<form id="frmRemoveItem" action="/admin/courses/remove" method="POST">
+<form id="frmRemoveItem" action="/admin/courses/block" method="POST">
+    <input type="hidden" name="block" id="txtBlock">
     <input type="hidden" name="id" id="txtProId">
 </form>
 <div class="card">
@@ -21,28 +90,42 @@
         </div>
         {{else}}
         <div class="card-body">
-            <table class="table table-hover" style="width:80%" align="center">
+            <label for="myInput"><b>
+                <i>
+                    Tìm kiếm theo tên lĩnh vực
+                </i>
+            </b></label>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm theo tên lĩnh vực..." title="Type in a name">
+
+            <label for="myInput1"><b>
+                <i>
+                    Tìm kiếm theo tên giáo viên
+                </i>
+            </b></label>
+            <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Tìm kiếm theo tên giáo viên..." title="Type in a name">
+            <table class="table table-hover" style="width:80%" align="center" id="myTable">
                 <thead>
                     <tr>
-                        <th scope="col">ID_Course</th>
-                        <th scope="col">Tên lĩnh vực lv2</th>
-                        <th scope="col">Tên khóa học </th>
-                        <th scope="col">Tên giáo viên</th>
-                        <th scope="col">&nbsp;</th>
+            
+                        <th scope="col" style="background-color:#008800; color: white;">Tên lĩnh vực</th>
+                        <th scope="col" style="background-color:#008800; color: white;">Tên khóa học </th>
+                        <th scope="col" style="background-color:#008800; color: white;">Tên giáo viên</th>
+                        <th scope="col" style="background-color:#008800; color: white;">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each this.course}}
                     <tr>
-                        <th scope="row">{{CourseID}}</th>
+                       
                         <td>{{name_level2}}</td>
                         <td>{{title}}</td>
                         <td>{{f_Fullname}}</td>
                         <td class="text-right">
                             <div style="width: 15%;" class="text-right">
-                                <a data-id="{{CourseID}}" class="btn btn-sm btn-outline-danger removeItem "
-                                    href="javascript:;" role="button" title="Remove Item">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                <a data-id="{{CourseID}}" data-lock="1"
+                                    class="btn btn-sm btn-outline-danger removeItem " href="javascript:;" role="button"
+                                    title="Remove Item">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </td>
@@ -52,5 +135,49 @@
             </table>
         </div>
         {{/if}}
+        {{!-- khóa học bị khóa --}}
+
+        {{#if this.emptyBlock}}
+        <div class="card-body">
+            <p class="card-text">
+            <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Không có
+                    khóa học bị khóa</b></h6>
+            </p>
+        </div>
+        {{else}}
+        <h5>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Khóa học bị
+                khóa</b></h5>
+        <div class="card-body">
+            <table class="table table-hover" style="width:80%" align="center">
+                <thead>
+                    <tr>
+                       
+                        <th scope="col" style="background-color:#AA0000; color: white;">Tên lĩnh vực</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">Tên khóa học </th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">Tên giáo viên</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">&nbsp;</th>
+                    </tr>
+                </thead>
+                {{#each this.courseBlock}}
+                <tr>
+                
+                    <td>{{name_level2}}</td>
+                    <td>{{title}}</td>
+                    <td>{{f_Fullname}}</td>
+                    <td class="text-right">
+                        <div style="width: 15%;" class="text-right">
+                            <a data-id="{{CourseID}}" data-lock="0" class="btn btn-sm btn-outline-danger removeItem "
+                                href="javascript:;" role="button" title="Remove Item">
+                                <i class="fa fa-unlock" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+        {{!-- khóa học bị khóa --}}
     </div>
 </div>

@@ -138,11 +138,17 @@ router.get('/is-availableCatID1', async function (req, res) {
 router.get('/accounts/', async function (req, res) {
   const rowTeachers = await userModel.allTeacher();
   const rowStudents = await userModel.allStudent();
+  const rowTeachersBlock = await userModel.allTeacherBlock();
+  const rowStudentsBlock = await userModel.allStudentBlock();
   res.render('vwAdmin/manageAccounts/allAccounts', {
     teachers: rowTeachers,
     students: rowStudents,
+    rowTeachersBlock: rowTeachersBlock,
+    rowStudentsBlock: rowStudentsBlock,
     emptyTeacher: rowTeachers.length === 0,
-    emptyStudet: rowStudents.length === 0
+    emptyStudet: rowStudents.length === 0,
+    emptyTeacherBlock: rowTeachersBlock.length === 0,
+    emptyStudetBlock: rowStudentsBlock.length === 0
   });
 })
 router.get('/accounts/add', function (req, res) {
@@ -165,17 +171,28 @@ router.post('/accounts/remove', function (req, res) {
   userModel.del(+req.body.id);
   res.redirect(req.headers.referer);
 });
+router.post('/accounts/block', function (req, res) {
+  userModel.setBlock(+req.body.block,+req.body.id);
+  res.redirect(req.headers.referer);
+});
 
 //Courses-------------------------------------------------------------------------------
 router.get('/courses/', async function (req, res) {
   const rows = await courseModel.all();
+  const rowsBlock = await courseModel.allBlock();
   res.render('vwAdmin/manageCourses/allCourses', {
     course: rows,
-    empty: rows.length === 0
+    empty: rows.length === 0,
+    courseBlock: rowsBlock,
+    emptyBlock: rowsBlock.length === 0
   });
 })
 router.post('/courses/remove', function (req, res) {
   courseModel.del(+req.body.id);
+  res.redirect(req.headers.referer);
+});
+router.post('/courses/block', function (req, res) {
+  courseModel.setBlock(+req.body.block,+req.body.id);
   res.redirect(req.headers.referer);
 });
 //--------------------------------------------------------------------------------------

@@ -1,15 +1,18 @@
 {{#section 'js'}}
 <script>
     $('.removeItem').on('click', function () {
+        const block = $(this).data('lock');
         const id = $(this).data('id');
         $('#txtProId').val(id);
+        $('#txtBlock').val(block)
         $('#frmRemoveItem').submit();
     });
 </script>
 {{/section}}
 
 
-<form id="frmRemoveItem" action="/admin/accounts/remove" method="POST">
+<form id="frmRemoveItem" action="/admin/accounts/block" method="POST">
+    <input type="hidden" name="block" id="txtBlock">
     <input type="hidden" name="id" id="txtProId">
 </form>
 
@@ -34,9 +37,9 @@
                 <thead>
                     <tr>
                         {{!-- <th scope="col">STT</th> --}}
-                        <th scope="col">Họ tên</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">&nbsp;</th>
+                        <th scope="col" style="background-color:#008800; color: white;">Họ tên</th>
+                        <th scope="col" style="background-color:#008800; color: white;">Email</th>
+                        <th scope="col" style="background-color:#008800; color: white;">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,9 +50,9 @@
                         <td>{{f_Email}}</td>
                         <td class="text-right">
                             <div style="width: 15%;" class="text-right">
-                                <a data-id="{{f_ID}}" class="btn btn-sm btn-outline-danger removeItem "
-                                    href="javascript:;" role="button" title="Remove Item">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                <a data-id="{{f_ID}}" data-lock="1" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Block teacher">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </td>
@@ -59,6 +62,46 @@
             </table>
         </div>
         {{/if}}
+
+        {{!-- Tai khoan gv bi khoa --}}
+        <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Tài khoản
+                Giáo Viên bị khóa</b></h6>
+        {{#if this.emptyTeacherBlock}}
+        <div class="card-body">
+            <p class="card-text">Không có giáo viên bị khóa.</p>
+        </div>
+        {{else}}
+        <div class="card-body">
+            <table class="table table-hover" style="width:60%" align="center">
+                <thead>
+                    <tr>
+                        {{!-- <th scope="col">STT</th> --}}
+                        <th scope="col" style="background-color:#AA0000; color: white;">Họ tên</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">Email</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.rowTeachersBlock}}
+                    <tr>
+                        {{!-- <th scope="row"></th> --}}
+                        <td>{{f_Fullname}}</td>
+                        <td>{{f_Email}}</td>
+                        <td class="text-right">
+                            <div style="width: 15%;" class="text-right">
+                                <a data-id="{{f_ID}}" data-lock="0" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Unblock Teacher">
+                                    <i class="fa fa-unlock" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+        {{!-- Tai khoan gv bi khoa --}}
         <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>2. Tài khoản
                 Học Sinh</b></h6>
         {{#if this.emptyStudent}}
@@ -71,9 +114,9 @@
                 <thead>
                     <tr>
                         {{!-- <th scope="col">ID</th> --}}
-                        <th scope="col">Họ tên</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">&nbsp;</th>
+                       <th scope="col" style="background-color:#008800; color: white;">Họ tên</th>
+                        <th scope="col" style="background-color:#008800; color: white;">Email</th>
+                        <th scope="col" style="background-color:#008800; color: white;">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,9 +127,9 @@
                         <td>{{f_Email}}</td>
                         <td class="text-right">
                             <div style="width: 15%;" class="text-right">
-                                <a data-id="{{f_ID}}" class="btn btn-sm btn-outline-danger removeItem "
-                                    href="javascript:;" role="button" title="Remove Item">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                <a data-id="{{f_ID}}" data-lock="1" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Block Student">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </td>
@@ -96,6 +139,45 @@
             </table>
         </div>
         {{/if}}
+        {{!-- Tai khoan hs bi khoa --}}
+        <h6>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Tài khoản
+                Giáo Viên bị khóa</b></h6>
+        {{#if this.emptyStudentBlock}}
+        <div class="card-body">
+            <p class="card-text">Không có học sinh bị khóa.</p>
+        </div>
+        {{else}}
+        <div class="card-body">
+            <table class="table table-hover" style="width:60%" align="center">
+                <thead>
+                    <tr>
+                        {{!-- <th scope="col">STT</th> --}}
+                        <th scope="col" style="background-color:#AA0000; color: white;">Họ tên</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">Email</th>
+                        <th scope="col" style="background-color:#AA0000; color: white;">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.rowStudentsBlock}}
+                    <tr>
+                        {{!-- <th scope="row"></th> --}}
+                        <td>{{f_Fullname}}</td>
+                        <td>{{f_Email}}</td>
+                        <td class="text-right">
+                            <div style="width: 15%;" class="text-right">
+                                <a data-id="{{f_ID}}" data-lock="0" class="btn btn-sm btn-outline-danger removeItem "
+                                    href="javascript:;" role="button" title="Unblock Student">
+                                    <i class="fa fa-unlock" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{/if}}
+        {{!-- Tai khoan hs bi khoa --}}
     </div>
    
 

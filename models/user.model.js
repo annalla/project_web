@@ -9,11 +9,18 @@ module.exports = {
   },
   
   allTeacher() {
-    return db.load(`select * from ${TBL_USERS} where f_Type = '2'`);
+    return db.load(`select * from ${TBL_USERS} where f_Type = '2' and isDisabled = '0'`);
+  },
+  allTeacherBlock() {
+    return db.load(`select * from ${TBL_USERS} where f_Type = '2' and isDisabled = '1'`);
   },
 
   allStudent() {
-    return db.load(`select * from ${TBL_USERS} where f_Type = '1'`);
+    return db.load(`select * from ${TBL_USERS} where f_Type = '1' and isDisabled = '0'`);
+  },
+
+  allStudentBlock() {
+    return db.load(`select * from ${TBL_USERS} where f_Type = '1' and isDisabled = '1'`);
   },
 
   async single(id) {
@@ -60,6 +67,10 @@ module.exports = {
   setPassword(f_Password,id){
     return db.load(`UPDATE users SET f_Password='${f_Password}' WHERE f_ID='${id}'`);
   },
+  setBlock(isDisabled,id){
+    return db.load(`UPDATE users SET isDisabled='${isDisabled}' WHERE f_ID='${id}'`);
+  },
+  
   del(entity) {
     const condition = { f_ID: entity};
     return db.del(condition, TBL_USERS);

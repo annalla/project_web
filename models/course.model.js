@@ -45,7 +45,10 @@ module.exports = {
     return (rows.length !== 0);
   },
   all() {
-    return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+    return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID and Disabled = '0'`);
+  },
+  allBlock() {
+    return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID and Disabled = '1'`);
   },
   async find10NewCourse() {
     return await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where c.Disabled!=1 and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
@@ -236,6 +239,9 @@ module.exports = {
   },
   setEvalue(id, number) {
     return db.load(`UPDATE courses SET evalue='${number}' WHERE Disabled!=1 and CourseID='${id}'`);
+  },
+  setBlock(isDisabled,id){
+    return db.load(`UPDATE courses SET Disabled='${isDisabled}' WHERE CourseID='${id}'`);
   },
   del(entity) {
     const condition = { CourseID: entity };
