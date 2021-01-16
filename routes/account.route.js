@@ -208,9 +208,7 @@ router.post('/checkOTP', async function (req, res) {
     }
     else {
       userModel.updateOTP('0', req.body.f_Email);
-      res.render('home', {
-        message: 'Đăng ký thành công, hãy tiến hành đăng nhập!'
-      });
+      res.redirect('/');
     }
   } catch (err) {
     console.error(err);
