@@ -121,8 +121,26 @@ module.exports = {
   caterogy2(id) {
     return db.load(`select * from aspects_level2 l2,aspects_level1 l1 where l2.ID_aspect=${id} and l2.ID_aspect1=l1.ID_aspect1`);
   },
-  fulltextSearch(title) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE c.Disabled!=1 and MATCH( title) AGAINST( "${title}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+  async countfulltextSearch(title) {
+    const row=await db.load(`SELECT count(*) as total FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
+    return row[0].total;
+  },
+  pagefulltextSearch(title,offset) {
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST(' ${title}') or MATCH(name_level2) AGAINST(' ${title}') or MATCH(name_level1) AGAINST(' ${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
+  },
+  filterFeeUpfulltextSearch(title,offset) {
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset}`);
+  },
+  filterFeeDownfulltextSearch(title,offset) {
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC limit ${config.pagination.limit} offset ${offset}`);
+  },
+  filterEvalueUpfulltextSearch(title) {
+    return db.load(`SELECT COUNT(*) FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset}
+    `);
+  },
+  filterEvalueDownfulltextSearch(title) {
+    return db.load(`SELECT COUNT(*) FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset}
+    `);
   },
   fulltextSearchCat2(name_level2) {
     return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE c.Disabled!=1 and MATCH(name_level2) AGAINST( "${name_level2}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
@@ -149,16 +167,16 @@ module.exports = {
     return db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where  c.Disabled!=1 and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1 = l1.ID_aspect1  and  u.f_ID=c.TeacherID and u.f_ID=t.f_ID and l1.ID_aspect1=${catId} ORDER BY total ASC  limit ${config.pagination.limit} offset ${offset}`);
   },
   filterByRankDownl2(catId, offset) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset} `)
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset} `)
   },
   filterByRankUpl2(catId, offset) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset} `)
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset} `)
   },
   filterByFeeDownl2(catId, offset) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC limit ${config.pagination.limit} offset ${offset} `)
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC limit ${config.pagination.limit} offset ${offset} `)
   },
   filterByFeeUpl2(catId, offset) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset} `)
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=${catId} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset} `)
   },
   filterByFeeDown(offset) {
     return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t WHERE c.Disabled!=1 and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC  limit ${config.pagination.limit} offset ${offset} `)

@@ -32,7 +32,10 @@ router.get('/', async function (req, res) {
   {
     const item=
     {
-      value:i
+      value:i,
+      aspect11:aspect1,
+      aspect22:aspect2,
+      f:filter
     }
     page_items.push(item);
   }
@@ -150,7 +153,9 @@ router.get('/', async function (req, res) {
     n2:nPages-1===page,
     n1:nPages===page,
     maxThan3:nPages>=4,
-    
+    aspect1,
+    aspect2,
+    filter    
     
   })
   }
@@ -218,14 +223,50 @@ router.get('/details', async function (req, res) {
 //full text search
 router.get('/search', async function (req, res) {
   try{
-    const page=1;
-    const nPages=1;
+    const filter=+req.query.filter||0;
+    let page=+req.query.page||0;
     const search = req.query.search;
-    rows = await courseModel.fulltextSearch(search);
+    var rows;
 
-    if(rows.length === 0){
-      rows = await courseModel.fulltextSearchCat2(search);
+    const total=await courseModel.countfulltextSearch(search);
+    
+    let nPages=Math.ceil(total/config.pagination.limit);
+    const page_items=[];
+    for(i=1;i<=nPages;i++)
+    {
+      const item=
+      {
+        value:i,
+        s:search,
+        f:filter
+      }
+      page_items.push(item);
     }
+    if(page<=0||page>nPages)
+    {
+      page=1;
+    }
+    const offset=(page-1)*config.pagination.limit;
+  
+   switch(filter) {
+        case 1:
+          rows = await courseModel.filterFeeDownfulltextSearch(search,offset);
+          console.log(rows.length);
+          break;
+        case 2:
+          rows = await courseModel.filterFeeUpfulltextSearch(search,offset);
+          break;
+        case 3:
+          rows = await courseModel.filterEvalueDownfulltextSearch(search,offset);
+          break;
+        case 4:
+          rows = await courseModel.filterEvalueUpfulltextSearch(search,offset);
+          break;  
+        default:
+          rows = await courseModel.pagefulltextSearch(search,offset);
+      }
+    
+
     const newC=await courseModel.find10NewCourse();
     const newBest= await courseModel.find10BestSellerCourse();
     for(const i of rows)
@@ -251,6 +292,7 @@ router.get('/search', async function (req, res) {
       courses: rows,
       empty: rows.length === 0,
       page,
+      page_items,
       not_previous:page<=1,
       not_next:page>=nPages,
       previous:page-1,
@@ -260,6 +302,8 @@ router.get('/search', async function (req, res) {
       n2:nPages-1===page,
       n1:nPages===page,
       maxThan3:nPages>=4,
+      search,
+      filter
       
     })
     }

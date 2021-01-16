@@ -177,7 +177,8 @@ router.post('/sendOTP', async function (req, res) {
       f_Email: req.body.f_Email,
       f_Permission: 0,
       f_Type: 1,
-      f_OTP: otp
+      f_OTP: otp,
+      isDisabled:0
     }
     await userModel.add(user);
     transporter.sendMail(mailOptions, function (error, info) {
