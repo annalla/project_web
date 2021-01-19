@@ -153,7 +153,7 @@ module.exports = {
     return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE c.Disabled!=1 and MATCH(name_level2) AGAINST( "${name_level2}" ) and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
   },
   async singleCoursebyTeacher(id) {
-    return db.load(`select * from courses c, infor_teacher i where c.Disabled!=1 and c.TeacherID=i.f_ID and c.TeacherID=${id} `);
+    return db.load(`select * from courses c where c.Disabled!=1 and c.TeacherID=${id} `);
   },
   addComment(entity) {
     return db.add(entity, TBL_COMMENT);
@@ -204,6 +204,21 @@ module.exports = {
     }
     return rows[0];
   },
+  async singleEdit(id) {
+    const rows = await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u where c.Disabled!=1 and c.CourseID=${id} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID`);
+    if (rows.length === 0) {
+      return null;
+    }
+    return rows[0];
+  },
+  async singleinfor(id) {
+    const rows = await db.load(`select * from users u,infor_teacher t where u.f_ID=${id} and t.f_ID=u.f_ID`);
+    if (rows.length === 0) {
+      return null;
+    }
+    return rows[0];
+  },
+
   async singleByIDlv1(id) {
     const rows = await db.load(`select * from courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t where l1.ID_aspect1=${id} and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID`);
     if (rows.length === 0) {

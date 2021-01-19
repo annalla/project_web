@@ -120,17 +120,26 @@ router.get('/editCourse', async function (req, res) {
     {
       isEditLecture=1; 
     }
-    const rows = await courseModel.single(id);
-    if(rows==null)
+    var rows;
+    if(await courseModel.singleinfor(req.session.authUser.f_ID)===null)
     {
-      res.render('404', {
-        layout: false
-      });
+      rows = await courseModel.singleEdit(id);
     }
-    if(rows.TeacherID!==req.session.authUser.f_ID)
-    {
-      return res.redirect('/account/login');
+    else{
+      rows = await courseModel.single(id);
+      if(rows==null)
+      {
+        res.render('404', {
+          layout: false
+        });
+        return;
+      }
+      if(rows.TeacherID!==req.session.authUser.f_ID)
+      {
+        return res.redirect('/account/login');
+      }
     }
+   
     const row1 = await courseModel.Comment(id);
     const datetime= await courseModel.getdateById(id);
     const lastt=moment(datetime, 'YYYY-MM-DD').format('DD-MM-YYYY');
@@ -289,17 +298,18 @@ router.post('/infoTeacher',async function (req,res){
       if(err){
   
       }else {
-        var job1 = req.body.job;
-        var intro1 = req.body.intro;
-        if (intro1.length === 0){
-          intro1 = id.intro;
-        }
-        if (job1.length === 0){
-          job1 =id.job;
-        }
-      
-        if(id.f_ID )
+        
+       
+        if (id)
         {
+          var job1 = req.body.job;
+          var intro1 = req.body.intro;
+          if (intro1.length === 0){
+            intro1 = id.intro;
+          }
+          if (job1.length === 0){
+            job1 =id.job;
+          }
           const infor = {
             job: job1,
             image: req.session.authUser.f_ID + '.jpg',
@@ -315,6 +325,7 @@ router.post('/infoTeacher',async function (req,res){
             intro: req.body.intro,
           };
           userModel.addInfo(infor);
+         
         }
         res.redirect('/teacher/infoTeacher');
       }
