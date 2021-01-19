@@ -176,6 +176,7 @@ router.get('/details', async function (req, res) {
       res.render('404', {
         layout: false
       });
+      return;
     }
     var num=rows.num_count;
     num+=1;
@@ -251,7 +252,6 @@ router.get('/search', async function (req, res) {
    switch(filter) {
         case 1:
           rows = await courseModel.filterFeeDownfulltextSearch(search,offset);
-          console.log(rows.length);
           break;
         case 2:
           rows = await courseModel.filterFeeUpfulltextSearch(search,offset);

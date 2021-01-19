@@ -29,7 +29,9 @@ module.exports = {
   },
   editBrief(entity) {
     const entity1 = { brief: entity.FullDes };
+    const entity2 = { small_brief: entity.FullDes2 };
     const condition = { CourseID: +entity.id };
+    db.patch(entity2, condition, TBL_COURSES);
     return db.patch(entity1, condition, TBL_COURSES);
   },
   add(entity) {
@@ -126,7 +128,12 @@ module.exports = {
     return row[0].total;
   },
   pagefulltextSearch(title,offset) {
-    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST(' ${title}') or MATCH(name_level2) AGAINST(' ${title}') or MATCH(name_level1) AGAINST(' ${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID limit ${config.pagination.limit} offset ${offset}`);
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST(' ${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID 
+    UNION
+    SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE ( MATCH(name_level2) AGAINST(' ${title}') ) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+    UNION
+    SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(name_level1) AGAINST(' ${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID
+     limit ${config.pagination.limit} offset ${offset}`);
   },
   filterFeeUpfulltextSearch(title,offset) {
     return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total ASC limit ${config.pagination.limit} offset ${offset}`);
@@ -134,12 +141,12 @@ module.exports = {
   filterFeeDownfulltextSearch(title,offset) {
     return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY total DESC limit ${config.pagination.limit} offset ${offset}`);
   },
-  filterEvalueUpfulltextSearch(title) {
-    return db.load(`SELECT COUNT(*) FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset}
+  filterEvalueUpfulltextSearch(title,offset) {
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue ASC limit ${config.pagination.limit} offset ${offset}
     `);
   },
-  filterEvalueDownfulltextSearch(title) {
-    return db.load(`SELECT COUNT(*) FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset}
+  filterEvalueDownfulltextSearch(title,offset) {
+    return db.load(`SELECT * FROM courses c,aspects_level2 l2, aspects_level1 l1,users u,infor_teacher t  WHERE (MATCH(title) AGAINST( '${title}') or MATCH(name_level2) AGAINST( '${title}') or MATCH(name_level1) AGAINST( '${title}')) and  c.Disabled!=1  and c.ID_aspect=l2.ID_aspect and l2.ID_aspect1=l1.ID_aspect1 and u.f_ID=c.TeacherID and u.f_ID=t.f_ID ORDER BY evalue DESC limit ${config.pagination.limit} offset ${offset}
     `);
   },
   fulltextSearchCat2(name_level2) {

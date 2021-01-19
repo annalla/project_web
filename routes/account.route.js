@@ -208,6 +208,9 @@ router.post('/checkOTP', async function (req, res) {
     }
     else {
       userModel.updateOTP('0', req.body.f_Email);
+      const user = await userModel.singleByEmail(req.body.f_Email);
+      req.session.isAuth = true;
+      req.session.authUser = user;
       res.redirect('/');
     }
   } catch (err) {

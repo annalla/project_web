@@ -291,7 +291,6 @@ router.post('/infoTeacher',async function (req,res){
       }else {
         var job1 = req.body.job;
         var intro1 = req.body.intro;
-        console.log(req.body.job);
         if (intro1.length === 0){
           intro1 = id.intro;
         }

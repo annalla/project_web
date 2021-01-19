@@ -26,6 +26,15 @@
             'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
         ],
     });
+      tinymce.init({
+    selector: '#txtFullDes2',
+    height: 200,
+    plugins: 'paste link autolink lists table',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright | forecolor backcolor | table link image media',
+    ],
+  });
 </script>
 <script>
     $('#frmFee').on('submit', function (e) {
@@ -216,8 +225,16 @@
                                 <div class="overview-description">
                                     <form action="/teacher/editBrief" method="post" id="frmDescribe">
                                         <div class="form-group">
-                                            {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô
-                                                tả khóa học:</label> --}}
+                                            <div class="label">
+                                            ​   <div><label for="txtFullDes2" style="margin:0px;padding:0px">Mô tả ngắn gọn khóa học</label></div>
+                                                <div class="required"></div>
+                                            </div>
+                                            {{!-- <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô tả khóa học:</label> --}}
+                                            <textarea class="form-control" name="FullDes2" id="txtFullDes2" cols="30" rows="5">{{{small_brief}}}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtFullDes" style="margin-bottom: 0px;margin-top:10px">Mô
+                                                tả chi tiết khóa học:</label>
                                             <textarea class="form-control" name="FullDes" id="txtFullDes" cols="30"
                                                 rows="10" autofocus>{{{brief}}}</textarea>
                                         </div>
@@ -233,7 +250,10 @@
                                 {{else}}
                                 {{#with this.course}}
                                 <div class="overview-description">
+                                    {{{small_brief}}}
+
                                     {{{brief}}}
+
                                     <div class="text-right">
                                         <a class="main-btn" href="/teacher/editCourse?id={{CourseID}}&edit=brief"><i
                                                 class="fa fa-pencil"></i></a>
