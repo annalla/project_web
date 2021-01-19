@@ -163,6 +163,7 @@ router.post('/accounts/add', async function (req, res) {
     f_Email: req.body.f_Email,
     f_Permission: 0,
     f_Type: 2,
+    f_OTP: 0,
     isDisabled:0
   }
   await userModel.add(user);
